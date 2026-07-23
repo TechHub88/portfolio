@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, User, Send, MapPin, CheckCircle2, Copy, Sparkles, MessageSquare } from 'lucide-react';
+import { Mail, Phone, User, Send, MapPin, CheckCircle2, Copy, Sparkles, MessageSquare, Code2 } from 'lucide-react';
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
@@ -253,6 +253,19 @@ const Contact = () => {
                 <div>
                   <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Phone / WhatsApp</div>
                   <div style={{ fontSize: '1rem', color: '#fff', fontWeight: 700 }}>+91 9749555376</div>
+                </div>
+              </div>
+            </a>
+
+            {/* GitHub Card */}
+            <a href="https://github.com/TechHub88/" target="_blank" rel="noopener noreferrer" className="card" style={{ padding: '1.8rem', background: 'rgba(11, 13, 20, 0.9)', borderColor: 'rgba(139, 92, 246, 0.3)', textDecoration: 'none', display: 'block' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ padding: '0.8rem', background: 'rgba(139, 92, 246, 0.15)', borderRadius: '14px', color: '#a78bfa' }}>
+                  <Code2 size={24} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>GitHub Developer Profile</div>
+                  <div style={{ fontSize: '1rem', color: '#fff', fontWeight: 700 }}>github.com/TechHub88</div>
                 </div>
               </div>
             </a>

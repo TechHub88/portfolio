@@ -77,6 +77,15 @@ const Hero = () => {
             {/* Direct Contact Links */}
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', paddingTop: '1.2rem', borderTop: '1px solid var(--border-color)' }}>
               <a 
+                href="https://github.com/TechHub88/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-outline" 
+                style={{ padding: '0.55rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
+              >
+                <Code2 size={16} color="#8b5cf6" /> GitHub
+              </a>
+              <a 
                 href="https://www.linkedin.com/in/sayani-roy-36a167197/" 
                 target="_blank" 
                 rel="noopener noreferrer" 

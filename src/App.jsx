@@ -25,7 +25,12 @@ function App() {
       <footer style={{ textAlign: 'center', padding: '2.5rem 2rem', borderTop: '1px solid var(--border-color)', color: 'var(--text-muted)', fontSize: '0.9rem', background: 'var(--surface-color)' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           <p>&copy; {new Date().getFullYear()} Sayani Roy. All rights reserved.</p>
-          <p style={{ color: 'var(--text-dim)', fontSize: '0.85rem' }}>Backend Developer & Aspiring Data Engineer | Kolkata, India</p>
+          <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
+            <a href="https://github.com/TechHub88/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-primary)', fontWeight: 600, fontSize: '0.85rem' }}>
+              GitHub Profile (TechHub88) &rarr;
+            </a>
+            <span style={{ color: 'var(--text-dim)', fontSize: '0.85rem' }}>| Kolkata, India</span>
+          </div>
         </div>
       </footer>
     </>
