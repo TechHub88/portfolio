@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Database, ShieldCheck, Cpu, Bot, Award, Server } from 'lucide-react';
+import { Database, ShieldCheck, Server, Bot } from 'lucide-react';
 
 const coreStrengths = [
   {
@@ -29,7 +29,7 @@ const About = () => {
   return (
     <section id="about" style={{ position: 'relative', overflow: 'hidden' }}>
       
-      {/* Glow Effect */}
+      {/* Glow Background */}
       <div style={{
         position: 'absolute',
         bottom: '10%',
@@ -48,8 +48,8 @@ const About = () => {
           Engineering scalable backend microservices, robust API endpoints, and intelligent data-driven solutions.
         </p>
 
-        {/* Profile Narrative & High Level Stats */}
-        <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '3rem', marginBottom: '5rem' }}>
+        {/* Profile Narrative & 4-Card Metrics Grid */}
+        <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '3.5rem', marginBottom: '5rem' }}>
           
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -70,7 +70,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* Key Metrics Grid */}
+          {/* 4 Metrics Cards Grid (Matching Screenshot 2) */}
           <motion.div 
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -78,35 +78,35 @@ const About = () => {
             transition={{ duration: 0.8 }}
             style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.2rem' }}
           >
-            <motion.div whileHover={{ y: -4 }} className="card" style={{ padding: '1.8rem', textAlign: 'center' }}>
-              <h3 style={{ fontSize: '3rem', color: '#fff', marginBottom: '0.2rem', lineHeight: 1, fontWeight: 800 }}>2+</h3>
-              <p style={{ color: 'var(--accent-primary)', fontWeight: 600, fontSize: '0.95rem', marginBottom: '0.4rem' }}>Years IT Experience</p>
-              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>WebMantra & Octagen Infotech</p>
+            <motion.div whileHover={{ y: -5 }} className="card" style={{ padding: '2rem 1.5rem', textAlign: 'center', borderColor: 'rgba(59, 130, 246, 0.3)' }}>
+              <h3 style={{ fontSize: '3.2rem', color: '#fff', marginBottom: '0.2rem', lineHeight: 1, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>2+</h3>
+              <p style={{ color: 'var(--accent-primary)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.4rem' }}>Years IT Experience</p>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>WebMantra & Octagen Infotech</p>
             </motion.div>
 
-            <motion.div whileHover={{ y: -4 }} className="card" style={{ padding: '1.8rem', textAlign: 'center' }}>
-              <h3 style={{ fontSize: '3rem', color: '#fff', marginBottom: '0.2rem', lineHeight: 1, fontWeight: 800 }}>3</h3>
-              <p style={{ color: 'var(--accent-secondary)', fontWeight: 600, fontSize: '0.95rem', marginBottom: '0.4rem' }}>Core Projects</p>
-              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Enterprise E-Commerce Platforms</p>
+            <motion.div whileHover={{ y: -5 }} className="card" style={{ padding: '2rem 1.5rem', textAlign: 'center' }}>
+              <h3 style={{ fontSize: '3.2rem', color: '#fff', marginBottom: '0.2rem', lineHeight: 1, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>3</h3>
+              <p style={{ color: 'var(--accent-secondary)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.4rem' }}>Core Projects</p>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Enterprise E-Commerce Platforms</p>
             </motion.div>
 
-            <motion.div whileHover={{ y: -4 }} className="card" style={{ padding: '1.8rem', textAlign: 'center' }}>
-              <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0.6rem', lineHeight: 1, fontWeight: 800, marginTop: '0.5rem' }}>AI & OCR</h3>
-              <p style={{ color: 'var(--accent-cyan)', fontWeight: 600, fontSize: '0.95rem', marginBottom: '0.4rem' }}>Integrations</p>
-              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>OpenAI, Gemini, OpenRouter</p>
+            <motion.div whileHover={{ y: -5 }} className="card" style={{ padding: '2rem 1.5rem', textAlign: 'center' }}>
+              <h3 style={{ fontSize: '1.9rem', color: '#fff', marginBottom: '0.6rem', lineHeight: 1, fontWeight: 800, marginTop: '0.5rem', fontFamily: 'var(--font-heading)' }}>AI & OCR</h3>
+              <p style={{ color: 'var(--accent-cyan)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.4rem' }}>Integrations</p>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>OpenAI, Gemini, OpenRouter</p>
             </motion.div>
 
-            <motion.div whileHover={{ y: -4 }} className="card" style={{ padding: '1.8rem', textAlign: 'center' }}>
-              <h3 style={{ fontSize: '2rem', color: '#fff', marginBottom: '0.6rem', lineHeight: 1, fontWeight: 800, marginTop: '0.5rem' }}>SQL & BI</h3>
-              <p style={{ color: 'var(--accent-emerald)', fontWeight: 600, fontSize: '0.95rem', marginBottom: '0.4rem' }}>Data Engineering</p>
-              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Tableau, Power BI, MySQL</p>
+            <motion.div whileHover={{ y: -5 }} className="card" style={{ padding: '2rem 1.5rem', textAlign: 'center' }}>
+              <h3 style={{ fontSize: '1.9rem', color: '#fff', marginBottom: '0.6rem', lineHeight: 1, fontWeight: 800, marginTop: '0.5rem', fontFamily: 'var(--font-heading)' }}>SQL & BI</h3>
+              <p style={{ color: 'var(--accent-emerald)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.4rem' }}>Data Engineering</p>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Tableau, Power BI, MySQL</p>
             </motion.div>
           </motion.div>
 
         </div>
 
         {/* Core Strengths Section */}
-        <h3 style={{ fontSize: '1.8rem', color: '#fff', marginBottom: '2rem', textAlign: 'center' }}>
+        <h3 style={{ fontSize: '1.8rem', color: '#fff', marginBottom: '2rem', textAlign: 'center', fontWeight: 800 }}>
           Core Strengths & Specializations
         </h3>
 
