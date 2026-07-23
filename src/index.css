@@ -115,6 +115,37 @@ section {
   line-height: 1.6;
 }
 
+/* Navbar Links - Sleek Animated Glowing Underline Hover Effect */
+.nav-link {
+  color: var(--text-muted);
+  position: relative;
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2.5px;
+  background: var(--gradient-accent);
+  border-radius: 999px;
+  box-shadow: 0 0 12px var(--accent-primary);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.nav-link:hover::after {
+  width: 85%;
+}
+
 /* Card Styles - Ultra Modern Glassmorphism */
 .card {
   background: rgba(11, 13, 20, 0.85);
@@ -131,194 +162,6 @@ section {
   border-color: rgba(59, 130, 246, 0.35);
   box-shadow: 0 20px 50px -10px rgba(59, 130, 246, 0.15);
   transform: translateY(-5px);
-}
-
-/* WebMantra Stats Section */
-.statsSec {
-  padding: 5.5rem 0;
-}
-
-.stats-box-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: var(--surface-color);
-  border: 1px solid var(--border-color);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-}
-
-.stat-column-box {
-  padding: 3rem 2rem;
-  text-align: center;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-  position: relative;
-  transition: background 0.3s ease;
-}
-
-.stat-column-box:last-child {
-  border-right: none;
-}
-
-.stat-column-box:hover {
-  background: rgba(255, 255, 255, 0.025);
-}
-
-.stat-number-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 0.2rem;
-  margin-bottom: 0.8rem;
-}
-
-.stat-counter {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1;
-  font-family: var(--font-heading);
-}
-
-.stat-suffix {
-  font-size: 2.2rem;
-  font-weight: 800;
-  line-height: 1;
-  font-family: var(--font-heading);
-}
-
-.stat-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 0.4rem;
-}
-
-.stat-description {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-@media (max-width: 992px) {
-  .stats-box-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .stat-column-box:nth-child(2) {
-    border-right: none;
-  }
-  .stat-column-box {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-}
-
-@media (max-width: 576px) {
-  .stats-box-grid {
-    grid-template-columns: 1fr;
-  }
-  .stat-column-box {
-    border-right: none;
-  }
-}
-
-/* WebMantra Project Cards */
-.webmantra-project-card {
-  position: relative;
-  background: var(--surface-color);
-  border: 1px solid var(--border-color);
-  border-radius: 24px;
-  padding: 3rem;
-  overflow: hidden;
-  transition: var(--transition);
-}
-
-.webmantra-project-card:hover {
-  border-color: rgba(59, 130, 246, 0.4);
-  box-shadow: 0 25px 60px -15px rgba(59, 130, 246, 0.2);
-  transform: translateY(-4px);
-}
-
-.project-card-number {
-  position: absolute;
-  top: 1.5rem;
-  right: 2.5rem;
-  font-size: 4.5rem;
-  font-weight: 900;
-  font-family: var(--font-heading);
-  color: rgba(255, 255, 255, 0.035);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-}
-
-.webmantra-card-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 3rem;
-  align-items: center;
-}
-
-@media (max-width: 992px) {
-  .webmantra-card-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.webmantra-thumbnail-wrapper {
-  background: var(--surface-light);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-}
-
-.browser-header-dots {
-  height: 34px;
-  background: rgba(3, 4, 8, 0.75);
-  border-bottom: 1px solid var(--border-color);
-  display: flex;
-  align-items: center;
-  padding: 0 14px;
-  gap: 6px;
-}
-
-.browser-header-dots span:not(.browser-url-text) {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-}
-
-.browser-url-text {
-  flex: 1;
-  text-align: center;
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.03);
-  margin: 0 12px;
-  border-radius: 5px;
-  padding: 2px 8px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  whiteSpace: nowrap;
-}
-
-.webmantra-img-box {
-  width: 100%;
-  height: 240px;
-  overflow: hidden;
-  background: var(--surface-color);
-}
-
-.webmantra-img-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  transition: transform 0.6s ease;
-}
-
-.webmantra-project-card:hover .webmantra-img-box img {
-  transform: scale(1.05);
 }
 
 /* Badges */
@@ -464,24 +307,6 @@ section {
   position: relative;
 }
 
-/* Progress Bar */
-.progress-bg {
-  width: 100%;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 999px;
-  overflow: hidden;
-  margin-top: 0.5rem;
-}
-
-.progress-fill {
-  height: 100%;
-  background: var(--gradient-accent);
-  border-radius: 999px;
-  width: 0;
-  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 /* Grid Utilities */
 .grid {
   display: grid;
@@ -499,27 +324,6 @@ section {
 }
 @media (min-width: 1024px) {
   .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-}
-
-/* Navbar */
-.nav-link {
-  color: var(--text-muted);
-  position: relative;
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: var(--transition);
-}
-
-.nav-link:hover {
-  color: var(--text-main);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.nav-link.active {
-  color: #ffffff;
-  background: rgba(59, 130, 246, 0.15);
-  border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 /* Responsive fixes */
