@@ -35,22 +35,6 @@ const projects = [
     imageUrl: '/teavera-banner.jpg',
     badge: 'Messaging Infrastructure',
     icon: MessageSquare
-  },
-  {
-    id: 3,
-    title: 'Full-Stack Book Publication Platform',
-    link: 'https://github.com/TechHub88/portfolio',
-    role: 'Full-Stack Database & API Engineer',
-    description: 'Designed relational databases with secure payload execution layers to handle metadata indexing and digital payments.',
-    highlights: [
-      'Designed relational databases with secure payload execution layers to handle metadata indexing and digital payments.',
-      'Integrated Razorpay payment gateway API with automated webhooks for payment verification and invoice generation.',
-      'Implemented RESTful API endpoints for secure book publication management.'
-    ],
-    tech: ['PHP', 'Laravel', 'REST APIs', 'MySQL', 'Razorpay Gateway'],
-    imageUrl: '/book-banner.jpg',
-    badge: 'Publication & Payments',
-    icon: BookOpen
   }
 ];
 
