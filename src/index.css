@@ -164,6 +164,106 @@ section {
   transform: translateY(-5px);
 }
 
+/* WebMantra Project Cards */
+.webmantra-project-card {
+  position: relative;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 3rem;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.webmantra-project-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 25px 60px -15px rgba(59, 130, 246, 0.2);
+  transform: translateY(-4px);
+}
+
+.project-card-number {
+  position: absolute;
+  top: 1.5rem;
+  right: 2.5rem;
+  font-size: 4.5rem;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  color: rgba(255, 255, 255, 0.035);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.webmantra-card-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .webmantra-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.webmantra-thumbnail-wrapper {
+  background: var(--surface-light);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.browser-header-dots {
+  height: 34px;
+  background: rgba(3, 4, 8, 0.75);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 6px;
+}
+
+.browser-header-dots span:not(.browser-url-text) {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.browser-url-text {
+  flex: 1;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  margin: 0 12px;
+  border-radius: 5px;
+  padding: 2px 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  whiteSpace: nowrap;
+}
+
+.webmantra-img-box {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: var(--surface-color);
+}
+
+.webmantra-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.6s ease;
+}
+
+.webmantra-project-card:hover .webmantra-img-box img {
+  transform: scale(1.05);
+}
+
 /* Badges */
 .badge {
   display: inline-flex;
