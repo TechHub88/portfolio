@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Layers, Bot, Network, CreditCard, BarChart3, TrendingUp, Cpu, Sparkles, Activity, ShieldCheck } from 'lucide-react';
+import { Code2, Layers, Bot, Network, CreditCard, BarChart3, TrendingUp, Cpu, Sparkles, Activity, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 // Radial Ring Component for BI Tools
 const RadialGauge = ({ percentage, label, sublabel, color }) => {
