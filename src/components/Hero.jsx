@@ -57,7 +57,7 @@ const Hero = () => {
             </h1>
             
             <h2 style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.65rem)', color: 'var(--text-muted)', fontWeight: 500, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
-              <Terminal size={20} color="var(--accent-primary)" /> Backend Developer & Aspiring Data Engineer
+              Backend Developer & Aspiring Data Engineer
             </h2>
             
             <p style={{ fontSize: '1.02rem', color: 'var(--text-muted)', marginBottom: '2.2rem', maxWidth: '600px', lineHeight: 1.7 }}>

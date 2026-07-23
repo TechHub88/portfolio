@@ -6,7 +6,7 @@ const projects = [
   {
     id: 1,
     title: 'VShop Multi-Category E-Commerce Platform',
-    link: 'https://vshop.zelofx.com/',
+    link: 'https://vshop.vridhee.com/',
     role: 'Lead Backend & Security Engineer',
     description: 'Multi-category enterprise e-commerce platform spanning Wellness, Academics, Deep Tech, Space, Climate, Technology, Games, and Skills.',
     highlights: [
@@ -15,7 +15,7 @@ const projects = [
       'Implemented automated identity verification & KYC security protocols for seller and vendor onboarding.'
     ],
     tech: ['PHP', 'Laravel', 'Node.js', 'MySQL', 'Fraud Detection', 'Real-Time Chat', 'KYC Verification', 'Webhooks'],
-    imageUrl: '/wellness campeign.jpg',
+    imageUrl: '/vshop-banner.png',
     badge: 'Multi-Domain E-Commerce',
     icon: ShoppingBag
   },
