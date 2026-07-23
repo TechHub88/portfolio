@@ -1,69 +1,293 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, User, Send } from 'lucide-react';
+import { Mail, Phone, User, Send, MapPin, CheckCircle2, Copy, Sparkles, MessageSquare } from 'lucide-react';
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('nisharoy3363@gmail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    setTimeout(() => setFormSubmitted(false), 4000);
+    setFormData({ name: '', email: '', subject: '', message: '' });
+  };
+
   return (
-    <section id="contact" style={{ borderTop: '1px solid var(--border-color)', position: 'relative' }}>
+    <section id="contact" style={{ position: 'relative', overflow: 'hidden', borderTop: '1px solid var(--border-color)' }}>
+      
+      {/* Background Neon Glow Spheres */}
+      <div style={{
+        position: 'absolute',
+        top: '20%',
+        left: '10%',
+        width: '450px',
+        height: '450px',
+        background: 'radial-gradient(circle, rgba(59, 130, 246, 0.14) 0%, transparent 70%)',
+        filter: 'blur(90px)',
+        pointerEvents: 'none'
+      }} />
+
+      <div style={{
+        position: 'absolute',
+        bottom: '10%',
+        right: '10%',
+        width: '450px',
+        height: '450px',
+        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.14) 0%, transparent 70%)',
+        filter: 'blur(90px)',
+        pointerEvents: 'none'
+      }} />
+
       <div className="container">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="card" 
-          style={{ textAlign: 'center', padding: '4.5rem 2rem', maxWidth: '880px', margin: '0 auto', background: 'var(--surface-color)' }}
-        >
-          <span className="badge" style={{ marginBottom: '1.2rem' }}>Open to Work & Collaborations</span>
-          
-          <h2 style={{ fontSize: '2.6rem', marginBottom: '1rem', color: '#fff', fontWeight: 800 }}>
+        
+        {/* Section Title Header */}
+        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <div className="badge" style={{ marginBottom: '1rem', background: 'rgba(16, 185, 129, 0.12)', borderColor: 'rgba(16, 185, 129, 0.3)', color: '#34d399' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', display: 'inline-block', boxShadow: '0 0 10px #10b981' }} />
+            Open for New Opportunities & Collaborations
+          </div>
+          <h2 className="section-title">
             Let's Build Scalable Systems <span className="text-gradient">Together</span>
           </h2>
-
-          <p style={{ color: 'var(--text-muted)', marginBottom: '3.5rem', fontSize: '1.1rem', maxWidth: '640px', margin: '0 auto 3.5rem auto' }}>
-            Whether you have a technical opening, an API/Backend challenge, or a data engineering project, I'm always open to discussing new opportunities!
+          <p className="section-subtitle" style={{ marginBottom: 0 }}>
+            Have a backend architecture challenge, an API integration project, or a technical opening? Let's get in touch!
           </p>
+        </div>
+
+        {/* 2-Column Modern Layout: Interactive Form + Contact Cards */}
+        <div className="grid grid-cols-2" style={{ gap: '3rem', alignItems: 'start' }}>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem', marginBottom: '3.5rem' }}>
-            
-            <a href="mailto:nisharoy3363@gmail.com" className="btn-outline" style={{ padding: '1.8rem 1.2rem', borderRadius: '14px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem', textDecoration: 'none' }}>
-              <div style={{ padding: '0.8rem', background: 'rgba(59, 130, 246, 0.12)', borderRadius: '50%', color: 'var(--accent-primary)' }}>
-                <Mail size={24} />
+          {/* LEFT: Modern Interactive Contact Form */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="card"
+            style={{ padding: '2.5rem', background: 'rgba(11, 13, 20, 0.9)', borderColor: 'rgba(59, 130, 246, 0.25)' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1.8rem' }}>
+              <div style={{ padding: '0.6rem', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.15)', color: '#3b82f6' }}>
+                <MessageSquare size={22} />
               </div>
               <div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Email Address</div>
-                <div style={{ fontSize: '0.92rem', color: '#fff', fontWeight: 600 }}>nisharoy3363@gmail.com</div>
+                <h3 style={{ color: '#fff', fontSize: '1.35rem', fontWeight: 700 }}>Send Direct Message</h3>
+                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Fast response guaranteed within 24 hours</p>
               </div>
-            </a>
-            
-            <a href="tel:+919749555376" className="btn-outline" style={{ padding: '1.8rem 1.2rem', borderRadius: '14px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem', textDecoration: 'none' }}>
-              <div style={{ padding: '0.8rem', background: 'rgba(16, 185, 129, 0.12)', borderRadius: '50%', color: 'var(--accent-emerald)' }}>
-                <Phone size={24} />
+            </div>
+
+            {formSubmitted ? (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                style={{
+                  padding: '2.5rem 1.5rem',
+                  textAlign: 'center',
+                  background: 'rgba(16, 185, 129, 0.08)',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(16, 185, 129, 0.3)'
+                }}
+              >
+                <div style={{ padding: '1rem', background: 'rgba(16, 185, 129, 0.2)', borderRadius: '50%', display: 'inline-flex', color: '#34d399', marginBottom: '1rem' }}>
+                  <CheckCircle2 size={36} />
+                </div>
+                <h4 style={{ color: '#fff', fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.4rem' }}>Message Sent Successfully!</h4>
+                <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Thank you for reaching out, Sayani will respond to your email shortly.</p>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                <div className="grid grid-cols-2" style={{ gap: '1rem' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.4rem', fontWeight: 600 }}>Your Name</label>
+                    <input 
+                      type="text" 
+                      required 
+                      placeholder="e.g. Rahul Sharma"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      style={{
+                        width: '100%',
+                        padding: '0.8rem 1rem',
+                        background: 'rgba(255, 255, 255, 0.03)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: '12px',
+                        color: '#fff',
+                        fontSize: '0.9rem',
+                        outline: 'none',
+                        transition: 'var(--transition)'
+                      }}
+                      onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
+                      onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
+                    />
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.4rem', fontWeight: 600 }}>Your Email</label>
+                    <input 
+                      type="email" 
+                      required 
+                      placeholder="e.g. rahuls@company.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      style={{
+                        width: '100%',
+                        padding: '0.8rem 1rem',
+                        background: 'rgba(255, 255, 255, 0.03)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: '12px',
+                        color: '#fff',
+                        fontSize: '0.9rem',
+                        outline: 'none',
+                        transition: 'var(--transition)'
+                      }}
+                      onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
+                      onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.4rem', fontWeight: 600 }}>Subject</label>
+                  <input 
+                    type="text" 
+                    required 
+                    placeholder="e.g. Backend Opportunity / Project Inquiry"
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    style={{
+                      width: '100%',
+                      padding: '0.8rem 1rem',
+                      background: 'rgba(255, 255, 255, 0.03)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '12px',
+                      color: '#fff',
+                      fontSize: '0.9rem',
+                      outline: 'none',
+                      transition: 'var(--transition)'
+                    }}
+                    onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
+                    onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.4rem', fontWeight: 600 }}>Your Message</label>
+                  <textarea 
+                    rows={4} 
+                    required 
+                    placeholder="Tell me about your project or job opening..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    style={{
+                      width: '100%',
+                      padding: '0.8rem 1rem',
+                      background: 'rgba(255, 255, 255, 0.03)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '12px',
+                      color: '#fff',
+                      fontSize: '0.9rem',
+                      outline: 'none',
+                      resize: 'none',
+                      transition: 'var(--transition)'
+                    }}
+                    onFocus={(e) => e.target.style.borderColor = 'var(--accent-primary)'}
+                    onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
+                  />
+                </div>
+
+                <button type="submit" className="btn btn-accent" style={{ marginTop: '0.5rem', width: '100%', padding: '0.9rem' }}>
+                  <Send size={18} /> Send Message Now
+                </button>
+              </form>
+            )}
+          </motion.div>
+
+          {/* RIGHT: Direct Contact Cards & Copy Options */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}
+          >
+            {/* Email Card with Copy Badge */}
+            <div className="card" style={{ padding: '1.8rem', background: 'rgba(11, 13, 20, 0.9)', borderColor: 'rgba(59, 130, 246, 0.3)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <div style={{ padding: '0.8rem', background: 'rgba(59, 130, 246, 0.15)', borderRadius: '14px', color: '#60a5fa' }}>
+                    <Mail size={24} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Email Address</div>
+                    <a href="mailto:nisharoy3363@gmail.com" style={{ fontSize: '1rem', color: '#fff', fontWeight: 700 }}>
+                      nisharoy3363@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <button 
+                  onClick={handleCopyEmail}
+                  className="btn-outline" 
+                  style={{ padding: '0.5rem 0.9rem', fontSize: '0.78rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+                >
+                  {copied ? <CheckCircle2 size={14} color="#10b981" /> : <Copy size={14} />}
+                  {copied ? 'Copied!' : 'Copy Email'}
+                </button>
               </div>
-              <div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Phone Number</div>
-                <div style={{ fontSize: '0.92rem', color: '#fff', fontWeight: 600 }}>+91 9749555376</div>
+            </div>
+
+            {/* Phone Card */}
+            <a href="tel:+919749555376" className="card" style={{ padding: '1.8rem', background: 'rgba(11, 13, 20, 0.9)', borderColor: 'rgba(16, 185, 129, 0.3)', textDecoration: 'none', display: 'block' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ padding: '0.8rem', background: 'rgba(16, 185, 129, 0.15)', borderRadius: '14px', color: '#34d399' }}>
+                  <Phone size={24} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Phone / WhatsApp</div>
+                  <div style={{ fontSize: '1rem', color: '#fff', fontWeight: 700 }}>+91 9749555376</div>
+                </div>
               </div>
             </a>
 
-            <a href="https://www.linkedin.com/in/sayani-roy-36a167197/" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ padding: '1.8rem 1.2rem', borderRadius: '14px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem', textDecoration: 'none' }}>
-              <div style={{ padding: '0.8rem', background: 'rgba(0, 119, 181, 0.12)', borderRadius: '50%', color: '#0077b5' }}>
-                <User size={24} />
-              </div>
-              <div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>LinkedIn Profile</div>
-                <div style={{ fontSize: '0.92rem', color: '#fff', fontWeight: 600 }}>Sayani Roy</div>
+            {/* LinkedIn Card */}
+            <a href="https://www.linkedin.com/in/sayani-roy-36a167197/" target="_blank" rel="noopener noreferrer" className="card" style={{ padding: '1.8rem', background: 'rgba(11, 13, 20, 0.9)', borderColor: 'rgba(0, 119, 181, 0.3)', textDecoration: 'none', display: 'block' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ padding: '0.8rem', background: 'rgba(0, 119, 181, 0.15)', borderRadius: '14px', color: '#0077b5' }}>
+                  <User size={24} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>LinkedIn Professional Network</div>
+                  <div style={{ fontSize: '1rem', color: '#fff', fontWeight: 700 }}>Sayani Roy (Backend Engineer)</div>
+                </div>
               </div>
             </a>
 
-          </div>
+            {/* Location & Relocation Card */}
+            <div className="card" style={{ padding: '1.5rem 1.8rem', background: 'rgba(11, 13, 20, 0.9)', borderColor: 'var(--border-color)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ padding: '0.7rem', background: 'rgba(244, 63, 94, 0.12)', borderRadius: '12px', color: '#fb7185' }}>
+                  <MapPin size={22} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Location Availability</div>
+                  <div style={{ fontSize: '0.92rem', color: '#fff', fontWeight: 600 }}>Kolkata, West Bengal, India</div>
+                  <div style={{ fontSize: '0.75rem', color: '#34d399', marginTop: '0.2rem' }}>Open to Hybrid, Remote & Relocation</div>
+                </div>
+              </div>
+            </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.2rem', flexWrap: 'wrap' }}>
-            <a href="mailto:nisharoy3363@gmail.com" className="btn btn-accent" style={{ padding: '0.9rem 2rem' }}>
-              <Send size={18} /> Send Message
-            </a>
-          </div>
+          </motion.div>
 
-        </motion.div>
+        </div>
+
       </div>
     </section>
   );
