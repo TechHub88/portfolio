@@ -1,12 +1,27 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Code2, User, Mail } from 'lucide-react';
+import { ArrowRight, Mail, Phone, User, Globe, Terminal, Sparkles } from 'lucide-react';
 
 const Hero = () => {
   return (
     <section id="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '100px', paddingBottom: '4rem' }}>
+      
+      {/* Background Decorative Glow */}
+      <div style={{
+        position: 'absolute',
+        top: '15%',
+        left: '10%',
+        width: '400px',
+        height: '400px',
+        background: 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%)',
+        filter: 'blur(60px)',
+        zIndex: 0,
+        pointerEvents: 'none'
+      }} />
+
       <div className="container">
         <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '4rem' }}>
+          
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -19,34 +34,58 @@ const Hero = () => {
               className="badge" 
               style={{ marginBottom: '1.5rem' }}
             >
-              Available for new opportunities
+              <Sparkles size={14} color="#60a5fa" /> Available for New Opportunities & Projects
             </motion.div>
             
-            <h1 style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', lineHeight: 1.1, marginBottom: '1.5rem' }}>
+            <h1 style={{ fontSize: 'clamp(2.8rem, 5.5vw, 4.2rem)', lineHeight: 1.1, marginBottom: '1.2rem', fontWeight: 800 }}>
               Hi, I'm <span className="text-gradient">Sayani Roy</span>
             </h1>
             
-            <h2 style={{ fontSize: 'clamp(1.2rem, 3vw, 2rem)', color: 'var(--text-muted)', fontWeight: 400, marginBottom: '2rem' }}>
-              Backend Developer & Aspiring Data Engineer
+            <h2 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)', color: 'var(--text-muted)', fontWeight: 500, marginBottom: '1.8rem', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <Terminal size={22} color="var(--accent-primary)" /> Backend Developer & Aspiring Data Engineer
             </h2>
             
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '3rem', maxWidth: '600px' }}>
-              Engineering scalable server architectures, robust applications, and complex third-party API configurations with a passion for modern web technologies.
+            <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '2.5rem', maxWidth: '620px', lineHeight: 1.7 }}>
+              Passionate Backend Developer with 2 years of IT industry experience engineering scalable server architectures, enterprise API configurations, and AI-driven microservices. Transitioning architectures to support high-throughput data solutions.
             </p>
             
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <a href="#projects" className="btn btn-primary">
-                View Work <ArrowRight size={18} />
+            {/* Quick Contact & Action Buttons */}
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '2.5rem' }}>
+              <a href="#projects" className="btn btn-accent">
+                View Featured Work <ArrowRight size={18} />
               </a>
               <a href="#contact" className="btn btn-outline">
-                Let's Talk
+                Contact Me
               </a>
-              <div style={{ display: 'flex', gap: '1rem', marginLeft: 'auto', alignItems: 'center' }}>
-                <a href="#" className="btn-outline" style={{ padding: '0.8rem', borderRadius: '50%', display: 'flex' }}><Code2 size={20} /></a>
-                <a href="https://www.linkedin.com/in/sayani-roy-36a167197/" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ padding: '0.8rem', borderRadius: '50%', display: 'flex' }}><User size={20} /></a>
-                <a href="mailto:nisharoy3363@gmail.com" className="btn-outline" style={{ padding: '0.8rem', borderRadius: '50%', display: 'flex' }}><Mail size={20} /></a>
-              </div>
             </div>
+
+            {/* Social Icons & Direct Contact Links */}
+            <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', flexWrap: 'wrap', paddingTop: '1rem', borderTop: '1px solid var(--border-color)' }}>
+              <a 
+                href="https://www.linkedin.com/in/sayani-roy-36a167197/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-outline" 
+                style={{ padding: '0.6rem 1rem', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.88rem' }}
+              >
+                <User size={18} color="#0077b5" /> LinkedIn Profile
+              </a>
+              <a 
+                href="mailto:nisharoy3363@gmail.com" 
+                className="btn-outline" 
+                style={{ padding: '0.6rem 1rem', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.88rem' }}
+              >
+                <Mail size={18} color="var(--accent-primary)" /> nisharoy3363@gmail.com
+              </a>
+              <a 
+                href="tel:+919749555376" 
+                className="btn-outline" 
+                style={{ padding: '0.6rem 1rem', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.88rem' }}
+              >
+                <Phone size={18} color="var(--accent-emerald)" /> +91 9749555376
+              </a>
+            </div>
+
           </motion.div>
 
           <motion.div
@@ -55,24 +94,36 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
-            {/* Professional Portrait Frame */}
+            {/* Background Glow */}
+            <div style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              maxWidth: '400px',
+              background: 'var(--gradient-accent)',
+              filter: 'blur(80px)',
+              opacity: 0.2,
+              borderRadius: '50%'
+            }} />
+
+            {/* Profile Frame with Glassmorphism */}
             <div style={{
               position: 'relative',
               width: '100%',
               maxWidth: '380px',
               aspectRatio: '3/4',
-              borderRadius: '16px',
+              borderRadius: '20px',
               overflow: 'hidden',
-              background: 'var(--surface-light)',
-              boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)',
+              background: 'var(--surface-color)',
+              boxShadow: '0 25px 50px -12px rgba(0,0,0,0.6)',
+              border: '1px solid rgba(255,255,255,0.12)',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              border: '1px solid rgba(255,255,255,0.05)'
+              justifyContent: 'center'
             }}>
               <img 
                 src="/profile.jpg" 
-                alt="Sayani Roy - Profile" 
+                alt="Sayani Roy - Backend Developer" 
                 style={{
                   width: '100%',
                   height: '100%',
@@ -80,11 +131,12 @@ const Hero = () => {
                 }}
                 onError={(e) => {
                   e.target.style.display = 'none';
-                  e.target.parentElement.innerHTML = '<div style="display:flex; flex-direction:column; gap:1rem; align-items:center; color:var(--text-muted); font-size:0.9rem; text-align:center; padding:2rem;"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg><span>Please place <strong>profile.jpg</strong> in public folder</span></div>';
+                  e.target.parentElement.innerHTML = '<div style="display:flex; flex-direction:column; gap:1rem; align-items:center; color:var(--text-muted); font-size:0.9rem; text-align:center; padding:2rem;"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span style="font-weight:600; color:#fff;">Sayani Roy</span><span>Backend Developer & Aspiring Data Engineer</span></div>';
                 }}
               />
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>

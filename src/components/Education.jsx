@@ -1,157 +1,145 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { GraduationCap, Award, Calendar, ChevronRight } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { GraduationCap, Award, Calendar, BookOpen, CheckCircle, ShieldCheck } from 'lucide-react';
 
 const academicData = [
   {
     title: 'Master of Computer Applications (MCA)',
-    institution: 'Academy of Technology, Hooghly',
+    institution: 'Academy of Technology, Hooghly, WB',
     year: '2022 – 2024',
-    score: '77.7%'
+    score: '77.7%',
+    description: 'Specialized in Advanced Data Structures, Cloud Architectures, Distributed Systems, and Database Management.'
   },
   {
     title: 'Bachelor of Computer Applications (BCA)',
-    institution: 'Burdwan University, Bardhaman',
+    institution: 'Burdwan University, Bardhaman, WB',
     year: '2019 – 2022',
-    score: '80%'
+    score: '80.0%',
+    description: 'Focused on Computer Science Core, Software Engineering, Object-Oriented Programming, and SQL Databases.'
   },
   {
-    title: 'Higher Secondary Education',
-    institution: 'Panchmura High School',
+    title: 'Higher Secondary Education (10+2)',
+    institution: 'Panchmura High School, West Bengal',
     year: '2018 – 2019',
-    score: '79%'
+    score: '79.0%',
+    description: 'Pure Science & Mathematics Stream.'
+  },
+  {
+    title: 'Secondary Education (10th)',
+    institution: 'West Bengal Board (WBBSE), West Bengal',
+    year: '2016 – 2017',
+    score: 'Completed',
+    description: 'General Academics & Foundation Mathematics.'
   }
 ];
 
 const credentialsData = [
   {
     title: 'Azure Zero to Hero: Master Microsoft Cloud',
-    institution: 'Udemy Certified'
+    issuer: 'Udemy Certified',
+    description: 'Comprehensive certification covering Azure Virtual Machines, Cloud Security, App Services, and Serverless Microservices.'
   },
   {
     title: 'Data Analytics Course',
-    institution: 'NPTEL Certified'
+    issuer: 'NPTEL Certified',
+    description: 'Certified in fundamental Data Engineering, Statistical Analytics, Data Visualization, and SQL query modeling.'
   }
 ];
 
-const TimelineCard = ({ data, index, isLeft }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: isLeft ? -50 : 50, y: 20 }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: index * 0.2, type: 'spring', stiffness: 100 }}
-      whileHover={{ scale: 1.03, translateX: isLeft ? 10 : -10 }}
-      className="card"
-      style={{
-        padding: '2rem',
-        position: 'relative',
-        background: 'rgba(255, 255, 255, 0.02)',
-        border: '1px solid rgba(255, 255, 255, 0.05)',
-        backdropFilter: 'blur(10px)',
-        cursor: 'pointer'
-      }}
-    >
-      {/* Decorative Slide Indicator */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        [isLeft ? 'left' : 'right']: 0,
-        width: '4px',
-        background: 'var(--gradient-accent)',
-        borderRadius: isLeft ? '12px 0 0 12px' : '0 12px 12px 0'
-      }} />
-
-      <h4 style={{ color: '#fff', fontSize: '1.2rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-        {data.title}
-      </h4>
-      
-      <div style={{ color: 'var(--accent-secondary)', fontSize: '0.9rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-        <Calendar size={14} /> {data.year || 'Certified'}
-      </div>
-      
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-        <div style={{ color: 'var(--text-muted)' }}>
-          <span style={{ display: 'block', color: '#fff', fontSize: '0.95rem' }}>{data.institution}</span>
-          {data.score && <span style={{ fontSize: '0.85rem' }}>Score: <strong style={{ color: 'var(--accent-primary)' }}>{data.score}</strong></span>}
-        </div>
-        <motion.div 
-          initial={{ opacity: 0, x: -10 }}
-          whileHover={{ opacity: 1, x: 0 }}
-        >
-          <ChevronRight color="var(--text-muted)" size={20} />
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-};
-
 const Education = () => {
   return (
-    <section id="education" style={{ background: 'var(--bg-color)', position: 'relative', overflow: 'hidden' }}>
+    <section id="education" style={{ background: 'var(--surface-color)', position: 'relative', overflow: 'hidden' }}>
       
-      {/* Advanced Background Glow */}
-      <div style={{
-        position: 'absolute',
-        top: '20%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        width: '600px',
-        height: '600px',
-        background: 'radial-gradient(circle, rgba(59,130,246,0.05) 0%, rgba(0,0,0,0) 70%)',
-        zIndex: 0
-      }} />
+      <div className="container">
+        <h2 className="section-title">Education & Certifications</h2>
+        <p className="section-subtitle">
+          Academic foundation in Computer Applications and verified industry credentials in Cloud & Data Analytics.
+        </p>
 
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <motion.h2 
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="section-title"
-        >
-          Education & Credentials
-        </motion.h2>
-        
-        <div className="grid grid-cols-2" style={{ gap: '4rem' }}>
+        <div className="grid grid-cols-2" style={{ gap: '3rem' }}>
           
-          {/* Left Column: Academic */}
+          {/* Left Column: Academic Background */}
           <div>
-            <motion.h3 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              style={{ marginBottom: '2.5rem', display: 'flex', alignItems: 'center', gap: '1rem', color: '#fff', fontSize: '1.5rem' }}
-            >
-              <div style={{ padding: '0.8rem', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '12px' }}>
-                <GraduationCap color="var(--accent-primary)" size={28} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '2rem' }}>
+              <div style={{ padding: '0.7rem', background: 'rgba(59, 130, 246, 0.12)', borderRadius: '12px', color: 'var(--accent-primary)' }}>
+                <GraduationCap size={26} />
               </div>
-              Academic Background
-            </motion.h3>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+              <h3 style={{ fontSize: '1.6rem', color: '#fff' }}>Academic Qualifications</h3>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               {academicData.map((item, idx) => (
-                <TimelineCard key={idx} data={item} index={idx} isLeft={true} />
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="card"
+                  style={{ padding: '1.8rem' }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                    <h4 style={{ color: '#fff', fontSize: '1.15rem' }}>{item.title}</h4>
+                    <span className="badge" style={{ background: 'rgba(255,255,255,0.05)', color: 'var(--text-muted)', border: '1px solid var(--border-color)' }}>
+                      <Calendar size={13} /> {item.year}
+                    </span>
+                  </div>
+
+                  <p style={{ color: 'var(--accent-primary)', fontWeight: 500, fontSize: '0.92rem', marginBottom: '0.4rem' }}>
+                    {item.institution}
+                  </p>
+
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.5, marginBottom: '0.8rem' }}>
+                    {item.description}
+                  </p>
+
+                  {item.score !== 'Completed' && (
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                      Aggregate Score: <strong style={{ color: 'var(--accent-emerald)', fontSize: '0.95rem' }}>{item.score}</strong>
+                    </div>
+                  )}
+                </motion.div>
               ))}
             </div>
           </div>
-          
-          {/* Right Column: Credentials */}
-          <div style={{ marginTop: '2rem' }}>
-            <motion.h3 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              style={{ marginBottom: '2.5rem', display: 'flex', alignItems: 'center', gap: '1rem', color: '#fff', fontSize: '1.5rem' }}
-            >
-              <div style={{ padding: '0.8rem', background: 'rgba(139, 92, 246, 0.1)', borderRadius: '12px' }}>
-                <Award color="var(--accent-secondary)" size={28} />
+
+          {/* Right Column: Certifications & Credentials */}
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '2rem' }}>
+              <div style={{ padding: '0.7rem', background: 'rgba(139, 92, 246, 0.12)', borderRadius: '12px', color: 'var(--accent-secondary)' }}>
+                <Award size={26} />
               </div>
-              Certifications
-            </motion.h3>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+              <h3 style={{ fontSize: '1.6rem', color: '#fff' }}>Verified Certifications</h3>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               {credentialsData.map((item, idx) => (
-                <TimelineCard key={idx} data={item} index={idx} isLeft={false} />
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="animated-border-card"
+                >
+                  <div style={{ padding: '2rem', height: '100%' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.6rem' }}>
+                      <ShieldCheck size={20} color="var(--accent-secondary)" />
+                      <h4 style={{ color: '#fff', fontSize: '1.2rem' }}>{item.title}</h4>
+                    </div>
+
+                    <div style={{ color: 'var(--accent-secondary)', fontWeight: 600, fontSize: '0.9rem', marginBottom: '0.8rem' }}>
+                      {item.issuer}
+                    </div>
+
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
               ))}
             </div>
+
           </div>
 
         </div>
