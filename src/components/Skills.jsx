@@ -195,28 +195,37 @@ const Skills = () => {
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '1rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '0.5rem' }}>
               {[
-                { name: 'PHP', level: '92%', color: '#3b82f6' },
-                { name: 'Python', level: '88%', color: '#60a5fa' },
-                { name: 'Node.js', level: '85%', color: '#10b981' },
-                { name: 'JavaScript', level: '85%', color: '#f59e0b' },
-                { name: 'SQL Database', level: '90%', color: '#06b6d4' },
-                { name: 'GitHub & GitLab', level: '88%', color: '#8b5cf6' }
+                { name: 'PHP', pct: 92, color: '#3b82f6' },
+                { name: 'Python', pct: 88, color: '#60a5fa' },
+                { name: 'SQL Database', pct: 90, color: '#06b6d4' },
+                { name: 'Node.js', pct: 85, color: '#10b981' },
+                { name: 'JavaScript', pct: 85, color: '#f59e0b' },
+                { name: 'GitHub & GitLab', pct: 88, color: '#8b5cf6' }
               ].map((item, idx) => (
-                <div key={idx} style={{
-                  padding: '0.65rem 1.1rem',
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '12px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.6rem',
-                  transition: 'all 0.3s ease'
-                }}>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.color, boxShadow: `0 0 8px ${item.color}` }} />
-                  <span style={{ fontSize: '0.9rem', color: '#fff', fontWeight: 600 }}>{item.name}</span>
-                  <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', background: 'rgba(255,255,255,0.06)', padding: '2px 6px', borderRadius: '6px' }}>{item.level}</span>
+                <div key={idx}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem', fontSize: '0.88rem' }}>
+                    <span style={{ color: '#ffffff', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: item.color, boxShadow: `0 0 8px ${item.color}` }} />
+                      {item.name}
+                    </span>
+                    <span style={{ color: item.color, fontWeight: 700 }}>{item.pct}%</span>
+                  </div>
+                  <div style={{ width: '100%', height: '7px', background: 'rgba(255, 255, 255, 0.06)', borderRadius: '999px', overflow: 'hidden' }}>
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${item.pct}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.2, delay: idx * 0.1, ease: 'easeOut' }}
+                      style={{
+                        height: '100%',
+                        background: `linear-gradient(90deg, ${item.color}, #ffffff)`,
+                        borderRadius: '999px',
+                        boxShadow: `0 0 10px ${item.color}`
+                      }}
+                    />
+                  </div>
                 </div>
               ))}
             </div>
@@ -428,12 +437,6 @@ const Skills = () => {
                 label="Power BI" 
                 sublabel="Analytics Dashboards" 
                 color="#8b5cf6" 
-              />
-              <RadialGauge 
-                percentage={90} 
-                label="MySQL BI" 
-                sublabel="Query Modeling" 
-                color="#3b82f6" 
               />
             </div>
           </motion.div>
