@@ -22,9 +22,7 @@ const skillCategories = [
     color: '#8b5cf6',
     skills: [
       { name: 'Laravel', level: 95 },
-      { name: 'Django', level: 82 },
-      { name: 'MVC Microservices Architecture', level: 90 },
-      { name: 'MySQL Relational Schema', level: 92 }
+      { name: 'Django', level: 82 }
     ]
   },
   {
@@ -55,8 +53,7 @@ const skillCategories = [
     color: '#f59e0b',
     skills: [
       { name: 'Razorpay Payment Gateway', level: 92 },
-      { name: 'Twilio (SMS/OTP Verification)', level: 88 },
-      { name: 'Transactional Mail Systems', level: 90 }
+      { name: 'Twilio (SMS/OTP Verification)', level: 88 }
     ]
   },
   {
@@ -65,9 +62,7 @@ const skillCategories = [
     color: '#ec4899',
     skills: [
       { name: 'Tableau Data Visualization', level: 85 },
-      { name: 'Power BI Analytics', level: 82 },
-      { name: 'Query Optimization & Refactoring', level: 90 },
-      { name: 'Asynchronous Data Pipelines', level: 85 }
+      { name: 'Power BI Analytics', level: 82 }
     ]
   }
 ];
