@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, ExternalLink, Download, Sparkles, CheckCircle2, ShieldCheck, Award, GraduationCap } from 'lucide-react';
+import { FileText, ExternalLink, Download, Sparkles, CheckCircle2, ShieldCheck, Award, GraduationCap, Briefcase } from 'lucide-react';
 
 const ResumeView = () => {
   return (
