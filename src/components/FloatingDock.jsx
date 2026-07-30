@@ -49,8 +49,8 @@ const FloatingDock = ({ onOpenModal }) => {
         <span style={{ position: 'absolute', top: '-2px', right: '-2px', width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', border: '2px solid #090a0f', boxShadow: '0 0 8px #10b981' }} />
       </motion.button>
 
-      {/* Horizontal Divider */}
-      <div style={{ width: '20px', height: '1px', background: 'rgba(255,255,255,0.15)', margin: '0.2rem 0' }} />
+      {/* Divider */}
+      <div className="dock-divider" style={{ width: '20px', height: '1px', background: 'rgba(255,255,255,0.15)', margin: '0.2rem 0' }} />
 
       {/* Floating GitHub Icon */}
       <motion.a 
