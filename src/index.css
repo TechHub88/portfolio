@@ -609,6 +609,30 @@ section {
   .experience-line {
     display: none !important;
   }
+
+  .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+    gap: 2.2rem !important;
+  }
+
+  .about-portrait-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    justify-items: center !important;
+  }
+
+  .floating-dock-container {
+    bottom: 12px !important;
+    right: 12px !important;
+    padding: 0.5rem 0.4rem !important;
+    gap: 0.45rem !important;
+  }
+
+  .profile-frame {
+    width: 100% !important;
+    max-width: 270px !important;
+    height: 330px !important;
+  }
 }
 
 @media (max-width: 480px) {

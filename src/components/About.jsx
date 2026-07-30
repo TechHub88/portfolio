@@ -112,7 +112,7 @@ const About = () => {
             borderRadius: '24px'
           }}
         >
-          <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2rem', alignItems: 'center' }}>
+          <div className="about-portrait-grid" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2rem', alignItems: 'center' }}>
             {/* Portrait Frame */}
             <div style={{ width: '130px', height: '130px', borderRadius: '20px', overflow: 'hidden', border: '2px solid rgba(245, 158, 11, 0.5)', flexShrink: 0, boxShadow: '0 10px 25px rgba(0,0,0,0.5)' }}>
               <img src="/profile.jpg" alt="Sayani Roy - Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />

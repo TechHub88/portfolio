@@ -5,6 +5,7 @@ import { MessageSquare, Code2, PhoneCall, Mail, MessageCircle } from 'lucide-rea
 const FloatingDock = ({ onOpenModal }) => {
   return (
     <div 
+      className="floating-dock-container"
       style={{
         position: 'fixed',
         bottom: '24px',
