@@ -60,34 +60,37 @@ const projects = [
   }
 ];
 
-// TYPEWRITER COMPONENT FOR PROJECT TITLES
+// TYPEWRITER COMPONENT FOR PROJECT TITLES (MATCHING HERO DESCRIPTION PATTERN)
 const ProjectTitleTypewriter = ({ title }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const [displayedText, setDisplayedText] = useState('');
-  const [started, setStarted] = useState(false);
+  const isInView = useInView(ref, { once: true, margin: '-20px' });
+  const [subIndex, setSubIndex] = useState(0);
+  const [blink, setBlink] = useState(true);
 
+  // Blinking cursor
   useEffect(() => {
-    if (isInView && !started) {
-      setStarted(true);
-      let currentIndex = 0;
-      const interval = setInterval(() => {
-        if (currentIndex <= title.length) {
-          setDisplayedText(title.substring(0, currentIndex));
-          currentIndex++;
-        } else {
-          clearInterval(interval);
-        }
-      }, 25);
-      return () => clearInterval(interval);
+    const timeout = setTimeout(() => {
+      setBlink((prev) => !prev);
+    }, 500);
+    return () => clearTimeout(timeout);
+  }, [blink]);
+
+  // Type character by character when in view
+  useEffect(() => {
+    if (!isInView) return;
+    if (subIndex < title.length) {
+      const timeout = setTimeout(() => {
+        setSubIndex((prev) => prev + 1);
+      }, 30);
+      return () => clearTimeout(timeout);
     }
-  }, [isInView, title, started]);
+  }, [subIndex, isInView, title]);
 
   return (
-    <h3 ref={ref} style={{ fontSize: 'clamp(1.25rem, 2.2vw, 1.6rem)', color: '#fff', marginBottom: '0.4rem', fontWeight: 800, minHeight: '2.2rem' }}>
-      {started ? displayedText : title}
-      {started && displayedText.length < title.length && (
-        <span style={{ color: '#f59e0b', marginLeft: '2px', fontWeight: 300 }}>|</span>
+    <h3 ref={ref} style={{ fontSize: 'clamp(1.25rem, 2.2vw, 1.6rem)', color: '#ffffff', marginBottom: '0.4rem', fontWeight: 800, minHeight: '2.2rem' }}>
+      {title.substring(0, subIndex)}
+      {subIndex < title.length && (
+        <span style={{ opacity: blink ? 1 : 0, color: '#f59e0b', marginLeft: '3px', fontWeight: 400 }}>|</span>
       )}
     </h3>
   );
