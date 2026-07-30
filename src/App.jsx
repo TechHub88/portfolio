@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import TechMarquee from './components/TechMarquee'
 import Stats from './components/Stats'
 import About from './components/About'
 import Skills from './components/Skills'
@@ -17,6 +18,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <TechMarquee />
         <Stats />
         <About />
         <Skills />

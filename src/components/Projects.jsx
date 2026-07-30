@@ -68,9 +68,14 @@ const Projects = () => {
             <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-secondary)', display: 'inline-block' }} />
             My Projects
           </div>
-          <h2 className="section-title">
-            Featured <span className="text-gradient">Case Studies & Projects</span>
-          </h2>
+          <div style={{ position: 'relative', display: 'inline-block' }}>
+            <h2 className="section-title">
+              Featured <span className="text-gradient">Case Studies & Projects</span>
+            </h2>
+            <svg width="220" height="12" viewBox="0 0 220 12" fill="none" style={{ position: 'absolute', bottom: '-6px', right: '20px', pointerEvents: 'none' }}>
+              <path d="M3 8C40 2 100 10 160 4C185 1 205 7 217 3" stroke="#f59e0b" strokeWidth="3.5" strokeLinecap="round" />
+            </svg>
+          </div>
           <p className="section-subtitle" style={{ marginBottom: 0 }}>
             WebMantra & enterprise production systems demonstrating multi-category e-commerce, AI microservices, webhook automation, and fraud detection.
           </p>

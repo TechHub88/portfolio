@@ -1,32 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone, User, Server, Bot, Cpu, Database, Code2, MessageCircle, PhoneCall, Globe } from 'lucide-react';
+import { ArrowRight, Mail, Phone, User, Server, Bot, Cpu, Database, Code2, MessageCircle, PhoneCall, Globe, Sparkles } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="hero" style={{ minHeight: '92vh', display: 'flex', alignItems: 'center', paddingTop: '100px', paddingBottom: '4rem' }}>
+    <section id="hero" style={{ minHeight: '92vh', display: 'flex', alignItems: 'center', paddingTop: '100px', paddingBottom: '4rem', position: 'relative' }}>
       
-      {/* Dynamic Background Glow Spheres */}
+      {/* Background Subtle Designer Mesh */}
       <div style={{
         position: 'absolute',
-        top: '10%',
+        top: '5%',
         left: '5%',
-        width: '400px',
-        height: '400px',
-        background: 'radial-gradient(circle, rgba(59, 130, 246, 0.16) 0%, transparent 70%)',
-        filter: 'blur(70px)',
+        width: '450px',
+        height: '450px',
+        background: 'radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%)',
+        filter: 'blur(80px)',
         zIndex: 0,
         pointerEvents: 'none'
       }} />
 
       <div style={{
         position: 'absolute',
-        bottom: '10%',
+        bottom: '5%',
         right: '5%',
-        width: '380px',
-        height: '380px',
-        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.16) 0%, transparent 70%)',
-        filter: 'blur(70px)',
+        width: '450px',
+        height: '450px',
+        background: 'radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%)',
+        filter: 'blur(80px)',
         zIndex: 0,
         pointerEvents: 'none'
       }} />
@@ -52,9 +52,16 @@ const Hero = () => {
               Available for New Roles & Projects
             </motion.div>
             
-            <h1 style={{ fontSize: 'clamp(2.6rem, 5vw, 4rem)', lineHeight: 1.1, marginBottom: '1rem', fontWeight: 800 }}>
-              Hi, I'm <span className="text-gradient">Sayani Roy</span>
-            </h1>
+            {/* Title with Hand-Drawn Doodle Squiggle Underline */}
+            <div style={{ position: 'relative', display: 'inline-block', marginBottom: '0.8rem' }}>
+              <h1 style={{ fontSize: 'clamp(2.6rem, 5vw, 4rem)', lineHeight: 1.1, fontWeight: 800 }}>
+                Hi, I'm <span className="text-gradient">Sayani Roy</span>
+              </h1>
+              {/* Doodle Squiggle SVG */}
+              <svg width="180" height="14" viewBox="0 0 180 14" fill="none" style={{ position: 'absolute', bottom: '-8px', left: '110px', pointerEvents: 'none' }}>
+                <path d="M4 10C30 3 70 11 110 5C140 -1 165 9 176 4" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </div>
             
             <h2 style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.65rem)', color: 'var(--text-muted)', fontWeight: 500, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
               Backend Developer & Aspiring Data Engineer
@@ -69,7 +76,7 @@ const Hero = () => {
               <a href="#projects" className="btn btn-accent" style={{ padding: '0.65rem 1.25rem', fontSize: '0.86rem', whiteSpace: 'nowrap' }}>
                 View My Work <ArrowRight size={16} />
               </a>
-              <a href="/sayaniroy_resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.65rem 1.15rem', fontSize: '0.86rem', borderColor: 'rgba(59, 130, 246, 0.4)', color: '#60a5fa', whiteSpace: 'nowrap' }}>
+              <a href="/sayaniroy_resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.65rem 1.15rem', fontSize: '0.86rem', borderColor: 'rgba(56, 189, 248, 0.4)', color: '#38bdf8', whiteSpace: 'nowrap' }}>
                 Resume PDF ↗
               </a>
               <a href="#contact" className="btn btn-outline" style={{ padding: '0.65rem 1.15rem', fontSize: '0.86rem', whiteSpace: 'nowrap' }}>
@@ -77,7 +84,7 @@ const Hero = () => {
               </a>
             </div>
 
-            {/* Ultra-Classy 1-Line Social & Contact Icons Strip (Icons Only) */}
+            {/* Ultra-Classy 1-Line Social & Contact Icons Strip */}
             <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap', paddingTop: '1.2rem', borderTop: '1px solid var(--border-color)' }}>
               <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginRight: '0.3rem' }}>
                 Connect:
@@ -93,7 +100,7 @@ const Hero = () => {
                 title="GitHub Profile"
                 style={{ padding: '0.65rem', borderRadius: '12px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.12)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                <Code2 size={19} color="#a78bfa" />
+                <Code2 size={19} color="#fbbf24" />
               </motion.a>
 
               {/* LinkedIn SVG Icon */}
@@ -104,9 +111,9 @@ const Hero = () => {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 title="LinkedIn Profile"
-                style={{ padding: '0.65rem', borderRadius: '12px', background: 'rgba(0, 119, 181, 0.14)', border: '1px solid rgba(0, 119, 181, 0.4)', color: '#0077b5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                style={{ padding: '0.65rem', borderRadius: '12px', background: 'rgba(56, 189, 248, 0.14)', border: '1px solid rgba(56, 189, 248, 0.4)', color: '#38bdf8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                   <rect x="2" y="9" width="4" height="12"></rect>
                   <circle cx="4" cy="4" r="2"></circle>
@@ -158,15 +165,15 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 href="mailto:nisharoy3363@gmail.com" 
                 title="Email (nisharoy3363@gmail.com)"
-                style={{ padding: '0.65rem', borderRadius: '12px', background: 'rgba(236, 72, 153, 0.14)', border: '1px solid rgba(236, 72, 153, 0.4)', color: '#f472b6', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                style={{ padding: '0.65rem', borderRadius: '12px', background: 'rgba(255, 77, 109, 0.14)', border: '1px solid rgba(255, 77, 109, 0.4)', color: '#ff4d6d', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                <Mail size={19} color="#f472b6" />
+                <Mail size={19} color="#ff4d6d" />
               </motion.a>
             </div>
 
           </motion.div>
 
-          {/* Right Compact Profile Display with Floating Badges */}
+          {/* Right Profile Display with Creative Hand-Drawn Doodle Accents */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -174,9 +181,42 @@ const Hero = () => {
             style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
             
+            {/* DOODLE 1: Top-Right Hand-Drawn Sparkle Star */}
+            <div style={{ position: 'absolute', top: '-25px', right: '15px', zIndex: 5, pointerEvents: 'none' }}>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth="2.5" strokeLinecap="round">
+                <path d="M12 2v20M2 12h20M5 5l14 14M5 19L19 5"/>
+              </svg>
+            </div>
+
+            {/* DOODLE 2: Curly Arrow Doodle SVG */}
+            <div style={{ position: 'absolute', top: '-20px', left: '-30px', zIndex: 5, pointerEvents: 'none' }}>
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#38bdf8" strokeWidth="2" strokeLinecap="round">
+                <path d="M10 50 C 25 15, 45 15, 52 30 M 44 24 L 52 30 L 43 36"/>
+              </svg>
+            </div>
+
+            {/* DOODLE 3: Floating Hand-Written Code Tag Sticker */}
+            <div style={{
+              position: 'absolute',
+              bottom: '-15px',
+              left: '10px',
+              zIndex: 5,
+              background: '#0f172a',
+              border: '1.5px dashed #f59e0b',
+              borderRadius: '12px',
+              padding: '0.4rem 0.85rem',
+              fontSize: '0.78rem',
+              color: '#fef08a',
+              fontWeight: 700,
+              boxShadow: '0 10px 25px rgba(0,0,0,0.5)',
+              transform: 'rotate(-4deg)'
+            }}>
+              ✨ &#123; backend_architect: true &#125;
+            </div>
+
             {/* FLOATING BADGE 1 (Top-Left) */}
-            <div className="floating-badge animate-float-top" style={{ top: '-10px', left: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem' }}>
-              <div style={{ padding: '0.25rem', background: 'rgba(59, 130, 246, 0.2)', borderRadius: '6px', color: '#60a5fa' }}>
+            <div className="floating-badge animate-float-top" style={{ top: '-10px', left: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem', backdropFilter: 'blur(16px)' }}>
+              <div style={{ padding: '0.25rem', background: 'rgba(56, 189, 248, 0.2)', borderRadius: '6px', color: '#38bdf8' }}>
                 <Server size={14} />
               </div>
               <div>
@@ -186,8 +226,8 @@ const Hero = () => {
             </div>
 
             {/* FLOATING BADGE 2 (Top-Right) */}
-            <div className="floating-badge animate-float-bottom" style={{ top: '20px', right: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem' }}>
-              <div style={{ padding: '0.25rem', background: 'rgba(139, 92, 246, 0.2)', borderRadius: '6px', color: '#a78bfa' }}>
+            <div className="floating-badge animate-float-bottom" style={{ top: '20px', right: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem', backdropFilter: 'blur(16px)' }}>
+              <div style={{ padding: '0.25rem', background: 'rgba(245, 158, 11, 0.2)', borderRadius: '6px', color: '#fbbf24' }}>
                 <Bot size={14} />
               </div>
               <div>
@@ -197,7 +237,7 @@ const Hero = () => {
             </div>
 
             {/* FLOATING BADGE 3 (Bottom-Left) */}
-            <div className="floating-badge animate-float-bottom" style={{ bottom: '20px', left: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem' }}>
+            <div className="floating-badge animate-float-bottom" style={{ bottom: '20px', left: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem', backdropFilter: 'blur(16px)' }}>
               <div style={{ padding: '0.25rem', background: 'rgba(16, 185, 129, 0.2)', borderRadius: '6px', color: '#34d399' }}>
                 <Cpu size={14} />
               </div>
@@ -208,8 +248,8 @@ const Hero = () => {
             </div>
 
             {/* FLOATING BADGE 4 (Bottom-Right) */}
-            <div className="floating-badge animate-float-top" style={{ bottom: '-10px', right: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem' }}>
-              <div style={{ padding: '0.25rem', background: 'rgba(236, 72, 153, 0.2)', borderRadius: '6px', color: '#f472b6' }}>
+            <div className="floating-badge animate-float-top" style={{ bottom: '-10px', right: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem', backdropFilter: 'blur(16px)' }}>
+              <div style={{ padding: '0.25rem', background: 'rgba(255, 77, 109, 0.2)', borderRadius: '6px', color: '#ff4d6d' }}>
                 <Database size={14} />
               </div>
               <div>
@@ -218,13 +258,23 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Profile Avatar Frame */}
-            <div className="profile-frame" style={{ width: '320px', height: '390px', borderRadius: '24px' }}>
-              <img 
-                src="/profile.jpg" 
-                alt="Sayani Roy - Backend Developer" 
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
+            {/* Stylish Profile Frame with 3D Offset & Doodle Tape Corners */}
+            <div 
+              style={{
+                position: 'relative',
+                padding: '8px',
+                borderRadius: '26px',
+                background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.5) 0%, rgba(56, 189, 248, 0.4) 100%)',
+                boxShadow: '12px 12px 0 0 rgba(245, 158, 11, 0.15), 0 25px 50px rgba(0, 0, 0, 0.8)'
+              }}
+            >
+              <div className="profile-frame" style={{ width: '320px', height: '390px', borderRadius: '20px', overflow: 'hidden' }}>
+                <img 
+                  src="/profile.jpg" 
+                  alt="Sayani Roy - Backend Developer" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </div>
             </div>
 
           </motion.div>
