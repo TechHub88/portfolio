@@ -76,10 +76,10 @@ const ResumeView = () => {
                 <FileText size={32} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.4rem', color: '#fff', fontWeight: 800, marginBottom: '0.3rem' }}>
+                <h3 style={{ fontSize: 'clamp(1.1rem, 3.5vw, 1.4rem)', color: '#fff', fontWeight: 800, wordBreak: 'break-all' }}>
                   Sayani_Roy_Resume.pdf
                 </h3>
-                <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
                   <ShieldCheck size={16} color="#10b981" /> Verified PDF • MCA Graduate & Backend Developer
                 </div>
               </div>
@@ -110,13 +110,7 @@ const ResumeView = () => {
           </div>
 
           {/* Quick Qualification Summary Grid */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '1rem',
-            paddingTop: '1.8rem',
-            borderTop: '1px solid var(--border-color)'
-          }}>
+          <div className="resume-cards-grid" style={{ paddingTop: '1.8rem', borderTop: '1px solid var(--border-color)' }}>
             <div style={{ padding: '1rem', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '14px', border: '1px solid var(--border-color)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-primary)', fontSize: '0.85rem', fontWeight: 700, marginBottom: '0.3rem' }}>
                 <Briefcase size={15} /> Experience

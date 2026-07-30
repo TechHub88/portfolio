@@ -660,6 +660,23 @@ section {
     max-width: 270px !important;
     height: 330px !important;
   }
+
+  .resume-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+}
+
+.resume-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 520px) {
+  .brand-subtitle {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {

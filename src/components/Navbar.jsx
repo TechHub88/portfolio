@@ -78,7 +78,7 @@ const Navbar = ({ onOpenModal }) => {
             }}>
               SAYANI <span className="text-gradient">ROY</span>
             </span>
-            <span style={{ fontSize: '0.65rem', color: 'var(--accent-cyan)', letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700, marginTop: '-2px' }}>
+            <span className="brand-subtitle" style={{ fontSize: '0.65rem', color: 'var(--accent-cyan)', letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700, marginTop: '-2px' }}>
               Software & Backend Architecture
             </span>
           </div>
