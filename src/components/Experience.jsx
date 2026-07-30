@@ -42,7 +42,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" style={{ position: 'relative', overflow: 'hidden', padding: '7rem 0' }}>
+    <section id="experience" style={{ position: 'relative', overflow: 'hidden', padding: '3.5rem 0' }}>
       
       {/* Background Ambient Glowing Orbs */}
       <div style={{
