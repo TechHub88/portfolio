@@ -5,6 +5,8 @@ import { Mail, Phone, User, Send, MapPin, CheckCircle2, Copy, MessageSquare, Cod
 const Contact = () => {
   const [copied, setCopied] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
 
   const handleCopyEmail = () => {
@@ -13,11 +15,43 @@ const Contact = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => setFormSubmitted(false), 4000);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    // Web3Forms Access Key
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || '7312caf1-4da8-422a-9583-45be5ff3c646';
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: `${formData.name} via Portfolio`
+        })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setFormSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setErrorMessage(result.message || 'Message send nahi ho paya. Kripya punah prayas karein.');
+      }
+    } catch (err) {
+      setErrorMessage('Network error. Kripya apna internet connection check karein.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -203,8 +237,19 @@ const Contact = () => {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-accent" style={{ marginTop: '0.5rem', width: '100%', padding: '0.9rem' }}>
-                  <Send size={18} /> Send Message Now
+                {errorMessage && (
+                  <div style={{ padding: '0.8rem 1rem', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '10px', color: '#f87171', fontSize: '0.85rem' }}>
+                    {errorMessage}
+                  </div>
+                )}
+
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting} 
+                  className="btn btn-accent" 
+                  style={{ marginTop: '0.5rem', width: '100%', padding: '0.9rem', opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
+                >
+                  <Send size={18} /> {isSubmitting ? 'Sending Message...' : 'Send Message Now'}
                 </button>
               </form>
             )}
