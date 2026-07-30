@@ -63,20 +63,21 @@ const Projects = () => {
       <div className="container">
         
         {/* Section Title Header */}
-        <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-          <div className="badge" style={{ marginBottom: '0.8rem', background: 'rgba(139, 92, 246, 0.12)', borderColor: 'rgba(139, 92, 246, 0.3)', color: '#a78bfa' }}>
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-secondary)', display: 'inline-block' }} />
+        <div style={{ textAlign: 'center', marginBottom: '2.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div className="badge" style={{ marginBottom: '1rem', background: 'rgba(245, 158, 11, 0.12)', borderColor: 'rgba(245, 158, 11, 0.3)', color: '#fbbf24' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#fbbf24', display: 'inline-block' }} />
             My Projects
           </div>
-          <div style={{ position: 'relative', display: 'inline-block' }}>
-            <h2 className="section-title">
-              Featured <span className="text-gradient">Case Studies & Projects</span>
-            </h2>
-            <svg width="220" height="12" viewBox="0 0 220 12" fill="none" style={{ position: 'absolute', bottom: '-6px', right: '20px', pointerEvents: 'none' }}>
-              <path d="M3 8C40 2 100 10 160 4C185 1 205 7 217 3" stroke="#f59e0b" strokeWidth="3.5" strokeLinecap="round" />
-            </svg>
-          </div>
-          <p className="section-subtitle" style={{ marginBottom: 0 }}>
+          <h2 className="section-title">
+            Featured Case Studies &{' '}
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <span className="text-gradient">Projects</span>
+              <svg width="100%" height="8" viewBox="0 0 120 8" fill="none" preserveAspectRatio="none" style={{ position: 'absolute', bottom: '-3px', left: 0, pointerEvents: 'none' }}>
+                <path d="M3 6C30 2 70 7 117 3" stroke="#f59e0b" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </span>
+          </h2>
+          <p className="section-subtitle" style={{ marginBottom: 0, marginTop: '0.6rem' }}>
             WebMantra & enterprise production systems demonstrating multi-category e-commerce, AI microservices, webhook automation, and fraud detection.
           </p>
         </div>

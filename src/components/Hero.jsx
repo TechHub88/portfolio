@@ -52,16 +52,16 @@ const Hero = () => {
               Available for New Roles & Projects
             </motion.div>
             
-            {/* Title with Hand-Drawn Doodle Squiggle Underline */}
-            <div style={{ position: 'relative', display: 'inline-block', marginBottom: '0.8rem' }}>
-              <h1 style={{ fontSize: 'clamp(2.6rem, 5vw, 4rem)', lineHeight: 1.1, fontWeight: 800 }}>
-                Hi, I'm <span className="text-gradient">Sayani Roy</span>
-              </h1>
-              {/* Doodle Squiggle SVG */}
-              <svg width="180" height="14" viewBox="0 0 180 14" fill="none" style={{ position: 'absolute', bottom: '-8px', left: '110px', pointerEvents: 'none' }}>
-                <path d="M4 10C30 3 70 11 110 5C140 -1 165 9 176 4" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
-              </svg>
-            </div>
+            {/* Title with Precise Hand-Drawn Doodle Squiggle Underline */}
+            <h1 style={{ fontSize: 'clamp(2.6rem, 5vw, 4rem)', lineHeight: 1.1, marginBottom: '1rem', fontWeight: 800 }}>
+              Hi, I'm{' '}
+              <span style={{ position: 'relative', display: 'inline-block' }}>
+                <span className="text-gradient">Sayani Roy</span>
+                <svg width="100%" height="10" viewBox="0 0 170 10" fill="none" preserveAspectRatio="none" style={{ position: 'absolute', bottom: '-4px', left: 0, pointerEvents: 'none' }}>
+                  <path d="M3 8C30 2 80 8 130 3C150 1 162 7 167 3" stroke="#f59e0b" strokeWidth="3.5" strokeLinecap="round" />
+                </svg>
+              </span>
+            </h1>
             
             <h2 style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.65rem)', color: 'var(--text-muted)', fontWeight: 500, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
               Backend Developer & Aspiring Data Engineer
@@ -173,7 +173,7 @@ const Hero = () => {
 
           </motion.div>
 
-          {/* Right Profile Display with Creative Hand-Drawn Doodle Accents */}
+          {/* Right Profile Display with Precise Clean Floating Badges & Doodle Star */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -181,41 +181,15 @@ const Hero = () => {
             style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
             
-            {/* DOODLE 1: Top-Right Hand-Drawn Sparkle Star */}
-            <div style={{ position: 'absolute', top: '-25px', right: '15px', zIndex: 5, pointerEvents: 'none' }}>
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth="2.5" strokeLinecap="round">
+            {/* DOODLE STAR: Top-Right Hand-Drawn Sparkle Star */}
+            <div style={{ position: 'absolute', top: '-18px', right: '10px', zIndex: 5, pointerEvents: 'none' }}>
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth="2.5" strokeLinecap="round">
                 <path d="M12 2v20M2 12h20M5 5l14 14M5 19L19 5"/>
               </svg>
             </div>
 
-            {/* DOODLE 2: Curly Arrow Doodle SVG */}
-            <div style={{ position: 'absolute', top: '-20px', left: '-30px', zIndex: 5, pointerEvents: 'none' }}>
-              <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#38bdf8" strokeWidth="2" strokeLinecap="round">
-                <path d="M10 50 C 25 15, 45 15, 52 30 M 44 24 L 52 30 L 43 36"/>
-              </svg>
-            </div>
-
-            {/* DOODLE 3: Floating Hand-Written Code Tag Sticker */}
-            <div style={{
-              position: 'absolute',
-              bottom: '-15px',
-              left: '10px',
-              zIndex: 5,
-              background: '#0f172a',
-              border: '1.5px dashed #f59e0b',
-              borderRadius: '12px',
-              padding: '0.4rem 0.85rem',
-              fontSize: '0.78rem',
-              color: '#fef08a',
-              fontWeight: 700,
-              boxShadow: '0 10px 25px rgba(0,0,0,0.5)',
-              transform: 'rotate(-4deg)'
-            }}>
-              ✨ &#123; backend_architect: true &#125;
-            </div>
-
             {/* FLOATING BADGE 1 (Top-Left) */}
-            <div className="floating-badge animate-float-top" style={{ top: '-10px', left: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem', backdropFilter: 'blur(16px)' }}>
+            <div className="floating-badge animate-float-top" style={{ top: '-12px', left: '-20px', padding: '0.45rem 0.85rem', fontSize: '0.78rem', backdropFilter: 'blur(16px)', zIndex: 4 }}>
               <div style={{ padding: '0.25rem', background: 'rgba(56, 189, 248, 0.2)', borderRadius: '6px', color: '#38bdf8' }}>
                 <Server size={14} />
               </div>
@@ -226,7 +200,7 @@ const Hero = () => {
             </div>
 
             {/* FLOATING BADGE 2 (Top-Right) */}
-            <div className="floating-badge animate-float-bottom" style={{ top: '20px', right: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem', backdropFilter: 'blur(16px)' }}>
+            <div className="floating-badge animate-float-bottom" style={{ top: '25px', right: '-20px', padding: '0.45rem 0.85rem', fontSize: '0.78rem', backdropFilter: 'blur(16px)', zIndex: 4 }}>
               <div style={{ padding: '0.25rem', background: 'rgba(245, 158, 11, 0.2)', borderRadius: '6px', color: '#fbbf24' }}>
                 <Bot size={14} />
               </div>
@@ -237,7 +211,7 @@ const Hero = () => {
             </div>
 
             {/* FLOATING BADGE 3 (Bottom-Left) */}
-            <div className="floating-badge animate-float-bottom" style={{ bottom: '20px', left: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem', backdropFilter: 'blur(16px)' }}>
+            <div className="floating-badge animate-float-bottom" style={{ bottom: '25px', left: '-20px', padding: '0.45rem 0.85rem', fontSize: '0.78rem', backdropFilter: 'blur(16px)', zIndex: 4 }}>
               <div style={{ padding: '0.25rem', background: 'rgba(16, 185, 129, 0.2)', borderRadius: '6px', color: '#34d399' }}>
                 <Cpu size={14} />
               </div>
@@ -248,7 +222,7 @@ const Hero = () => {
             </div>
 
             {/* FLOATING BADGE 4 (Bottom-Right) */}
-            <div className="floating-badge animate-float-top" style={{ bottom: '-10px', right: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem', backdropFilter: 'blur(16px)' }}>
+            <div className="floating-badge animate-float-top" style={{ bottom: '-12px', right: '-20px', padding: '0.45rem 0.85rem', fontSize: '0.78rem', backdropFilter: 'blur(16px)', zIndex: 4 }}>
               <div style={{ padding: '0.25rem', background: 'rgba(255, 77, 109, 0.2)', borderRadius: '6px', color: '#ff4d6d' }}>
                 <Database size={14} />
               </div>
@@ -258,14 +232,14 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Stylish Profile Frame with 3D Offset & Doodle Tape Corners */}
+            {/* Stylish Profile Frame with 3D Offset Gold Border */}
             <div 
               style={{
                 position: 'relative',
-                padding: '8px',
-                borderRadius: '26px',
-                background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.5) 0%, rgba(56, 189, 248, 0.4) 100%)',
-                boxShadow: '12px 12px 0 0 rgba(245, 158, 11, 0.15), 0 25px 50px rgba(0, 0, 0, 0.8)'
+                padding: '6px',
+                borderRadius: '24px',
+                background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.45) 0%, rgba(56, 189, 248, 0.35) 100%)',
+                boxShadow: '10px 10px 0 0 rgba(245, 158, 11, 0.12), 0 25px 50px rgba(0, 0, 0, 0.75)'
               }}
             >
               <div className="profile-frame" style={{ width: '320px', height: '390px', borderRadius: '20px', overflow: 'hidden' }}>
