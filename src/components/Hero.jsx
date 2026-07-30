@@ -1,8 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail, Phone, User, Server, Bot, Cpu, Database, Code2, MessageCircle, PhoneCall, Globe, Sparkles } from 'lucide-react';
 
+const TypewriterText = ({ words }) => {
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [reverse, setReverse] = useState(false);
+  const [blink, setBlink] = useState(true);
+
+  // Blinking cursor
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setBlink((prev) => !prev);
+    }, 500);
+    return () => clearTimeout(timeout);
+  }, [blink]);
+
+  // Typing character by character
+  useEffect(() => {
+    if (subIndex === words[index].length + 1 && !reverse) {
+      const timeout = setTimeout(() => {
+        setReverse(true);
+      }, 2400);
+      return () => clearTimeout(timeout);
+    }
+
+    if (subIndex === 0 && reverse) {
+      setReverse(false);
+      setIndex((prev) => (prev + 1) % words.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setSubIndex((prev) => prev + (reverse ? -1 : 1));
+    }, reverse ? 35 : 65);
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, index, reverse, words]);
+
+  return (
+    <span style={{ color: 'var(--accent-primary)', fontWeight: 700 }}>
+      {words[index].substring(0, subIndex)}
+      <span style={{ opacity: blink ? 1 : 0, color: '#f59e0b', marginLeft: '3px', fontWeight: 300 }}>|</span>
+    </span>
+  );
+};
+
 const Hero = ({ onOpenModal }) => {
+  const typewriterRoles = [
+    'Backend Developer & Aspiring Data Engineer',
+    'Core PHP Laravel & Node.js Architect',
+    'AI Microservices & Webhook Engineer',
+    'Database Schema & Query Specialist'
+  ];
+
   return (
     <section id="hero" style={{ minHeight: '92vh', display: 'flex', alignItems: 'center', paddingTop: '100px', paddingBottom: '4rem', position: 'relative', overflow: 'hidden' }}>
       
@@ -63,8 +114,9 @@ const Hero = ({ onOpenModal }) => {
               </span>
             </h1>
             
-            <h2 style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.65rem)', color: 'var(--text-muted)', fontWeight: 500, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
-              Backend Developer & Aspiring Data Engineer
+            {/* TYPEWRITER TYPING EFFECT SUBTITLE */}
+            <h2 style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.65rem)', color: 'var(--text-muted)', fontWeight: 500, marginBottom: '1.5rem', minHeight: '2.5rem', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+              <TypewriterText words={typewriterRoles} />
             </h2>
             
             <p style={{ fontSize: '1.02rem', color: 'var(--text-muted)', marginBottom: '2.2rem', maxWidth: '600px', lineHeight: 1.7 }}>
