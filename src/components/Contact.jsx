@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, User, Send, MapPin, CheckCircle2, Copy, Sparkles, MessageSquare, Code2 } from 'lucide-react';
+import { Mail, Phone, User, Send, MapPin, CheckCircle2, Copy, MessageSquare, Code2 } from 'lucide-react';
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);

@@ -426,9 +426,118 @@ section {
   .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
 }
 
+/* Animated Border Card */
+.animated-border-card {
+  position: relative;
+  border-radius: 20px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.animated-border-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gradient-accent);
+  opacity: 0.7;
+  transition: var(--transition);
+}
+
+.animated-border-card:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+  box-shadow: 0 15px 40px -10px rgba(139, 92, 246, 0.2);
+  transform: translateY(-5px);
+}
+
+.animated-border-card:hover::before {
+  opacity: 1;
+  box-shadow: 0 0 15px var(--accent-secondary);
+}
+
+/* Stats Section Styles */
+.statsSec {
+  padding: 5rem 0;
+}
+
+.stats-box-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-column-box {
+  background: rgba(11, 13, 20, 0.75);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 2.2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  backdrop-filter: blur(15px);
+  transition: var(--transition);
+}
+
+.stat-column-box:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px -10px rgba(59, 130, 246, 0.2);
+}
+
+.stat-number-wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-counter {
+  font-size: 2.8rem;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  color: #ffffff;
+  line-height: 1;
+}
+
+.stat-suffix {
+  font-size: 1.4rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+}
+
+.stat-title {
+  font-size: 1.05rem;
+  color: var(--accent-primary);
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+
+.stat-description {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
 /* Responsive fixes */
+@media (max-width: 992px) {
+  .stats-box-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   section { padding: 4.5rem 0; }
   .section-title { font-size: 2.1rem; }
   .floating-badge { display: none; }
+  .stats-box-grid {
+    grid-template-columns: 1fr;
+  }
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: flex !important;
+  }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, ShoppingBag, Bot, MessageSquare, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ShoppingBag, Bot, MessageSquare, CheckCircle2, ArrowRight } from 'lucide-react';
 
 const projects = [
   {
