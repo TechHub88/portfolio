@@ -5,23 +5,6 @@ import { ShoppingBag, Bot, MessageSquare, BookOpen, CheckCircle2, ArrowRight, Ex
 const projects = [
   {
     id: '01',
-    title: 'VShop Multi-Category E-Commerce Platform',
-    link: 'https://vshop.vridhee.com/',
-    role: 'Lead Backend & Security Engineer',
-    tag: 'E-Commerce & Security',
-    description: 'Multi-category enterprise e-commerce platform spanning Wellness, Academics, Deep Tech, Space, Climate, Technology, Games, and Skills.',
-    highlights: [
-      'Engineered PHP & Laravel core backend architecture powering multi-segment seller portals, product inventories, and multi-domain catalogs.',
-      'Integrated Node.js microservices for advanced AI Fraud Detection and real-time live support chat systems.',
-      'Implemented automated identity verification & KYC security protocols for seller and vendor onboarding.'
-    ],
-    tech: ['PHP', 'Laravel', 'Node.js', 'MySQL', 'Fraud Detection', 'Real-Time Chat', 'KYC Verification', 'Webhooks'],
-    imageUrl: '/vshop-banner.png',
-    badge: 'Featured Project',
-    icon: ShoppingBag
-  },
-  {
-    id: '02',
     title: 'Mafatlal Multi-Vendor E-Commerce Platform',
     link: 'https://mafatlaluniforms.com/',
     role: 'Core Backend Developer & AI Architect',
@@ -39,7 +22,7 @@ const projects = [
     icon: Bot
   },
   {
-    id: '03',
+    id: '02',
     title: 'Teavera E-Commerce Experience Infrastructure',
     link: 'https://teavera.in/',
     role: 'Backend Architect & Messaging Lead',
@@ -54,6 +37,23 @@ const projects = [
     imageUrl: '/teavera-banner.jpg',
     badge: 'Infrastructure',
     icon: MessageSquare
+  },
+  {
+    id: '03',
+    title: 'VShop Multi-Category E-Commerce Platform',
+    link: 'https://vshop.vridhee.com/',
+    role: 'Lead Backend & Security Engineer',
+    tag: 'E-Commerce & Security',
+    description: 'Multi-category enterprise e-commerce platform spanning Wellness, Academics, Deep Tech, Space, Climate, Technology, Games, and Skills.',
+    highlights: [
+      'Engineered PHP & Laravel core backend architecture powering multi-segment seller portals, product inventories, and multi-domain catalogs.',
+      'Integrated Node.js microservices for advanced AI Fraud Detection and real-time live support chat systems.',
+      'Implemented automated identity verification & KYC security protocols for seller and vendor onboarding.'
+    ],
+    tech: ['PHP', 'Laravel', 'Node.js', 'MySQL', 'Fraud Detection', 'Real-Time Chat', 'KYC Verification', 'Webhooks'],
+    imageUrl: '/vshop-banner.png',
+    badge: 'Featured Project',
+    icon: ShoppingBag
   },
   {
     id: '04',
@@ -76,7 +76,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" style={{ position: 'relative', padding: '2.5rem 0' }}>
+    <section id="projects" style={{ position: 'relative', padding: '3.5rem 0' }}>
       <div className="container">
         
         {/* Section Title Header */}
