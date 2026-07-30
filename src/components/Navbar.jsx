@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Code2, Menu, X, User, Mail, Phone, ArrowRight, Sparkles, ChevronRight } from 'lucide-react';
+import { Send, Code2, Menu, X, User, Mail, Phone, ChevronRight, Sparkles } from 'lucide-react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +44,7 @@ const Navbar = () => {
           top: 0, left: 0, right: 0,
           padding: scrolled ? '0.8rem 1.5rem' : '1.2rem 1.5rem',
           display: 'flex',
-          justifyContent: 'space-between',
+          justify: 'space-between',
           alignItems: 'center',
           background: scrolled ? 'rgba(3, 4, 8, 0.92)' : 'rgba(3, 4, 8, 0.6)',
           backdropFilter: 'blur(24px)',
@@ -54,36 +54,32 @@ const Navbar = () => {
           transition: 'all 0.35s ease'
         }}
       >
-        {/* Sleek High-Tech Executive Brand Logo */}
-        <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
+        {/* Ultra-Classy Professional Brand Logo */}
+        <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', textDecoration: 'none' }}>
           <div style={{
-            width: '38px', height: '38px',
-            borderRadius: '11px',
+            width: '40px', height: '40px',
+            borderRadius: '12px',
             background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
             display: 'flex', justifyContent: 'center', alignItems: 'center',
             color: '#fff',
-            fontFamily: 'var(--font-heading)',
-            fontWeight: 900,
-            fontSize: '1.05rem',
-            boxShadow: '0 0 22px rgba(59, 130, 246, 0.45)',
-            border: '1px solid rgba(255, 255, 255, 0.25)'
+            boxShadow: '0 0 24px rgba(59, 130, 246, 0.45)',
+            border: '1px solid rgba(255, 255, 255, 0.28)'
           }}>
-            SR
+            <Code2 size={22} />
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ 
               fontFamily: 'var(--font-heading)', 
               fontWeight: 800, 
-              fontSize: '1.15rem', 
-              letterSpacing: '0.08em',
+              fontSize: '1.22rem', 
+              letterSpacing: '0.06em',
               textTransform: 'uppercase',
               color: '#ffffff'
             }}>
-              SR <span className="text-gradient">// PORTFOLIO</span>
+              SAYANI <span className="text-gradient">ROY</span>
             </span>
-            <span style={{ fontSize: '0.62rem', color: 'var(--accent-emerald)', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 700, marginTop: '-3px', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-              <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#10b981', display: 'inline-block', boxShadow: '0 0 8px #10b981' }} />
-              BACKEND ARCHITECT
+            <span style={{ fontSize: '0.65rem', color: 'var(--accent-cyan)', letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 700, marginTop: '-2px' }}>
+              Software & Backend Architecture
             </span>
           </div>
         </a>

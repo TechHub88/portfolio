@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone, User, Server, Bot, Cpu, Database, Code2 } from 'lucide-react';
+import { ArrowRight, Mail, Phone, User, Server, Bot, Cpu, Database, Code2, MessageCircle, PhoneCall, Globe } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -64,53 +64,104 @@ const Hero = () => {
               Passionate Backend Developer with 2 years of IT industry experience engineering scalable server architectures, enterprise API configurations, and AI-driven microservices. Transitioning architectures to support high-throughput data solutions.
             </p>
             
-            {/* Action Buttons */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '2.4rem' }}>
-              <a href="#projects" className="btn btn-accent">
-                View Featured Work <ArrowRight size={18} />
+            {/* Sleek 1-Line Action Buttons */}
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '2.2rem' }}>
+              <a href="#projects" className="btn btn-accent" style={{ padding: '0.65rem 1.25rem', fontSize: '0.86rem', whiteSpace: 'nowrap' }}>
+                View Work <ArrowRight size={16} />
               </a>
-              <a href="/sayaniroy_resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ borderColor: 'rgba(59, 130, 246, 0.4)', color: '#60a5fa' }}>
-                View Resume PDF ↗
+              <a href="/sayaniroy_resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.65rem 1.15rem', fontSize: '0.86rem', borderColor: 'rgba(59, 130, 246, 0.4)', color: '#60a5fa', whiteSpace: 'nowrap' }}>
+                Resume PDF ↗
               </a>
-              <a href="#contact" className="btn btn-outline">
+              <a href="#contact" className="btn btn-outline" style={{ padding: '0.65rem 1.15rem', fontSize: '0.86rem', whiteSpace: 'nowrap' }}>
                 Contact Me
               </a>
             </div>
 
-            {/* Direct Contact Links */}
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', paddingTop: '1.2rem', borderTop: '1px solid var(--border-color)' }}>
-              <a 
+            {/* Ultra-Classy 1-Line Social & Contact Icons Strip (Icons Only) */}
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap', paddingTop: '1.2rem', borderTop: '1px solid var(--border-color)' }}>
+              <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginRight: '0.3rem' }}>
+                Connect:
+              </span>
+
+              {/* GitHub Icon */}
+              <motion.a 
+                whileHover={{ scale: 1.12, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 href="https://github.com/TechHub88/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="btn-outline" 
-                style={{ padding: '0.55rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
+                title="GitHub Profile"
+                style={{ padding: '0.65rem', borderRadius: '12px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.12)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                <Code2 size={16} color="#8b5cf6" /> GitHub
-              </a>
-              <a 
+                <Code2 size={19} color="#a78bfa" />
+              </motion.a>
+
+              {/* LinkedIn SVG Icon */}
+              <motion.a 
+                whileHover={{ scale: 1.12, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 href="https://www.linkedin.com/in/sayani-roy-36a167197/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="btn-outline" 
-                style={{ padding: '0.55rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
+                title="LinkedIn Profile"
+                style={{ padding: '0.65rem', borderRadius: '12px', background: 'rgba(0, 119, 181, 0.14)', border: '1px solid rgba(0, 119, 181, 0.4)', color: '#0077b5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                <User size={16} color="#0077b5" /> LinkedIn
-              </a>
-              <a 
-                href="mailto:nisharoy3363@gmail.com" 
-                className="btn-outline" 
-                style={{ padding: '0.55rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </motion.a>
+
+              {/* WhatsApp Direct Chat Icon */}
+              <motion.a 
+                whileHover={{ scale: 1.12, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://wa.me/919749555376" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                title="WhatsApp Direct Chat (+91 9749555376)"
+                style={{ padding: '0.65rem', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.14)', border: '1px solid rgba(16, 185, 129, 0.4)', color: '#34d399', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                <Mail size={16} color="var(--accent-primary)" /> nisharoy3363@gmail.com
-              </a>
-              <a 
+                <MessageCircle size={19} color="#34d399" />
+              </motion.a>
+
+              {/* Facebook SVG Icon */}
+              <motion.a 
+                whileHover={{ scale: 1.12, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                title="Facebook Profile"
+                style={{ padding: '0.65rem', borderRadius: '12px', background: 'rgba(24, 119, 242, 0.14)', border: '1px solid rgba(24, 119, 242, 0.4)', color: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </motion.a>
+
+              {/* Direct Phone Call Icon */}
+              <motion.a 
+                whileHover={{ scale: 1.12, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 href="tel:+919749555376" 
-                className="btn-outline" 
-                style={{ padding: '0.55rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
+                title="Phone Call (+91 9749555376)"
+                style={{ padding: '0.65rem', borderRadius: '12px', background: 'rgba(245, 158, 11, 0.14)', border: '1px solid rgba(245, 158, 11, 0.4)', color: '#fbbf24', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                <Phone size={16} color="var(--accent-emerald)" /> +91 9749555376
-              </a>
+                <PhoneCall size={19} color="#fbbf24" />
+              </motion.a>
+
+              {/* Email Icon */}
+              <motion.a 
+                whileHover={{ scale: 1.12, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                href="mailto:nisharoy3363@gmail.com" 
+                title="Email (nisharoy3363@gmail.com)"
+                style={{ padding: '0.65rem', borderRadius: '12px', background: 'rgba(236, 72, 153, 0.14)', border: '1px solid rgba(236, 72, 153, 0.4)', color: '#f472b6', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                <Mail size={19} color="#f472b6" />
+              </motion.a>
             </div>
 
           </motion.div>
@@ -129,69 +180,51 @@ const Hero = () => {
                 <Server size={14} />
               </div>
               <div>
-                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Experience</div>
-                <div style={{ fontSize: '0.8rem', color: '#fff', fontWeight: 600 }}>2+ Years IT</div>
+                <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>Experience</div>
+                <div style={{ fontWeight: 700, color: '#fff' }}>2+ Years IT</div>
               </div>
             </div>
 
             {/* FLOATING BADGE 2 (Top-Right) */}
             <div className="floating-badge animate-float-bottom" style={{ top: '20px', right: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem' }}>
-              <div style={{ padding: '0.25rem', background: 'rgba(6, 182, 212, 0.2)', borderRadius: '6px', color: '#22d3ee' }}>
+              <div style={{ padding: '0.25rem', background: 'rgba(139, 92, 246, 0.2)', borderRadius: '6px', color: '#a78bfa' }}>
                 <Bot size={14} />
               </div>
               <div>
-                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>AI & LLMs</div>
-                <div style={{ fontSize: '0.8rem', color: '#fff', fontWeight: 600 }}>OpenAI & Gemini</div>
+                <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>AI & LLMs</div>
+                <div style={{ fontWeight: 700, color: '#fff' }}>OpenAI & Gemini</div>
               </div>
             </div>
 
             {/* FLOATING BADGE 3 (Bottom-Left) */}
-            <div className="floating-badge animate-float-bottom" style={{ bottom: '30px', left: '-20px', padding: '0.45rem 0.85rem', fontSize: '0.78rem' }}>
+            <div className="floating-badge animate-float-bottom" style={{ bottom: '20px', left: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem' }}>
               <div style={{ padding: '0.25rem', background: 'rgba(16, 185, 129, 0.2)', borderRadius: '6px', color: '#34d399' }}>
                 <Cpu size={14} />
               </div>
               <div>
-                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Architecture</div>
-                <div style={{ fontSize: '0.8rem', color: '#fff', fontWeight: 600 }}>Laravel & Node.js</div>
+                <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>Architecture</div>
+                <div style={{ fontWeight: 700, color: '#fff' }}>Laravel & Node.js</div>
               </div>
             </div>
 
             {/* FLOATING BADGE 4 (Bottom-Right) */}
-            <div className="floating-badge animate-float-top" style={{ bottom: '-10px', right: '-10px', padding: '0.45rem 0.85rem', fontSize: '0.78rem' }}>
-              <div style={{ padding: '0.25rem', background: 'rgba(244, 63, 94, 0.2)', borderRadius: '6px', color: '#fb7185' }}>
+            <div className="floating-badge animate-float-top" style={{ bottom: '-10px', right: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem' }}>
+              <div style={{ padding: '0.25rem', background: 'rgba(236, 72, 153, 0.2)', borderRadius: '6px', color: '#f472b6' }}>
                 <Database size={14} />
               </div>
               <div>
-                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Data Solutions</div>
-                <div style={{ fontSize: '0.8rem', color: '#fff', fontWeight: 600 }}>SQL & Power BI</div>
+                <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>Data Solutions</div>
+                <div style={{ fontWeight: 700, color: '#fff' }}>SQL & Power BI</div>
               </div>
             </div>
 
-            {/* Compact Portrait Frame (Max-Width 280px) */}
-            <div className="hero-portrait-wrapper" style={{ maxWidth: '285px', borderRadius: '22px' }}>
-              <div className="hero-portrait-inner" style={{ borderRadius: '20px' }}>
-                <img 
-                  src="/profile.jpg" 
-                  alt="Sayani Roy - Backend Developer" 
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover'
-                  }}
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = `
-                      <div style="display:flex; flex-direction:column; gap:1rem; align-items:center; justify-content:center; height:100%; color:var(--text-muted); font-size:0.85rem; text-align:center; padding:1.5rem; background:var(--surface-color);">
-                        <div style="padding:1.2rem; background:rgba(59, 130, 246, 0.12); borderRadius:50%; color:var(--accent-primary);">
-                          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                        </div>
-                        <div style="font-weight:700; color:#fff; font-size:1.15rem;">Sayani Roy</div>
-                        <span style="color:var(--accent-primary); font-weight:600; font-size:0.8rem;">Backend Developer</span>
-                      </div>
-                    `;
-                  }}
-                />
-              </div>
+            {/* Profile Avatar Frame */}
+            <div className="profile-frame" style={{ width: '320px', height: '390px', borderRadius: '24px' }}>
+              <img 
+                src="/profile.jpg" 
+                alt="Sayani Roy - Backend Developer" 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </div>
 
           </motion.div>
