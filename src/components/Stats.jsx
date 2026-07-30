@@ -9,8 +9,8 @@ const statsData = [
     desc: 'Engineering scalable backend servers at WebMantra & Octagen.'
   },
   {
-    target: '3+',
-    suffix: 'Enterprise',
+    target: '10+',
+    suffix: 'Core',
     label: 'Production Projects',
     desc: 'Multi-domain E-Commerce, AI Chatbots, & Webhook Infrastructure.'
   },

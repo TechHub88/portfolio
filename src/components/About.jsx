@@ -85,7 +85,7 @@ const About = () => {
             </motion.div>
 
             <motion.div whileHover={{ y: -5 }} className="card" style={{ padding: '2rem 1.5rem', textAlign: 'center' }}>
-              <h3 style={{ fontSize: '3.2rem', color: '#fff', marginBottom: '0.2rem', lineHeight: 1, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>3</h3>
+              <h3 style={{ fontSize: '3.2rem', color: '#fff', marginBottom: '0.2rem', lineHeight: 1, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>10+</h3>
               <p style={{ color: 'var(--accent-secondary)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.4rem' }}>Core Projects</p>
               <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Enterprise E-Commerce Platforms</p>
             </motion.div>
