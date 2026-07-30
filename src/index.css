@@ -34,6 +34,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -43,6 +44,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
+  width: 100%;
 }
 
 /* Background Subtle Mesh & Glow Orbs */
@@ -85,22 +87,24 @@ a {
   background-clip: text;
 }
 
+/* Container & Layout - Optimized to eliminate side gaps */
 .container {
-  max-width: 1240px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 section {
-  padding: 7.5rem 0;
+  padding: 6.5rem 0;
   position: relative;
 }
 
 .section-title {
-  font-size: 2.6rem;
-  margin-bottom: 1rem;
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+  margin-bottom: 0.8rem;
   text-align: center;
   position: relative;
   font-weight: 800;
@@ -109,8 +113,8 @@ section {
 .section-subtitle {
   text-align: center;
   color: var(--text-muted);
-  max-width: 680px;
-  margin: 0 auto 4rem auto;
+  max-width: 720px;
+  margin: 0 auto 3.5rem auto;
   font-size: 1.05rem;
   line-height: 1.6;
 }
@@ -201,12 +205,6 @@ section {
   align-items: center;
 }
 
-@media (max-width: 992px) {
-  .webmantra-card-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .webmantra-thumbnail-wrapper {
   background: var(--surface-light);
   border: 1px solid var(--border-color);
@@ -242,7 +240,7 @@ section {
   padding: 2px 8px;
   overflow: hidden;
   text-overflow: ellipsis;
-  whiteSpace: nowrap;
+  white-space: nowrap;
 }
 
 .webmantra-img-box {
@@ -520,24 +518,101 @@ section {
   line-height: 1.5;
 }
 
-/* Responsive fixes */
+/* ============================================================
+   RESPONSIVE MOBILE DESIGN SYSTEM & SIDE-GAP ELIMINATION
+   ============================================================ */
+
 @media (max-width: 992px) {
+  .webmantra-card-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
   .stats-box-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  section { padding: 4.5rem 0; }
-  .section-title { font-size: 2.1rem; }
-  .floating-badge { display: none; }
+  .container {
+    padding: 0 1rem; /* Compact padding - no large side gaps on mobile */
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+
+  .section-title {
+    font-size: 1.95rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .card {
+    padding: 1.35rem 1.1rem;
+    border-radius: 16px;
+  }
+
+  .webmantra-project-card {
+    padding: 1.35rem 1.1rem;
+    border-radius: 18px;
+  }
+
+  .project-card-number {
+    font-size: 3rem;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .floating-badge {
+    display: none;
+  }
+
   .stats-box-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
+
   .desktop-nav {
     display: none !important;
   }
+
   .mobile-menu-btn {
     display: flex !important;
+  }
+
+  /* Experience Mobile Responsive Line Fix */
+  .experience-row {
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+  }
+
+  .experience-icon-col {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.8rem !important;
+  }
+
+  .experience-line {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.85rem 1.2rem;
+  }
+
+  .tech-pill {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.78rem;
   }
 }

@@ -39,17 +39,18 @@ const Experience = () => {
           Over 2 years of hands-on experience in backend engineering, API microservices, and enterprise server architecture.
         </p>
         
-        <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+        <div style={{ width: '100%', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
           {experiences.map((exp, idx) => (
             <motion.div 
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
-              style={{ display: 'flex', gap: '1.5rem' }}
+              className="experience-row"
+              style={{ display: 'flex', gap: '1.5rem', width: '100%' }}
             >
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div className="experience-icon-col" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <div style={{ 
                   width: '52px', height: '52px', 
                   borderRadius: '14px', 
@@ -61,20 +62,20 @@ const Experience = () => {
                   <Briefcase size={24} color="#fff" />
                 </div>
                 {idx !== experiences.length - 1 && (
-                  <div style={{ width: '2px', height: '100%', background: 'var(--border-color)', flexGrow: 1, marginTop: '0.8rem' }}></div>
+                  <div className="experience-line" style={{ width: '2px', height: '100%', background: 'var(--border-color)', flexGrow: 1, marginTop: '0.8rem' }}></div>
                 )}
               </div>
               
-              <div className="card" style={{ flexGrow: 1, padding: '2.2rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.2rem' }}>
+              <div className="card" style={{ flexGrow: 1, width: '100%' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.8rem', marginBottom: '1.2rem' }}>
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', flexWrap: 'wrap', marginBottom: '0.4rem' }}>
-                      <h3 style={{ fontSize: '1.4rem', color: '#fff' }}>{exp.role}</h3>
+                      <h3 style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.4rem)', color: '#fff' }}>{exp.role}</h3>
                       <span className="badge">{exp.badge}</span>
                     </div>
-                    <h4 style={{ color: 'var(--accent-primary)', fontWeight: 600, fontSize: '1.05rem' }}>{exp.company}</h4>
+                    <h4 style={{ color: 'var(--accent-primary)', fontWeight: 600, fontSize: '0.98rem' }}>{exp.company}</h4>
                   </div>
-                  <div style={{ color: 'var(--text-muted)', fontSize: '0.88rem', display: 'flex', flexDirection: 'column', gap: '0.3rem', textAlign: 'right' }}>
+                  <div style={{ color: 'var(--text-muted)', fontSize: '0.84rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
                     <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}><Calendar size={14} /> {exp.period}</span>
                     <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}><MapPin size={14} /> {exp.location}</span>
                   </div>
@@ -82,7 +83,7 @@ const Experience = () => {
                 
                 <ul style={{ listStyle: 'none', padding: 0, color: 'var(--text-muted)', display: 'flex', flexDirection: 'column', gap: '0.8rem', marginBottom: '1.5rem' }}>
                   {exp.points.map((point, pIdx) => (
-                    <li key={pIdx} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start', lineHeight: 1.6, fontSize: '0.98rem' }}>
+                    <li key={pIdx} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start', lineHeight: 1.6, fontSize: '0.94rem' }}>
                       <CheckCircle2 size={18} color="var(--accent-emerald)" style={{ flexShrink: 0, marginTop: '0.25rem' }} />
                       <span>{point}</span>
                     </li>
