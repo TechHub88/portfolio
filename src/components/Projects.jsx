@@ -63,13 +63,13 @@ const projects = [
 // TYPEWRITER COMPONENT FOR PROJECT TITLES
 const ProjectTitleTypewriter = ({ title }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: true });
   const [displayedText, setDisplayedText] = useState('');
-  const [isTyping, setIsTyping] = useState(false);
+  const [started, setStarted] = useState(false);
 
   useEffect(() => {
-    if (isInView && !isTyping) {
-      setIsTyping(true);
+    if (isInView && !started) {
+      setStarted(true);
       let currentIndex = 0;
       const interval = setInterval(() => {
         if (currentIndex <= title.length) {
@@ -77,18 +77,17 @@ const ProjectTitleTypewriter = ({ title }) => {
           currentIndex++;
         } else {
           clearInterval(interval);
-          setIsTyping(false);
         }
-      }, 35); // Typing speed per letter
+      }, 25);
       return () => clearInterval(interval);
     }
-  }, [isInView, title, isTyping]);
+  }, [isInView, title, started]);
 
   return (
-    <h3 ref={ref} style={{ fontSize: 'clamp(1.25rem, 2.2vw, 1.6rem)', color: '#fff', marginBottom: '0.4rem', fontWeight: 800, minHeight: '2rem' }}>
-      {displayedText}
-      {displayedText.length < title.length && (
-        <span style={{ color: '#f59e0b', marginLeft: '2px', fontWeight: 300, animation: 'pulse 1s infinite' }}>|</span>
+    <h3 ref={ref} style={{ fontSize: 'clamp(1.25rem, 2.2vw, 1.6rem)', color: '#fff', marginBottom: '0.4rem', fontWeight: 800, minHeight: '2.2rem' }}>
+      {started ? displayedText : title}
+      {started && displayedText.length < title.length && (
+        <span style={{ color: '#f59e0b', marginLeft: '2px', fontWeight: 300 }}>|</span>
       )}
     </h3>
   );
@@ -165,29 +164,10 @@ const Projects = () => {
                   </svg>
                 </div>
 
-                {/* DOODLE 2: Floating Code Badge Sticker */}
-                <div style={{
-                  position: 'absolute',
-                  top: '-12px',
-                  left: '24px',
-                  zIndex: 5,
-                  background: '#090a0f',
-                  border: '1.5px dashed #f59e0b',
-                  borderRadius: '10px',
-                  padding: '0.25rem 0.65rem',
-                  fontSize: '0.74rem',
-                  color: '#fbbf24',
-                  fontWeight: 700,
-                  boxShadow: '0 6px 15px rgba(0,0,0,0.5)',
-                  transform: 'rotate(-2deg)'
-                }}>
-                  ✨ {project.doodleTag}
-                </div>
-
                 {/* Number Watermark Badge */}
                 <div className="project-card-number">{project.id}</div>
 
-                <div className="webmantra-card-grid" style={{ paddingTop: '0.6rem' }}>
+                <div className="webmantra-card-grid">
                   
                   {/* Left Details */}
                   <div style={{ zIndex: 2 }}>
@@ -197,6 +177,18 @@ const Projects = () => {
                       </div>
                       <span className="badge" style={{ background: 'rgba(56, 189, 248, 0.1)', borderColor: 'rgba(56, 189, 248, 0.25)', color: '#38bdf8' }}>
                         {project.badge}
+                      </span>
+                      {/* DOODLE 2: Clean Code Badge Sticker */}
+                      <span style={{
+                        background: '#090a0f',
+                        border: '1.5px dashed #f59e0b',
+                        borderRadius: '10px',
+                        padding: '0.2rem 0.65rem',
+                        fontSize: '0.74rem',
+                        color: '#fbbf24',
+                        fontWeight: 700
+                      }}>
+                        ✨ {project.doodleTag}
                       </span>
                     </div>
 
