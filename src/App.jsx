@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import TechMarquee from './components/TechMarquee'
 import Stats from './components/Stats'
 import About from './components/About'
 import Skills from './components/Skills'
@@ -10,15 +9,18 @@ import Projects from './components/Projects'
 import Education from './components/Education'
 import ResumeView from './components/ResumeView'
 import Contact from './components/Contact'
+import FloatingDock from './components/FloatingDock'
+import ContactModal from './components/ContactModal'
 import './index.css'
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <>
-      <Navbar />
+      <Navbar onOpenModal={() => setIsModalOpen(true)} />
       <main>
-        <Hero />
-        <TechMarquee />
+        <Hero onOpenModal={() => setIsModalOpen(true)} />
         <Stats />
         <About />
         <Skills />
@@ -28,6 +30,11 @@ function App() {
         <ResumeView />
         <Contact />
       </main>
+
+      {/* Floating Action Dock & Smart Contact Popup Modal */}
+      <FloatingDock onOpenModal={() => setIsModalOpen(true)} />
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
       <footer style={{ textAlign: 'center', padding: '2.5rem 2rem', borderTop: '1px solid var(--border-color)', color: 'var(--text-muted)', fontSize: '0.9rem', background: 'var(--surface-color)' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           <p>&copy; {new Date().getFullYear()} Sayani Roy. All rights reserved.</p>

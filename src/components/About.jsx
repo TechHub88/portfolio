@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Database, ShieldCheck, Server, Bot } from 'lucide-react';
+import { Database, ShieldCheck, Server, Bot, MapPin, Award, CheckCircle2 } from 'lucide-react';
 
 const CountUp = ({ endValue, duration = 2, hasPlus = false }) => {
   const [count, setCount] = useState(0);
@@ -75,7 +75,7 @@ const coreStrengths = [
 
 const About = () => {
   return (
-    <section id="about" style={{ position: 'relative', overflow: 'hidden' }}>
+    <section id="about" style={{ position: 'relative', overflow: 'hidden', padding: '6rem 0' }}>
       
       {/* Glow Background */}
       <div style={{
@@ -84,8 +84,8 @@ const About = () => {
         right: '5%',
         width: '450px',
         height: '450px',
-        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%)',
-        filter: 'blur(70px)',
+        background: 'radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%)',
+        filter: 'blur(80px)',
         zIndex: 0,
         pointerEvents: 'none'
       }} />
@@ -96,8 +96,51 @@ const About = () => {
           Engineering scalable backend microservices, robust API endpoints, and intelligent data-driven solutions.
         </p>
 
+        {/* SECOND CREATIVE PORTRAIT SHOWCASE CARD */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="card"
+          style={{
+            marginBottom: '3.5rem',
+            padding: '2rem',
+            borderColor: 'rgba(245, 158, 11, 0.35)',
+            background: 'rgba(15, 18, 28, 0.9)',
+            boxShadow: '0 20px 50px -15px rgba(245, 158, 11, 0.18)',
+            borderRadius: '24px'
+          }}
+        >
+          <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2rem', alignItems: 'center' }}>
+            {/* Portrait Frame */}
+            <div style={{ width: '130px', height: '130px', borderRadius: '20px', overflow: 'hidden', border: '2px solid rgba(245, 158, 11, 0.5)', flexShrink: 0, boxShadow: '0 10px 25px rgba(0,0,0,0.5)' }}>
+              <img src="/profile.jpg" alt="Sayani Roy - Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.3rem', flexWrap: 'wrap' }}>
+                <span className="badge" style={{ background: 'rgba(245, 158, 11, 0.14)', color: '#fbbf24', borderColor: 'rgba(245, 158, 11, 0.35)' }}>
+                  Backend Architect
+                </span>
+                <span style={{ fontSize: '0.82rem', color: 'var(--accent-emerald)', display: 'flex', alignItems: 'center', gap: '0.3rem', fontWeight: 600 }}>
+                  <CheckCircle2 size={14} /> 2+ Years IT Industry Experience
+                </span>
+              </div>
+
+              <h3 style={{ fontSize: '1.45rem', color: '#fff', fontWeight: 800, marginBottom: '0.4rem' }}>
+                Sayani Roy <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 500 }}>(MCA & BCA)</span>
+              </h3>
+
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
+                Engineering production-grade PHP Laravel microservices, Node.js AI support bots, and secure Razorpay/WhatsApp API pipelines. Transitioning core architectures toward high-throughput Data Engineering.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Profile Narrative & 4-Card Metrics Grid */}
-        <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '3.5rem', marginBottom: '5rem' }}>
+        <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '3.5rem', marginBottom: '4.5rem' }}>
           
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -118,7 +161,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* 4 Metrics Cards Grid (Matching Screenshot 2) */}
+          {/* 4 Metrics Cards Grid */}
           <motion.div 
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -126,7 +169,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
             style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.2rem' }}
           >
-            <motion.div whileHover={{ y: -5 }} className="card" style={{ padding: '2rem 1.5rem', textAlign: 'center', borderColor: 'rgba(59, 130, 246, 0.3)' }}>
+            <motion.div whileHover={{ y: -5 }} className="card" style={{ padding: '2rem 1.5rem', textAlign: 'center', borderColor: 'rgba(56, 189, 248, 0.35)' }}>
               <h3 style={{ fontSize: '3.2rem', color: '#fff', marginBottom: '0.2rem', lineHeight: 1, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>
                 <CountUp endValue={2} hasPlus={true} />
               </h3>
@@ -134,7 +177,7 @@ const About = () => {
               <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>WebMantra & Octagen Infotech</p>
             </motion.div>
 
-            <motion.div whileHover={{ y: -5 }} className="card" style={{ padding: '2rem 1.5rem', textAlign: 'center' }}>
+            <motion.div whileHover={{ y: -5 }} className="card" style={{ padding: '2rem 1.5rem', textAlign: 'center', borderColor: 'rgba(245, 158, 11, 0.35)' }}>
               <h3 style={{ fontSize: '3.2rem', color: '#fff', marginBottom: '0.2rem', lineHeight: 1, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>
                 <CountUp endValue={10} hasPlus={true} />
               </h3>
@@ -178,7 +221,7 @@ const About = () => {
                   <div style={{
                     width: '50px', height: '50px',
                     borderRadius: '12px',
-                    background: 'rgba(59, 130, 246, 0.12)',
+                    background: 'rgba(56, 189, 248, 0.12)',
                     display: 'flex', justifyContent: 'center', alignItems: 'center',
                     marginBottom: '1.2rem',
                     color: 'var(--accent-primary)'

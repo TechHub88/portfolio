@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Code2, Menu, X, User, Mail, Phone, ChevronRight, Sparkles } from 'lucide-react';
 
-const Navbar = () => {
+const Navbar = ({ onOpenModal }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -91,9 +91,9 @@ const Navbar = () => {
               {item.name}
             </a>
           ))}
-          <a href="#contact" className="btn btn-accent" style={{ padding: '0.55rem 1.4rem', fontSize: '0.84rem', borderRadius: '10px' }}>
+          <button onClick={onOpenModal} className="btn btn-accent" style={{ padding: '0.55rem 1.4rem', fontSize: '0.84rem', borderRadius: '10px', cursor: 'pointer' }}>
             <Send size={14} /> Contact Me
-          </a>
+          </button>
         </div>
 
         {/* Mobile Menu Toggle Triple-Bar Button */}

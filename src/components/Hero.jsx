@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail, Phone, User, Server, Bot, Cpu, Database, Code2, MessageCircle, PhoneCall, Globe, Sparkles } from 'lucide-react';
 
-const Hero = () => {
+const Hero = ({ onOpenModal }) => {
   return (
     <section id="hero" style={{ minHeight: '92vh', display: 'flex', alignItems: 'center', paddingTop: '100px', paddingBottom: '4rem', position: 'relative' }}>
       
@@ -79,9 +79,9 @@ const Hero = () => {
               <a href="/sayaniroy_resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.65rem 1.15rem', fontSize: '0.86rem', borderColor: 'rgba(56, 189, 248, 0.4)', color: '#38bdf8', whiteSpace: 'nowrap' }}>
                 Resume PDF ↗
               </a>
-              <a href="#contact" className="btn btn-outline" style={{ padding: '0.65rem 1.15rem', fontSize: '0.86rem', whiteSpace: 'nowrap' }}>
+              <button onClick={onOpenModal} className="btn btn-outline" style={{ padding: '0.65rem 1.15rem', fontSize: '0.86rem', whiteSpace: 'nowrap', cursor: 'pointer' }}>
                 Contact Me
-              </a>
+              </button>
             </div>
 
             {/* Ultra-Classy 1-Line Social & Contact Icons Strip */}
