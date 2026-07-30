@@ -29,7 +29,8 @@ const Navbar = () => {
     { name: 'Experience', href: '#experience', badge: '03' },
     { name: 'Projects', href: '#projects', badge: '04' },
     { name: 'Education', href: '#education', badge: '05' },
-    { name: 'Contact', href: '#contact', badge: '06' },
+    { name: 'Resume', href: '#resume', badge: '06' },
+    { name: 'Contact', href: '#contact', badge: '07' },
   ];
 
   return (

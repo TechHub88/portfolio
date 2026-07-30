@@ -69,6 +69,9 @@ const Hero = () => {
               <a href="#projects" className="btn btn-accent">
                 View Featured Work <ArrowRight size={18} />
               </a>
+              <a href="/sayaniroy_resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ borderColor: 'rgba(59, 130, 246, 0.4)', color: '#60a5fa' }}>
+                View Resume PDF ↗
+              </a>
               <a href="#contact" className="btn btn-outline">
                 Contact Me
               </a>
