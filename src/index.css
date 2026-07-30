@@ -577,8 +577,27 @@ section {
     right: 1rem;
   }
 
+  .profile-frame {
+    width: 220px !important;
+    max-width: 220px !important;
+    height: 275px !important;
+  }
+
   .floating-badge {
-    display: none;
+    display: flex !important;
+    padding: 0.32rem 0.6rem !important;
+    font-size: 0.72rem !important;
+    gap: 0.4rem !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .floating-badge > div:first-child {
+    padding: 0.18rem !important;
+  }
+
+  .floating-badge svg {
+    width: 12px !important;
+    height: 12px !important;
   }
 
   .stats-box-grid {
