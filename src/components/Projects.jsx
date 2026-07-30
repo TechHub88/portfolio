@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ShoppingBag, Bot, MessageSquare, CheckCircle2, ExternalLink, Sparkles } from 'lucide-react';
+import { ShoppingBag, Bot, MessageSquare, CheckCircle2, ExternalLink } from 'lucide-react';
 
 const projects = [
   {
@@ -9,7 +9,6 @@ const projects = [
     link: 'https://mafatlaluniforms.com/',
     role: 'Core Backend Developer & AI Architect',
     tag: 'Multi-Vendor & AI',
-    doodleTag: '{ multi_vendor: true }',
     description: 'Engineered an enterprise multi-vendor e-commerce platform handling cross-segment product inventories and custom fabric modules.',
     highlights: [
       'Engineered an enterprise multi-vendor e-commerce platform handling cross-segment product inventories.',
@@ -28,7 +27,6 @@ const projects = [
     link: 'https://teavera.in/',
     role: 'Backend Architect & Messaging Lead',
     tag: 'Webhooks & Messaging',
-    doodleTag: '{ whatsapp_webhooks: true }',
     description: 'Built transactional messaging infrastructure deploying multi-point automated webhooks linked with core client systems.',
     highlights: [
       'Built transactional messaging infrastructure deploying multi-point automated webhooks linked with core client systems.',
@@ -46,7 +44,6 @@ const projects = [
     link: 'https://vshop.vridhee.com/',
     role: 'Lead Backend & Security Engineer',
     tag: 'E-Commerce & Security',
-    doodleTag: '{ kyc_security: true }',
     description: 'Multi-category enterprise e-commerce platform spanning Wellness, Academics, Deep Tech, Space, Climate, Technology, Games, and Skills.',
     highlights: [
       'Engineered PHP & Laravel core backend architecture powering multi-segment seller portals, product inventories, and multi-domain catalogs.',
@@ -180,18 +177,6 @@ const Projects = () => {
                       </div>
                       <span className="badge" style={{ background: 'rgba(56, 189, 248, 0.1)', borderColor: 'rgba(56, 189, 248, 0.25)', color: '#38bdf8' }}>
                         {project.badge}
-                      </span>
-                      {/* DOODLE 2: Clean Code Badge Sticker */}
-                      <span style={{
-                        background: '#090a0f',
-                        border: '1.5px dashed #f59e0b',
-                        borderRadius: '10px',
-                        padding: '0.2rem 0.65rem',
-                        fontSize: '0.74rem',
-                        color: '#fbbf24',
-                        fontWeight: 700
-                      }}>
-                        ✨ {project.doodleTag}
                       </span>
                     </div>
 
