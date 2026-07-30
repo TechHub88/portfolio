@@ -84,14 +84,14 @@ const Navbar = ({ onOpenModal }) => {
           </div>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.8rem' }} className="desktop-nav">
+        {/* Desktop Navigation Links - Compact Right Alignment */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.1rem', marginLeft: 'auto' }} className="desktop-nav">
           {navItems.map((item) => (
-            <a key={item.name} href={item.href} className="nav-link" style={{ fontSize: '0.88rem' }}>
+            <a key={item.name} href={item.href} className="nav-link" style={{ fontSize: '0.85rem', padding: '0.4rem 0.6rem' }}>
               {item.name}
             </a>
           ))}
-          <button onClick={onOpenModal} className="btn btn-accent" style={{ padding: '0.55rem 1.4rem', fontSize: '0.84rem', borderRadius: '10px', cursor: 'pointer' }}>
+          <button onClick={onOpenModal} className="btn btn-accent" style={{ padding: '0.55rem 1.3rem', fontSize: '0.84rem', borderRadius: '10px', cursor: 'pointer', marginLeft: '0.4rem' }}>
             <Send size={14} /> Contact Me
           </button>
         </div>
