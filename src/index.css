@@ -622,10 +622,37 @@ section {
   }
 
   .floating-dock-container {
-    bottom: 12px !important;
-    right: 12px !important;
-    padding: 0.5rem 0.4rem !important;
-    gap: 0.45rem !important;
+    bottom: 14px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    flex-direction: row !important;
+    padding: 0.45rem 0.85rem !important;
+    border-radius: 999px !important;
+    gap: 0.55rem !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.9), 0 0 20px rgba(245, 158, 11, 0.3) !important;
+  }
+
+  #hero {
+    padding-top: 85px !important;
+    padding-bottom: 2rem !important;
+    text-align: center !important;
+  }
+
+  #hero .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    justify-items: center !important;
+  }
+
+  #hero h1, #hero h2, #hero p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  #hero div[style*="display: flex"] {
+    justify-content: center !important;
   }
 
   .profile-frame {
