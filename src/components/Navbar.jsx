@@ -44,7 +44,7 @@ const Navbar = ({ onOpenModal }) => {
           top: 0, left: 0, right: 0,
           padding: scrolled ? '0.8rem 1.5rem' : '1.2rem 1.5rem',
           display: 'flex',
-          justify: 'space-between',
+          justifyContent: 'space-between',
           alignItems: 'center',
           background: scrolled ? 'rgba(3, 4, 8, 0.92)' : 'rgba(3, 4, 8, 0.6)',
           backdropFilter: 'blur(24px)',
@@ -103,6 +103,7 @@ const Navbar = ({ onOpenModal }) => {
           aria-label="Open Mobile Menu"
           style={{
             display: 'none',
+            marginLeft: 'auto',
             background: 'rgba(59, 130, 246, 0.12)',
             border: '1px solid rgba(59, 130, 246, 0.3)',
             color: '#60a5fa',
