@@ -67,7 +67,7 @@ const Hero = () => {
             {/* Sleek 1-Line Action Buttons */}
             <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '2.2rem' }}>
               <a href="#projects" className="btn btn-accent" style={{ padding: '0.65rem 1.25rem', fontSize: '0.86rem', whiteSpace: 'nowrap' }}>
-                View Work <ArrowRight size={16} />
+                View My Work <ArrowRight size={16} />
               </a>
               <a href="/sayaniroy_resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.65rem 1.15rem', fontSize: '0.86rem', borderColor: 'rgba(59, 130, 246, 0.4)', color: '#60a5fa', whiteSpace: 'nowrap' }}>
                 Resume PDF ↗
