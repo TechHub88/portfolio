@@ -49,7 +49,7 @@ const Navbar = ({ onOpenModal }) => {
           background: scrolled ? 'rgba(3, 4, 8, 0.92)' : 'rgba(3, 4, 8, 0.6)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
-          zIndex: 100,
+          zIndex: 1000,
           borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
           transition: 'all 0.35s ease'
         }}

@@ -4,7 +4,7 @@ import { ArrowRight, Mail, Phone, User, Server, Bot, Cpu, Database, Code2, Messa
 
 const Hero = ({ onOpenModal }) => {
   return (
-    <section id="hero" style={{ minHeight: '92vh', display: 'flex', alignItems: 'center', paddingTop: '100px', paddingBottom: '4rem', position: 'relative' }}>
+    <section id="hero" style={{ minHeight: '92vh', display: 'flex', alignItems: 'center', paddingTop: '100px', paddingBottom: '4rem', position: 'relative', overflow: 'hidden' }}>
       
       {/* Background Subtle Designer Mesh */}
       <div style={{
