@@ -95,7 +95,7 @@ const Stats = () => {
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <div className="badge" style={{ marginBottom: '1rem' }}>
             <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-primary)', display: 'inline-block' }} />
-            Our Work
+            My Work
           </div>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 800, color: '#ffffff' }}>
             Work speaks through numbers. <span className="text-gradient">What I've achieved so far.</span>
