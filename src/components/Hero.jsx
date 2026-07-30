@@ -1,32 +1,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone, User, Server, Bot, Cpu, Database, Code2 } from 'lucide-react';
+import { ArrowRight, Mail, Phone, User, Server, Bot, Cpu, Code2, Terminal, ShieldCheck, Database, Zap, Activity } from 'lucide-react';
+
+const techStackPills = [
+  { name: 'PHP / Laravel', color: '#f43f5e' },
+  { name: 'Node.js / Express', color: '#10b981' },
+  { name: 'Python / Data', color: '#3b82f6' },
+  { name: 'PostgreSQL / MySQL', color: '#06b6d4' },
+  { name: 'Docker / Redis', color: '#8b5cf6' },
+  { name: 'OpenAI / Gemini LLMs', color: '#a855f7' },
+  { name: 'PowerBI & SQL', color: '#f59e0b' },
+  { name: 'REST & Webhooks', color: '#34d399' }
+];
 
 const Hero = () => {
   return (
-    <section id="hero" style={{ minHeight: '92vh', display: 'flex', alignItems: 'center', paddingTop: '100px', paddingBottom: '4rem' }}>
+    <section id="hero" style={{ minHeight: '94vh', display: 'flex', alignItems: 'center', paddingTop: '110px', paddingBottom: '4.5rem', position: 'relative', overflow: 'hidden' }}>
       
-      {/* Dynamic Background Glow Spheres */}
+      {/* Dynamic Ambient Background Light Spheres */}
       <div style={{
         position: 'absolute',
-        top: '10%',
-        left: '5%',
-        width: '400px',
-        height: '400px',
-        background: 'radial-gradient(circle, rgba(59, 130, 246, 0.16) 0%, transparent 70%)',
-        filter: 'blur(70px)',
+        top: '8%',
+        left: '2%',
+        width: '500px',
+        height: '500px',
+        background: 'radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, transparent 70%)',
+        filter: 'blur(90px)',
         zIndex: 0,
         pointerEvents: 'none'
       }} />
 
       <div style={{
         position: 'absolute',
-        bottom: '10%',
-        right: '5%',
-        width: '380px',
-        height: '380px',
-        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.16) 0%, transparent 70%)',
-        filter: 'blur(70px)',
+        bottom: '8%',
+        right: '2%',
+        width: '480px',
+        height: '480px',
+        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, transparent 70%)',
+        filter: 'blur(90px)',
         zIndex: 0,
         pointerEvents: 'none'
       }} />
@@ -34,7 +45,7 @@ const Hero = () => {
       <div className="container">
         <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '3.5rem' }}>
           
-          {/* Left Text & CTAs */}
+          {/* LEFT: Text & Interactive CTAs */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -46,26 +57,42 @@ const Hero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
               className="badge" 
-              style={{ marginBottom: '1.5rem', background: 'rgba(16, 185, 129, 0.1)', borderColor: 'rgba(16, 185, 129, 0.3)', color: '#34d399' }}
+              style={{ marginBottom: '1.5rem', background: 'rgba(16, 185, 129, 0.12)', borderColor: 'rgba(16, 185, 129, 0.35)', color: '#34d399' }}
             >
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', display: 'inline-block', boxShadow: '0 0 10px #10b981' }} />
-              Available for New Roles & Projects
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', display: 'inline-block', boxShadow: '0 0 12px #10b981' }} />
+              Open for Backend Engineer & Data Roles
             </motion.div>
             
-            <h1 style={{ fontSize: 'clamp(2.6rem, 5vw, 4rem)', lineHeight: 1.1, marginBottom: '1rem', fontWeight: 800 }}>
+            <h1 style={{ fontSize: 'clamp(2.7rem, 5.2vw, 4.2rem)', lineHeight: 1.08, marginBottom: '1rem', fontWeight: 800 }}>
               Hi, I'm <span className="text-gradient">Sayani Roy</span>
             </h1>
             
-            <h2 style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.65rem)', color: 'var(--text-muted)', fontWeight: 500, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
-              Backend Developer & Aspiring Data Engineer
+            <h2 style={{ fontSize: 'clamp(1.18rem, 2.2vw, 1.65rem)', color: '#e2e8f0', fontWeight: 600, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
+              Backend Developer <span style={{ color: 'var(--accent-primary)' }}>•</span> Aspiring Data Engineer
             </h2>
             
-            <p style={{ fontSize: '1.02rem', color: 'var(--text-muted)', marginBottom: '2.2rem', maxWidth: '600px', lineHeight: 1.7 }}>
-              Passionate Backend Developer with 2 years of IT industry experience engineering scalable server architectures, enterprise API configurations, and AI-driven microservices. Transitioning architectures to support high-throughput data solutions.
+            <p style={{ fontSize: '1.03rem', color: 'var(--text-muted)', marginBottom: '2.2rem', maxWidth: '620px', lineHeight: 1.75 }}>
+              Passionate Backend Developer with 2+ years of IT industry experience engineering high-throughput server architectures, enterprise API microservices, AI/LLM integrations, and optimized data processing pipelines.
             </p>
+
+            {/* Interactive Tech Pill Cloud */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '2.4rem' }}>
+              {techStackPills.map((pill, idx) => (
+                <motion.span 
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3 + idx * 0.05 }}
+                  className="tech-pill"
+                >
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: pill.color, display: 'inline-block' }} />
+                  {pill.name}
+                </motion.span>
+              ))}
+            </div>
             
-            {/* Action Buttons */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '2.4rem' }}>
+            {/* Primary CTAs */}
+            <div style={{ display: 'flex', gap: '1.2rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '2.5rem' }}>
               <a href="#projects" className="btn btn-accent">
                 View Featured Work <ArrowRight size={18} />
               </a>
@@ -74,14 +101,14 @@ const Hero = () => {
               </a>
             </div>
 
-            {/* Direct Contact Links */}
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', paddingTop: '1.2rem', borderTop: '1px solid var(--border-color)' }}>
+            {/* Direct Social & Contact Pills */}
+            <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'center', flexWrap: 'wrap', paddingTop: '1.4rem', borderTop: '1px solid var(--border-color)' }}>
               <a 
                 href="https://github.com/TechHub88/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn-outline" 
-                style={{ padding: '0.55rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
+                style={{ padding: '0.55rem 1rem', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
               >
                 <Code2 size={16} color="#8b5cf6" /> GitHub
               </a>
@@ -90,21 +117,21 @@ const Hero = () => {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn-outline" 
-                style={{ padding: '0.55rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
+                style={{ padding: '0.55rem 1rem', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
               >
                 <User size={16} color="#0077b5" /> LinkedIn
               </a>
               <a 
                 href="mailto:nisharoy3363@gmail.com" 
                 className="btn-outline" 
-                style={{ padding: '0.55rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
+                style={{ padding: '0.55rem 1rem', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
               >
                 <Mail size={16} color="var(--accent-primary)" /> nisharoy3363@gmail.com
               </a>
               <a 
                 href="tel:+919749555376" 
                 className="btn-outline" 
-                style={{ padding: '0.55rem 1rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
+                style={{ padding: '0.55rem 1rem', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
               >
                 <Phone size={16} color="var(--accent-emerald)" /> +91 9749555376
               </a>
@@ -112,88 +139,100 @@ const Hero = () => {
 
           </motion.div>
 
-          {/* Right Compact Profile Display with Floating Badges */}
+          {/* RIGHT: High-Tech Glass Portrait + Live Telemetry Terminal */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+            style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}
           >
             
-            {/* FLOATING BADGE 1 (Top-Left) */}
-            <div className="floating-badge animate-float-top" style={{ top: '-10px', left: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem' }}>
-              <div style={{ padding: '0.25rem', background: 'rgba(59, 130, 246, 0.2)', borderRadius: '6px', color: '#60a5fa' }}>
-                <Server size={14} />
+            {/* Portrait Wrapper */}
+            <div className="hero-portrait-wrapper">
+              
+              {/* FLOATING BADGE 1 (Top-Left) */}
+              <div className="floating-badge animate-float-top" style={{ top: '-15px', left: '-25px', padding: '0.55rem 1rem' }}>
+                <div style={{ padding: '0.35rem', background: 'rgba(59, 130, 246, 0.2)', borderRadius: '8px', color: '#60a5fa' }}>
+                  <Server size={16} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Experience</div>
+                  <div style={{ fontSize: '0.85rem', color: '#fff', fontWeight: 700 }}>2+ Years IT Industry</div>
+                </div>
               </div>
-              <div>
-                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Experience</div>
-                <div style={{ fontSize: '0.8rem', color: '#fff', fontWeight: 600 }}>2+ Years IT</div>
-              </div>
-            </div>
 
-            {/* FLOATING BADGE 2 (Top-Right) */}
-            <div className="floating-badge animate-float-bottom" style={{ top: '20px', right: '-15px', padding: '0.45rem 0.85rem', fontSize: '0.78rem' }}>
-              <div style={{ padding: '0.25rem', background: 'rgba(6, 182, 212, 0.2)', borderRadius: '6px', color: '#22d3ee' }}>
-                <Bot size={14} />
+              {/* FLOATING BADGE 2 (Top-Right) */}
+              <div className="floating-badge animate-float-bottom" style={{ top: '25px', right: '-25px', padding: '0.55rem 1rem' }}>
+                <div style={{ padding: '0.35rem', background: 'rgba(6, 182, 212, 0.2)', borderRadius: '8px', color: '#22d3ee' }}>
+                  <Bot size={16} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>AI & LLM Services</div>
+                  <div style={{ fontSize: '0.85rem', color: '#fff', fontWeight: 700 }}>OpenAI & Gemini APIs</div>
+                </div>
               </div>
-              <div>
-                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>AI & LLMs</div>
-                <div style={{ fontSize: '0.8rem', color: '#fff', fontWeight: 600 }}>OpenAI & Gemini</div>
-              </div>
-            </div>
 
-            {/* FLOATING BADGE 3 (Bottom-Left) */}
-            <div className="floating-badge animate-float-bottom" style={{ bottom: '30px', left: '-20px', padding: '0.45rem 0.85rem', fontSize: '0.78rem' }}>
-              <div style={{ padding: '0.25rem', background: 'rgba(16, 185, 129, 0.2)', borderRadius: '6px', color: '#34d399' }}>
-                <Cpu size={14} />
+              {/* FLOATING BADGE 3 (Bottom-Right) */}
+              <div className="floating-badge animate-float-top" style={{ bottom: '20px', right: '-30px', padding: '0.55rem 1rem' }}>
+                <div style={{ padding: '0.35rem', background: 'rgba(245, 158, 11, 0.2)', borderRadius: '8px', color: '#fbbf24' }}>
+                  <Database size={16} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Data Architecture</div>
+                  <div style={{ fontSize: '0.85rem', color: '#fff', fontWeight: 700 }}>SQL & Analytics</div>
+                </div>
               </div>
-              <div>
-                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Architecture</div>
-                <div style={{ fontSize: '0.8rem', color: '#fff', fontWeight: 600 }}>Laravel & Node.js</div>
-              </div>
-            </div>
 
-            {/* FLOATING BADGE 4 (Bottom-Right) */}
-            <div className="floating-badge animate-float-top" style={{ bottom: '-10px', right: '-10px', padding: '0.45rem 0.85rem', fontSize: '0.78rem' }}>
-              <div style={{ padding: '0.25rem', background: 'rgba(244, 63, 94, 0.2)', borderRadius: '6px', color: '#fb7185' }}>
-                <Database size={14} />
-              </div>
-              <div>
-                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Data Solutions</div>
-                <div style={{ fontSize: '0.8rem', color: '#fff', fontWeight: 600 }}>SQL & Power BI</div>
-              </div>
-            </div>
-
-            {/* Compact Portrait Frame (Max-Width 280px) */}
-            <div className="hero-portrait-wrapper" style={{ maxWidth: '285px', borderRadius: '22px' }}>
-              <div className="hero-portrait-inner" style={{ borderRadius: '20px' }}>
+              <div className="hero-portrait-inner">
                 <img 
-                  src="/profile.jpg" 
-                  alt="Sayani Roy - Backend Developer" 
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover'
-                  }}
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = `
-                      <div style="display:flex; flex-direction:column; gap:1rem; align-items:center; justify-content:center; height:100%; color:var(--text-muted); font-size:0.85rem; text-align:center; padding:1.5rem; background:var(--surface-color);">
-                        <div style="padding:1.2rem; background:rgba(59, 130, 246, 0.12); borderRadius:50%; color:var(--accent-primary);">
-                          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                        </div>
-                        <div style="font-weight:700; color:#fff; font-size:1.15rem;">Sayani Roy</div>
-                        <span style="color:var(--accent-primary); font-weight:600; font-size:0.8rem;">Backend Developer</span>
-                      </div>
-                    `;
-                  }}
+                  src="/sayani-portrait.png" 
+                  alt="Sayani Roy - Backend Engineer" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
                 />
               </div>
+
             </div>
+
+            {/* Futuristic Live Telemetry Terminal Box */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="terminal-card" 
+              style={{ width: '100%', maxWidth: '390px' }}
+            >
+              <div className="terminal-header">
+                <div className="terminal-dots">
+                  <span className="terminal-dot" style={{ background: '#ef4444' }} />
+                  <span className="terminal-dot" style={{ background: '#f59e0b' }} />
+                  <span className="terminal-dot" style={{ background: '#10b981' }} />
+                </div>
+                <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.4rem', flex: 1, justifyContent: 'center' }}>
+                  <Activity size={12} color="#10b981" /> system-telemetry.sys
+                </div>
+              </div>
+
+              <div className="terminal-body">
+                <div style={{ color: '#34d399', display: 'flex', justifyContent: 'space-between' }}>
+                  <span>STATUS: ACTIVE_SERVICES</span>
+                  <span>99.99% OK</span>
+                </div>
+                <div style={{ color: '#94a3b8' }}>
+                  $ GET /api/v1/microservices --status
+                </div>
+                <div style={{ color: '#60a5fa' }}>
+                  ✓ Fraud AI Microservice: READY (12ms)
+                </div>
+                <div style={{ color: '#a78bfa' }}>
+                  ✓ WhatsApp Webhooks: 150k+ events
+                </div>
+              </div>
+            </motion.div>
 
           </motion.div>
 
         </div>
+
       </div>
     </section>
   );
