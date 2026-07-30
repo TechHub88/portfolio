@@ -1,6 +1,54 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Database, ShieldCheck, Server, Bot } from 'lucide-react';
+
+const CountUp = ({ endValue, duration = 2, hasPlus = false }) => {
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          let startTime = null;
+          const target = parseFloat(endValue);
+
+          const animateCount = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const current = easeOut * target;
+
+            setCount(current);
+
+            if (progress < 1) {
+              requestAnimationFrame(animateCount);
+            } else {
+              setCount(target);
+            }
+          };
+
+          requestAnimationFrame(animateCount);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [endValue, duration, hasAnimated]);
+
+  return (
+    <span ref={ref}>
+      {Math.floor(count)}{hasPlus ? '+' : ''}
+    </span>
+  );
+};
 
 const coreStrengths = [
   {
@@ -79,13 +127,17 @@ const About = () => {
             style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.2rem' }}
           >
             <motion.div whileHover={{ y: -5 }} className="card" style={{ padding: '2rem 1.5rem', textAlign: 'center', borderColor: 'rgba(59, 130, 246, 0.3)' }}>
-              <h3 style={{ fontSize: '3.2rem', color: '#fff', marginBottom: '0.2rem', lineHeight: 1, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>2+</h3>
+              <h3 style={{ fontSize: '3.2rem', color: '#fff', marginBottom: '0.2rem', lineHeight: 1, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>
+                <CountUp endValue={2} hasPlus={true} />
+              </h3>
               <p style={{ color: 'var(--accent-primary)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.4rem' }}>Years IT Experience</p>
               <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>WebMantra & Octagen Infotech</p>
             </motion.div>
 
             <motion.div whileHover={{ y: -5 }} className="card" style={{ padding: '2rem 1.5rem', textAlign: 'center' }}>
-              <h3 style={{ fontSize: '3.2rem', color: '#fff', marginBottom: '0.2rem', lineHeight: 1, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>10+</h3>
+              <h3 style={{ fontSize: '3.2rem', color: '#fff', marginBottom: '0.2rem', lineHeight: 1, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>
+                <CountUp endValue={10} hasPlus={true} />
+              </h3>
               <p style={{ color: 'var(--accent-secondary)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.4rem' }}>Core Projects</p>
               <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Enterprise E-Commerce Platforms</p>
             </motion.div>
