@@ -30,7 +30,7 @@ const ContactModal = ({ isOpen, onClose }) => {
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          from_name: `${formData.name} via Portfolio Modal`
+          from_name: `${formData.name} via Portfolio Drawer`
         })
       });
 
@@ -52,7 +52,7 @@ const ContactModal = ({ isOpen, onClose }) => {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop Blur Overlay */}
+          {/* Subtle Transparent Click-Out Zone (No Dark Blur Overlay) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -61,41 +61,39 @@ const ContactModal = ({ isOpen, onClose }) => {
             style={{
               position: 'fixed',
               top: 0, left: 0, right: 0, bottom: 0,
-              background: 'rgba(3, 4, 8, 0.8)',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
-              zIndex: 9998
+              background: 'transparent',
+              zIndex: 99998
             }}
           />
 
-          {/* Centered Glassmorphic Modal */}
+          {/* Sleek Modern Right-Side Slide-Over Drawer Panel */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.85, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.85, y: 30 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 260 }}
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 28, stiffness: 280 }}
             style={{
               position: 'fixed',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: '90vw',
-              maxWidth: '480px',
-              maxHeight: '85vh',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              width: '100%',
+              maxWidth: '440px',
+              height: '100vh',
+              background: 'rgba(12, 15, 25, 0.98)',
+              borderLeft: '1px solid rgba(245, 158, 11, 0.4)',
+              boxShadow: '-15px 0 50px rgba(0, 0, 0, 0.85), -5px 0 25px rgba(245, 158, 11, 0.2)',
+              padding: '2.2rem 1.8rem',
+              zIndex: 99999,
               overflowY: 'auto',
-              background: 'rgba(15, 18, 28, 0.98)',
-              border: '1px solid rgba(245, 158, 11, 0.45)',
-              boxShadow: '0 25px 70px rgba(0, 0, 0, 0.9), 0 0 30px rgba(245, 158, 11, 0.25)',
-              borderRadius: '24px',
-              padding: '1.6rem 1.8rem',
-              zIndex: 9999,
-              backdropFilter: 'blur(30px)'
+              display: 'flex',
+              flexDirection: 'column'
             }}
           >
-            {/* Header */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+            {/* Drawer Header */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.8rem', paddingBottom: '1.2rem', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                <div style={{ padding: '0.6rem', borderRadius: '12px', background: 'rgba(245, 158, 11, 0.15)', color: '#fbbf24' }}>
+                <div style={{ padding: '0.65rem', borderRadius: '12px', background: 'rgba(245, 158, 11, 0.15)', color: '#fbbf24' }}>
                   <MessageSquare size={22} />
                 </div>
                 <div>
@@ -105,34 +103,38 @@ const ContactModal = ({ isOpen, onClose }) => {
               </div>
               <button
                 onClick={onClose}
+                aria-label="Close Contact Drawer"
                 style={{
                   background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  border: '1px solid rgba(255,255,255,0.12)',
                   color: '#fff',
-                  padding: '0.45rem',
+                  padding: '0.5rem',
                   borderRadius: '10px',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}
               >
-                <X size={18} />
+                <X size={20} />
               </button>
             </div>
 
             {formSubmitted ? (
-              <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
-                <div style={{ padding: '1rem', background: 'rgba(16, 185, 129, 0.2)', borderRadius: '50%', display: 'inline-flex', color: '#34d399', marginBottom: '1rem' }}>
-                  <CheckCircle2 size={36} />
+              <div style={{ textAlign: 'center', padding: '3rem 1rem', my: 'auto' }}>
+                <div style={{ padding: '1.2rem', background: 'rgba(16, 185, 129, 0.2)', borderRadius: '50%', display: 'inline-flex', color: '#34d399', marginBottom: '1.2rem' }}>
+                  <CheckCircle2 size={42} />
                 </div>
-                <h4 style={{ color: '#fff', fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.4rem' }}>Message Sent!</h4>
-                <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Thank you for reaching out, Sayani will contact you shortly.</p>
-                <button onClick={onClose} className="btn btn-accent" style={{ padding: '0.6rem 1.4rem', fontSize: '0.88rem' }}>
-                  Close Window
+                <h4 style={{ color: '#fff', fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.5rem' }}>Message Sent Successfully!</h4>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '2rem', lineHeight: 1.6 }}>Thank you for reaching out, Sayani will review your inquiry and get back to you shortly.</p>
+                <button onClick={onClose} className="btn btn-accent" style={{ padding: '0.75rem 1.6rem', fontSize: '0.92rem', width: '100%' }}>
+                  Close Panel
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', flex: 1 }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.35rem', fontWeight: 600 }}>Your Name</label>
+                  <label style={{ display: 'block', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.4rem', fontWeight: 600 }}>Your Name</label>
                   <input
                     type="text"
                     required
@@ -141,19 +143,19 @@ const ContactModal = ({ isOpen, onClose }) => {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     style={{
                       width: '100%',
-                      padding: '0.8rem 1rem',
+                      padding: '0.85rem 1.1rem',
                       background: 'rgba(255, 255, 255, 0.04)',
                       border: '1px solid var(--border-color)',
                       borderRadius: '12px',
                       color: '#fff',
-                      fontSize: '0.9rem',
+                      fontSize: '0.92rem',
                       outline: 'none'
                     }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.35rem', fontWeight: 600 }}>Your Email</label>
+                  <label style={{ display: 'block', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.4rem', fontWeight: 600 }}>Your Email</label>
                   <input
                     type="email"
                     required
@@ -162,41 +164,62 @@ const ContactModal = ({ isOpen, onClose }) => {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     style={{
                       width: '100%',
-                      padding: '0.8rem 1rem',
+                      padding: '0.85rem 1.1rem',
                       background: 'rgba(255, 255, 255, 0.04)',
                       border: '1px solid var(--border-color)',
                       borderRadius: '12px',
                       color: '#fff',
-                      fontSize: '0.9rem',
+                      fontSize: '0.92rem',
                       outline: 'none'
                     }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.35rem', fontWeight: 600 }}>Message</label>
-                  <textarea
-                    rows={3}
-                    required
-                    placeholder="Tell me about your project or job opening..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  <label style={{ display: 'block', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.4rem', fontWeight: 600 }}>Subject (Optional)</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Project Consultation / Job Opening"
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     style={{
                       width: '100%',
-                      padding: '0.8rem 1rem',
+                      padding: '0.85rem 1.1rem',
                       background: 'rgba(255, 255, 255, 0.04)',
                       border: '1px solid var(--border-color)',
                       borderRadius: '12px',
                       color: '#fff',
-                      fontSize: '0.9rem',
+                      fontSize: '0.92rem',
+                      outline: 'none'
+                    }}
+                  />
+                </div>
+
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <label style={{ display: 'block', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.4rem', fontWeight: 600 }}>Message</label>
+                  <textarea
+                    rows={4}
+                    required
+                    placeholder="Tell me about your project requirement or role details..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    style={{
+                      width: '100%',
+                      padding: '0.85rem 1.1rem',
+                      background: 'rgba(255, 255, 255, 0.04)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '12px',
+                      color: '#fff',
+                      fontSize: '0.92rem',
                       outline: 'none',
-                      resize: 'none'
+                      resize: 'none',
+                      minHeight: '110px'
                     }}
                   />
                 </div>
 
                 {errorMessage && (
-                  <div style={{ padding: '0.7rem', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '10px', color: '#f87171', fontSize: '0.82rem' }}>
+                  <div style={{ padding: '0.75rem', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '10px', color: '#f87171', fontSize: '0.84rem' }}>
                     {errorMessage}
                   </div>
                 )}
@@ -205,7 +228,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                   type="submit"
                   disabled={isSubmitting}
                   className="btn btn-accent"
-                  style={{ width: '100%', padding: '0.85rem', marginTop: '0.4rem', fontSize: '0.92rem' }}
+                  style={{ width: '100%', padding: '0.9rem', marginTop: '0.5rem', fontSize: '0.95rem' }}
                 >
                   <Send size={16} /> {isSubmitting ? 'Sending Message...' : 'Send Message Now'}
                 </button>
