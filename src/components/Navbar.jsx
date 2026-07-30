@@ -54,7 +54,7 @@ const Navbar = () => {
           transition: 'all 0.35s ease'
         }}
       >
-        {/* Stylish Brand Logo */}
+        {/* Sleek High-Tech Executive Brand Logo */}
         <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
           <div style={{
             width: '38px', height: '38px',
@@ -62,24 +62,28 @@ const Navbar = () => {
             background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
             display: 'flex', justifyContent: 'center', alignItems: 'center',
             color: '#fff',
+            fontFamily: 'var(--font-heading)',
+            fontWeight: 900,
+            fontSize: '1.05rem',
             boxShadow: '0 0 22px rgba(59, 130, 246, 0.45)',
             border: '1px solid rgba(255, 255, 255, 0.25)'
           }}>
-            <Code2 size={20} />
+            SR
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ 
               fontFamily: 'var(--font-heading)', 
               fontWeight: 800, 
-              fontSize: '1.25rem', 
-              letterSpacing: '0.06em',
+              fontSize: '1.15rem', 
+              letterSpacing: '0.08em',
               textTransform: 'uppercase',
               color: '#ffffff'
             }}>
-              SAYANI <span className="text-gradient">ROY</span>
+              SR <span className="text-gradient">// PORTFOLIO</span>
             </span>
-            <span style={{ fontSize: '0.64rem', color: 'var(--accent-cyan)', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 600, marginTop: '-3px' }}>
-              Backend Engineer
+            <span style={{ fontSize: '0.62rem', color: 'var(--accent-emerald)', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 700, marginTop: '-3px', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+              <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#10b981', display: 'inline-block', boxShadow: '0 0 8px #10b981' }} />
+              BACKEND ARCHITECT
             </span>
           </div>
         </a>

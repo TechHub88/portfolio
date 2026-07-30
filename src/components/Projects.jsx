@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShoppingBag, Bot, MessageSquare, BookOpen, CheckCircle2, ArrowRight, ExternalLink } from 'lucide-react';
+import { ShoppingBag, Bot, MessageSquare, CheckCircle2, ExternalLink } from 'lucide-react';
 
 const projects = [
   {
@@ -54,23 +54,6 @@ const projects = [
     imageUrl: '/vshop-banner.png',
     badge: 'Featured Project',
     icon: ShoppingBag
-  },
-  {
-    id: '04',
-    title: 'Full-Stack Book Publication Platform',
-    link: '#contact',
-    role: 'Backend Architect & Payments Lead',
-    tag: 'Payments & Relational DB',
-    description: 'Engineered relational databases with secure payload execution layers to handle metadata indexing, digital publication cataloging, and automated Razorpay payment integration.',
-    highlights: [
-      'Designed relational databases with secure payload execution layers to handle metadata indexing and digital payments.',
-      'Integrated Razorpay payment gateway API with webhook listeners for automated instant invoice generation and digital fulfillment.',
-      'Implemented role-based authorization protocols for authors, publishers, and readers.'
-    ],
-    tech: ['PHP', 'Laravel', 'REST APIs', 'MySQL', 'Razorpay', 'Role Authorization'],
-    imageUrl: '/vshop-banner.png',
-    badge: 'Publication & Payments',
-    icon: BookOpen
   }
 ];
 
@@ -89,7 +72,7 @@ const Projects = () => {
             Featured <span className="text-gradient">Case Studies & Projects</span>
           </h2>
           <p className="section-subtitle" style={{ marginBottom: 0 }}>
-            WebMantra & enterprise production systems demonstrating multi-category e-commerce, AI microservices, webhook automation, and publication payment systems.
+            WebMantra & enterprise production systems demonstrating multi-category e-commerce, AI microservices, webhook automation, and fraud detection.
           </p>
         </div>
 
@@ -169,7 +152,7 @@ const Projects = () => {
                       <span style={{ background: '#ef4444' }} />
                       <span style={{ background: '#f59e0b' }} />
                       <span style={{ background: '#10b981' }} />
-                      <div className="browser-url-text">{project.link.startsWith('http') ? project.link : 'https://sayaniroy.dev/book-platform'}</div>
+                      <div className="browser-url-text">{project.link}</div>
                     </div>
                     <div className="webmantra-img-box">
                       <img src={project.imageUrl} alt={project.title} />
