@@ -46,6 +46,48 @@ const TypewriterText = ({ words }) => {
   );
 };
 
+const TypewriterParagraph = ({ text, delay = 600 }) => {
+  const [subIndex, setSubIndex] = useState(0);
+  const [started, setStarted] = useState(false);
+  const [blink, setBlink] = useState(true);
+
+  // Blinking cursor
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setBlink((prev) => !prev);
+    }, 500);
+    return () => clearTimeout(timeout);
+  }, [blink]);
+
+  // Delay before typing starts
+  useEffect(() => {
+    const startTimeout = setTimeout(() => {
+      setStarted(true);
+    }, delay);
+    return () => clearTimeout(startTimeout);
+  }, [delay]);
+
+  // Type character by character
+  useEffect(() => {
+    if (!started) return;
+    if (subIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setSubIndex((prev) => prev + 1);
+      }, 18);
+      return () => clearTimeout(timeout);
+    }
+  }, [subIndex, started, text]);
+
+  return (
+    <p style={{ fontSize: '1.02rem', color: '#ffffff', marginBottom: '2.2rem', maxWidth: '600px', lineHeight: 1.75, minHeight: '4.5rem' }}>
+      {text.substring(0, subIndex)}
+      {subIndex < text.length && (
+        <span style={{ opacity: blink ? 1 : 0, color: '#f59e0b', marginLeft: '2px', fontWeight: 400 }}>|</span>
+      )}
+    </p>
+  );
+};
+
 const Hero = ({ onOpenModal }) => {
   const typewriterRoles = [
     'Backend Developer & Aspiring Data Engineer',
@@ -53,6 +95,8 @@ const Hero = ({ onOpenModal }) => {
     'AI Microservices & Webhook Engineer',
     'Database Schema & Query Specialist'
   ];
+
+  const paragraphText = "Passionate Backend Developer with 2 years of IT industry experience engineering scalable server architectures, enterprise API configurations, and AI-driven microservices. Transitioning architectures to support high-throughput data solutions.";
 
   return (
     <section id="hero" style={{ minHeight: '92vh', display: 'flex', alignItems: 'center', paddingTop: '100px', paddingBottom: '4rem', position: 'relative', overflow: 'hidden' }}>
@@ -119,9 +163,8 @@ const Hero = ({ onOpenModal }) => {
               <TypewriterText words={typewriterRoles} />
             </h2>
             
-            <p style={{ fontSize: '1.02rem', color: 'var(--text-muted)', marginBottom: '2.2rem', maxWidth: '600px', lineHeight: 1.7 }}>
-              Passionate Backend Developer with 2 years of IT industry experience engineering scalable server architectures, enterprise API configurations, and AI-driven microservices. Transitioning architectures to support high-throughput data solutions.
-            </p>
+            {/* TYPEWRITER TYPING PARAGRAPH IN PURE WHITE */}
+            <TypewriterParagraph text={paragraphText} delay={600} />
             
             {/* Sleek 1-Line Action Buttons */}
             <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '2.2rem' }}>
