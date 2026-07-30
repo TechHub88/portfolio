@@ -180,7 +180,7 @@ const Hero = ({ onOpenModal }) => {
             </div>
 
             {/* Ultra-Classy 1-Line Social & Contact Icons Strip */}
-            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap', paddingTop: '1.2rem', borderTop: '1px solid var(--border-color)' }}>
+            <div className="hero-connect-strip" style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap', paddingTop: '1.2rem', borderTop: '1px solid var(--border-color)' }}>
               <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginRight: '0.3rem' }}>
                 Connect:
               </span>
