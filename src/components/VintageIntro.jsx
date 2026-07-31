@@ -162,8 +162,10 @@ const VintageIntro = ({ onComplete }) => {
 
               {/* Counter Display */}
               <div className="countdown-text-box">
-                <span className="countdown-number">{String(progress).padStart(2, '0')}</span>
-                <span className="countdown-percent">%</span>
+                <div className="countdown-number-wrapper">
+                  <span className="countdown-number">{String(progress).padStart(2, '0')}</span>
+                  <span className="countdown-percent">%</span>
+                </div>
               </div>
             </div>
 
