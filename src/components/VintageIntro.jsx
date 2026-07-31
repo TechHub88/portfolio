@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Volume2, VolumeX } from 'lucide-react';
+import { Volume2, VolumeX, Terminal, Cpu, Database, Server, Radio, ShieldCheck } from 'lucide-react';
 
 const VintageIntro = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
+
+  // Terminal log lines synced with loader progress
+  const terminalLogs = [
+    { threshold: 0, text: 'SYSTEM_BOOT // SAYANI_ROY_KERNEL_v2.6' },
+    { threshold: 12, text: 'INIT_PHP_FPM_POOL: 8 WORKERS ALLOCATED [OK]' },
+    { threshold: 28, text: 'DB_CONNECT: POSTGRESQL 127.0.0.1:5432 (LATENCY 3ms)' },
+    { threshold: 45, text: 'REST_API: MOUNTING LARAVEL & NODE.JS ENDPOINTS' },
+    { threshold: 65, text: 'AI_MICROSERVICES: SYNCING OPENAI & GEMINI PIPELINES' },
+    { threshold: 85, text: 'DATA_ENGINEERING: STAGING SQL & AGGREGATIONS' },
+    { threshold: 98, text: 'EXEC_UI: ALL SYSTEMS NOMINAL [200 OK]' },
+  ];
 
   // Animated countdown from 0 to 100%
   useEffect(() => {
@@ -17,20 +28,19 @@ const VintageIntro = ({ onComplete }) => {
             setIsFinished(true);
             setTimeout(() => {
               if (onComplete) onComplete();
-            }, 800); // Allow shutter transition to finish
-          }, 400);
+            }, 750);
+          }, 350);
           return 100;
         }
-        // Organic variable speed increments for realistic loader feel
-        const inc = Math.floor(Math.random() * 8) + 3;
+        const inc = Math.floor(Math.random() * 7) + 3;
         return Math.min(prev + inc, 100);
       });
-    }, 70);
+    }, 65);
 
     return () => clearInterval(timer);
   }, [onComplete]);
 
-  // Audio click sound effect generation using Web Audio API (no external asset needed)
+  // Web Audio API click sound generator
   const playClickSound = () => {
     if (!soundEnabled) return;
     try {
@@ -40,16 +50,16 @@ const VintageIntro = ({ onComplete }) => {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.type = 'square';
-      osc.frequency.setValueAtTime(180, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(40, ctx.currentTime + 0.05);
-      gain.gain.setValueAtTime(0.08, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+      osc.frequency.setValueAtTime(220, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.04);
+      gain.gain.setValueAtTime(0.06, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
       osc.connect(gain);
       gain.connect(ctx.destination);
       osc.start();
-      osc.stop(ctx.currentTime + 0.05);
+      osc.stop(ctx.currentTime + 0.04);
     } catch (e) {
-      // Ignore audio autoplay restrictions
+      // Audio autoplay fallback
     }
   };
 
@@ -64,99 +74,23 @@ const VintageIntro = ({ onComplete }) => {
     setIsFinished(true);
     setTimeout(() => {
       if (onComplete) onComplete();
-    }, 600);
+    }, 500);
   };
 
-  // Dynamic system status text based on progress
-  const getStatusText = () => {
-    if (progress < 25) return 'INITIALIZING SYSTEM ARCHITECTURE...';
-    if (progress < 55) return 'LOADING LARAVEL & NODE.JS SERVICES...';
-    if (progress < 85) return 'STAGING AI MICROSERVICES & SCHEMAS...';
-    if (progress < 100) return 'FINALIZING EXECUTIVE INTERFACE...';
-    return 'SYSTEM READY // ACCESS GRANTED';
-  };
+  const currentLog = [...terminalLogs].reverse().find((log) => progress >= log.threshold);
 
   return (
     <AnimatePresence>
       {!isFinished && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.04, filter: 'blur(10px)' }}
-          transition={{ duration: 0.8, ease: [0.77, 0, 0.175, 1] }}
+          exit={{ opacity: 0, scale: 1.05, filter: 'blur(12px)' }}
+          transition={{ duration: 0.75, ease: [0.77, 0, 0.175, 1] }}
           className="vintage-intro-overlay"
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 99999,
-            backgroundColor: '#050608',
-            color: '#f59e0b',
-            display: 'flex',
-            flexDirection: 'column',
-            justify: 'space-between',
-            padding: '2.5rem',
-            fontFamily: "'Courier New', Courier, monospace",
-            userSelect: 'none',
-            overflow: 'hidden'
-          }}
         >
-          {/* Vintage CRT Scanlines Overlay */}
+          {/* Scanline & Cyber Mesh Effects */}
           <div className="vintage-scanlines" />
-
-          {/* Top Vintage Bar: Camera Viewfinder Specs */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 10 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-              <span className="vintage-rec-dot" />
-              <span style={{ fontSize: '0.82rem', letterSpacing: '0.15em', fontWeight: 700, color: '#f59e0b' }}>
-                REC ● 24 FPS
-              </span>
-              <span style={{ opacity: 0.4, color: '#94a3b8' }}>|</span>
-              <span style={{ fontSize: '0.78rem', color: '#94a3b8', letterSpacing: '0.1em' }}>
-                TAPE_ID: SAYANI-ROY-2026
-              </span>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              {/* Mute/Unmute Audio Toggle */}
-              <button
-                onClick={() => setSoundEnabled(!soundEnabled)}
-                style={{
-                  background: 'rgba(245, 158, 11, 0.1)',
-                  border: '1px solid rgba(245, 158, 11, 0.3)',
-                  color: '#f59e0b',
-                  padding: '0.4rem 0.8rem',
-                  borderRadius: '6px',
-                  cursor: 'pointer',
-                  fontSize: '0.75rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.4rem',
-                  letterSpacing: '0.08em'
-                }}
-              >
-                {soundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
-                {soundEnabled ? 'AUDIO ON' : 'AUDIO MUTED'}
-              </button>
-
-              {/* Instant Skip Button */}
-              <button
-                onClick={handleSkip}
-                style={{
-                  background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(56, 189, 248, 0.25))',
-                  border: '1px solid rgba(245, 158, 11, 0.5)',
-                  color: '#ffffff',
-                  padding: '0.45rem 1.1rem',
-                  borderRadius: '6px',
-                  cursor: 'pointer',
-                  fontSize: '0.78rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.12em',
-                  boxShadow: '0 0 15px rgba(245, 158, 11, 0.2)'
-                }}
-              >
-                SKIP INTRO ➔
-              </button>
-            </div>
-          </div>
+          <div className="techie-grid-bg" />
 
           {/* Viewfinder Corner Framing Brackets */}
           <div className="vintage-corner top-left" />
@@ -164,139 +98,110 @@ const VintageIntro = ({ onComplete }) => {
           <div className="vintage-corner bottom-left" />
           <div className="vintage-corner bottom-right" />
 
-          {/* Center Graphic & Countdown Dial */}
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justify: 'center',
-              zIndex: 10,
-              margin: 'auto 0'
-            }}
-          >
-            {/* Film Reel Circle Indicator */}
-            <div
-              style={{
-                position: 'relative',
-                width: '220px',
-                height: '220px',
-                borderRadius: '50%',
-                border: '2px dashed rgba(245, 158, 11, 0.35)',
-                display: 'flex',
-                alignItems: 'center',
-                justify: 'center',
-                marginBottom: '2rem',
-                boxShadow: '0 0 40px rgba(245, 158, 11, 0.15)'
-              }}
-            >
-              {/* Rotating Outer Ring */}
-              <div
-                className="vintage-rotate-ring"
-                style={{
-                  position: 'absolute',
-                  inset: '-10px',
-                  borderRadius: '50%',
-                  border: '1px solid rgba(56, 189, 248, 0.3)',
-                  borderTopColor: '#38bdf8'
-                }}
-              />
+          {/* TOP HEADER: Fully Mobile Optimized with nowrap & clean flex structure */}
+          <div className="intro-header-bar">
+            <div className="intro-status-group">
+              <div className="rec-badge">
+                <span className="vintage-rec-dot" />
+                <span className="rec-text">REC ● 24 FPS</span>
+              </div>
+              <span className="intro-divider">|</span>
+              <span className="tape-id-text">TAPE_ID: SAYANI-ROY-2026</span>
+            </div>
 
-              {/* Crosshair Overlay Lines */}
-              <div style={{ position: 'absolute', width: '100%', height: '1px', background: 'rgba(245, 158, 11, 0.2)' }} />
-              <div style={{ position: 'absolute', height: '100%', width: '1px', background: 'rgba(245, 158, 11, 0.2)' }} />
+            <div className="intro-controls-group">
+              <button
+                onClick={() => setSoundEnabled(!soundEnabled)}
+                className="intro-btn intro-btn-sound"
+                title="Toggle Audio Effects"
+              >
+                {soundEnabled ? <Volume2 size={13} /> : <VolumeX size={13} />}
+                <span>{soundEnabled ? 'AUDIO ON' : 'MUTED'}</span>
+              </button>
 
-              {/* Huge Retro Counter Number Display */}
-              <div style={{ textAlign: 'center' }}>
-                <span
-                  style={{
-                    fontSize: '4.8rem',
-                    fontWeight: 900,
-                    letterSpacing: '-0.04em',
-                    color: '#ffffff',
-                    textShadow: '0 0 20px rgba(245, 158, 11, 0.6), 0 0 40px rgba(56, 189, 248, 0.4)',
-                    lineHeight: 1
-                  }}
-                >
-                  {String(progress).padStart(2, '0')}
-                </span>
-                <span style={{ fontSize: '1.8rem', fontWeight: 700, color: '#f59e0b', marginLeft: '4px' }}>%</span>
+              <button
+                onClick={handleSkip}
+                className="intro-btn intro-btn-skip"
+              >
+                <span>SKIP INTRO ➔</span>
+              </button>
+            </div>
+          </div>
+
+          {/* MAIN CONTENT: Techie Countdown Dial & Terminal Log */}
+          <div className="intro-center-content">
+            
+            {/* Tech Telemetry HUD Pills */}
+            <div className="intro-telemetry-row">
+              <div className="telemetry-pill">
+                <Cpu size={12} color="#38bdf8" />
+                <span>CPU: {(12 + (progress % 15)).toString()}%</span>
+              </div>
+              <div className="telemetry-pill">
+                <Server size={12} color="#f59e0b" />
+                <span>RAM: {Math.min(256 + progress * 4, 612)}MB</span>
+              </div>
+              <div className="telemetry-pill">
+                <Radio size={12} color="#10b981" />
+                <span>PING: 8ms</span>
+              </div>
+              <div className="telemetry-pill hide-mobile">
+                <ShieldCheck size={12} color="#38bdf8" />
+                <span>ENV: PRODUCTION</span>
               </div>
             </div>
 
-            {/* Vintage Film Leader Title */}
-            <div style={{ textAlign: 'center', maxWidth: '600px' }}>
-              <div
-                style={{
-                  fontSize: '0.9rem',
-                  letterSpacing: '0.25em',
-                  color: '#38bdf8',
-                  marginBottom: '0.6rem',
-                  fontWeight: 700,
-                  textTransform: 'uppercase'
-                }}
-              >
-                ✦ SAYANI ROY // ARCHITECTURE PORTFOLIO ✦
-              </div>
+            {/* Film Reel & Retro Tech Countdown Circle */}
+            <div className="intro-countdown-circle">
+              {/* Spinning Ring */}
+              <div className="vintage-rotate-ring intro-ring-overlay" />
 
-              {/* Dynamic Status Bar */}
-              <div
-                style={{
-                  fontSize: '0.85rem',
-                  color: '#94a3b8',
-                  letterSpacing: '0.08em',
-                  background: 'rgba(16, 19, 29, 0.8)',
-                  padding: '0.6rem 1.4rem',
-                  borderRadius: '20px',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.6rem'
-                }}
-              >
-                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', display: 'inline-block', boxShadow: '0 0 8px #10b981' }} />
-                {getStatusText()}
+              {/* Crosshair Overlay */}
+              <div className="crosshair-h" />
+              <div className="crosshair-v" />
+
+              {/* Counter Display */}
+              <div className="countdown-text-box">
+                <span className="countdown-number">{String(progress).padStart(2, '0')}</span>
+                <span className="countdown-percent">%</span>
               </div>
             </div>
 
-            {/* Vintage Progress Bar Strip */}
-            <div
-              style={{
-                width: '320px',
-                height: '5px',
-                background: 'rgba(255, 255, 255, 0.1)',
-                borderRadius: '10px',
-                overflow: 'hidden',
-                marginTop: '1.8rem',
-                border: '1px solid rgba(245, 158, 11, 0.2)'
-              }}
-            >
+            {/* Live Terminal Command Stream Window */}
+            <div className="intro-terminal-window">
+              <div className="terminal-header">
+                <div className="terminal-dots">
+                  <span className="dot red" />
+                  <span className="dot yellow" />
+                  <span className="dot green" />
+                </div>
+                <div className="terminal-title">
+                  <Terminal size={12} style={{ display: 'inline', marginRight: '5px' }} />
+                  backend_architecture_loader.sh
+                </div>
+              </div>
+
+              <div className="terminal-body">
+                <div className="terminal-line active-line">
+                  <span className="prompt-symbol">&gt;</span> {currentLog ? currentLog.text : 'INITIALIZING...'}
+                  <span className="terminal-cursor">_</span>
+                </div>
+              </div>
+            </div>
+
+            {/* High-Tech Progress Bar */}
+            <div className="intro-progress-track">
               <div
-                style={{
-                  height: '100%',
-                  width: `${progress}%`,
-                  background: 'linear-gradient(90deg, #f59e0b, #38bdf8, #10b981)',
-                  transition: 'width 0.15s ease-out',
-                  boxShadow: '0 0 12px #f59e0b'
-                }}
+                className="intro-progress-fill"
+                style={{ width: `${progress}%` }}
               />
             </div>
           </div>
 
-          {/* Bottom Bar Specs */}
-          <div
-            style={{
-              display: 'flex',
-              justify: 'space-between',
-              alignItems: 'center',
-              zIndex: 10,
-              fontSize: '0.75rem',
-              color: '#64748b',
-              letterSpacing: '0.1em'
-            }}
-          >
-            <span>[ SYSTEM: ONLINE ]</span>
-            <span>BACKEND & DATA ARCHITECTURE</span>
+          {/* BOTTOM FOOTER: Clean Mobile Responsive Row */}
+          <div className="intro-footer-bar">
+            <span>[ STATUS: ONLINE ]</span>
+            <span className="hide-mobile">PHP LARAVEL &amp; NODE ARCHITECTURE</span>
             <span>FRAME: 00{progress}/100</span>
           </div>
         </motion.div>
