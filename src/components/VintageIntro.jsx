@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Volume2, VolumeX, Terminal, Cpu, Database, Server, Radio, ShieldCheck } from 'lucide-react';
+import { Terminal, Code, Cpu, Server, Database, Layers, CheckCircle2, FastForward } from 'lucide-react';
 
 const VintageIntro = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
-  const [soundEnabled, setSoundEnabled] = useState(true);
 
-  // Terminal log lines synced with loader progress
-  const terminalLogs = [
-    { threshold: 0, text: 'SYSTEM_BOOT // SAYANI_ROY_KERNEL_v2.6' },
-    { threshold: 12, text: 'INIT_PHP_FPM_POOL: 8 WORKERS ALLOCATED [OK]' },
-    { threshold: 28, text: 'DB_CONNECT: POSTGRESQL 127.0.0.1:5432 (LATENCY 3ms)' },
-    { threshold: 45, text: 'REST_API: MOUNTING LARAVEL & NODE.JS ENDPOINTS' },
-    { threshold: 65, text: 'AI_MICROSERVICES: SYNCING OPENAI & GEMINI PIPELINES' },
-    { threshold: 85, text: 'DATA_ENGINEERING: STAGING SQL & AGGREGATIONS' },
-    { threshold: 98, text: 'EXEC_UI: ALL SYSTEMS NOMINAL [200 OK]' },
+  // Real backend developer terminal log commands
+  const devLogs = [
+    { threshold: 0, cmd: '$ init_kernel --env=production', status: 'SYS_BOOT OK' },
+    { threshold: 15, cmd: '$ php artisan migrate --database=postgresql_prod', status: 'TABLES SYNCED' },
+    { threshold: 32, cmd: '$ node server.js --cluster=4 --port=8080', status: 'HTTP SERVER READY' },
+    { threshold: 52, cmd: '$ docker-compose up -d openai_gateway gemini_llm', status: 'CONTAINERS ACTIVE' },
+    { threshold: 72, cmd: '$ psql -U sayani -d portfolio_db -c "VACUUM ANALYZE;"', status: 'QUERIES OPTIMIZED' },
+    { threshold: 88, cmd: '$ curl -I https://api.sayani.dev/v1/status', status: '200 OK' },
+    { threshold: 98, cmd: '$ ./launch_portfolio_interface.sh', status: 'SUCCESS' },
   ];
 
   // Animated countdown from 0 to 100%
@@ -35,132 +34,98 @@ const VintageIntro = ({ onComplete }) => {
         const inc = Math.floor(Math.random() * 7) + 3;
         return Math.min(prev + inc, 100);
       });
-    }, 65);
+    }, 60);
 
     return () => clearInterval(timer);
   }, [onComplete]);
-
-  // Web Audio API click sound generator
-  const playClickSound = () => {
-    if (!soundEnabled) return;
-    try {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (!AudioCtx) return;
-      const ctx = new AudioCtx();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = 'square';
-      osc.frequency.setValueAtTime(220, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.04);
-      gain.gain.setValueAtTime(0.06, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      osc.stop(ctx.currentTime + 0.04);
-    } catch (e) {
-      // Audio autoplay fallback
-    }
-  };
-
-  useEffect(() => {
-    if (progress > 0 && progress < 100) {
-      playClickSound();
-    }
-  }, [progress]);
 
   const handleSkip = () => {
     setProgress(100);
     setIsFinished(true);
     setTimeout(() => {
       if (onComplete) onComplete();
-    }, 500);
+    }, 450);
   };
 
-  const currentLog = [...terminalLogs].reverse().find((log) => progress >= log.threshold);
+  const currentLog = [...devLogs].reverse().find((log) => progress >= log.threshold);
 
   return (
     <AnimatePresence>
       {!isFinished && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.05, filter: 'blur(12px)' }}
+          exit={{ opacity: 0, scale: 1.04, filter: 'blur(10px)' }}
           transition={{ duration: 0.75, ease: [0.77, 0, 0.175, 1] }}
           className="vintage-intro-overlay"
         >
-          {/* Scanline & Cyber Mesh Effects */}
+          {/* CRT Scanline & Retro Phosphor Code Grid Effects */}
           <div className="vintage-scanlines" />
-          <div className="techie-grid-bg" />
+          <div className="dev-terminal-grid-bg" />
 
-          {/* Viewfinder Corner Framing Brackets */}
+          {/* Retro Developer Terminal Bracket Corners */}
           <div className="vintage-corner top-left" />
           <div className="vintage-corner top-right" />
           <div className="vintage-corner bottom-left" />
           <div className="vintage-corner bottom-right" />
 
-          {/* TOP HEADER: Fully Mobile Optimized with nowrap & clean flex structure */}
+          {/* TOP HEADER: Clean Developer Terminal Shell Bar */}
           <div className="intro-header-bar">
             <div className="intro-status-group">
-              <div className="rec-badge">
-                <span className="vintage-rec-dot" />
-                <span className="rec-text">REC ● 24 FPS</span>
+              <div className="dev-terminal-prompt">
+                <Terminal size={14} color="#f59e0b" />
+                <span className="dev-prompt-text">SAYANI_ROY_OS_v2.6</span>
               </div>
               <span className="intro-divider">|</span>
-              <span className="tape-id-text">TAPE_ID: SAYANI-ROY-2026</span>
+              <span className="tape-id-text">[SHELL: zsh / bash]</span>
+              <span className="intro-divider hide-mobile">|</span>
+              <span className="tape-id-text hide-mobile">[IP: 127.0.0.1:8080]</span>
             </div>
 
             <div className="intro-controls-group">
               <button
-                onClick={() => setSoundEnabled(!soundEnabled)}
-                className="intro-btn intro-btn-sound"
-                title="Toggle Audio Effects"
-              >
-                {soundEnabled ? <Volume2 size={13} /> : <VolumeX size={13} />}
-                <span>{soundEnabled ? 'AUDIO ON' : 'MUTED'}</span>
-              </button>
-
-              <button
                 onClick={handleSkip}
-                className="intro-btn intro-btn-skip"
+                className="intro-btn dev-skip-btn"
+                title="Skip Terminal Boot"
               >
-                <span>SKIP INTRO ➔</span>
+                <FastForward size={13} />
+                <span>$ ./skip_boot.sh ➔</span>
               </button>
             </div>
           </div>
 
-          {/* MAIN CONTENT: Techie Countdown Dial & Terminal Log */}
+          {/* CENTER CONTENT: Developer Terminal Code Counter & Telemetry */}
           <div className="intro-center-content">
             
-            {/* Tech Telemetry HUD Pills */}
+            {/* Developer Tech Badges HUD */}
             <div className="intro-telemetry-row">
               <div className="telemetry-pill">
-                <Cpu size={12} color="#38bdf8" />
-                <span>CPU: {(12 + (progress % 15)).toString()}%</span>
+                <Code size={12} color="#38bdf8" />
+                <span>STACK: PHP &amp; NODE.JS</span>
               </div>
               <div className="telemetry-pill">
-                <Server size={12} color="#f59e0b" />
-                <span>RAM: {Math.min(256 + progress * 4, 612)}MB</span>
+                <Database size={12} color="#f59e0b" />
+                <span>DB: POSTGRESQL</span>
               </div>
               <div className="telemetry-pill">
-                <Radio size={12} color="#10b981" />
-                <span>PING: 8ms</span>
+                <Layers size={12} color="#10b981" />
+                <span>AI: OPENAI &amp; GEMINI</span>
               </div>
               <div className="telemetry-pill hide-mobile">
-                <ShieldCheck size={12} color="#38bdf8" />
-                <span>ENV: PRODUCTION</span>
+                <Server size={12} color="#ff4d6d" />
+                <span>STATUS: 200 OK</span>
               </div>
             </div>
 
-            {/* Film Reel & Retro Tech Countdown Circle */}
+            {/* Retro Developer Terminal Counter Ring */}
             <div className="intro-countdown-circle">
-              {/* Spinning Ring */}
+              {/* Rotating Tech HUD Ring */}
               <div className="vintage-rotate-ring intro-ring-overlay" />
 
-              {/* Crosshair Overlay */}
+              {/* Crosshair Laser Lines */}
               <div className="crosshair-h" />
               <div className="crosshair-v" />
 
-              {/* Counter Display */}
+              {/* Dead-Centered 00% - 100% Display */}
               <div className="countdown-text-box">
                 <div className="countdown-number-wrapper">
                   <span className="countdown-number">{String(progress).padStart(2, '0')}</span>
@@ -169,7 +134,7 @@ const VintageIntro = ({ onComplete }) => {
               </div>
             </div>
 
-            {/* Live Terminal Command Stream Window */}
+            {/* Real Developer Terminal Window with Executing Commands */}
             <div className="intro-terminal-window">
               <div className="terminal-header">
                 <div className="terminal-dots">
@@ -178,20 +143,27 @@ const VintageIntro = ({ onComplete }) => {
                   <span className="dot green" />
                 </div>
                 <div className="terminal-title">
-                  <Terminal size={12} style={{ display: 'inline', marginRight: '5px' }} />
-                  backend_architecture_loader.sh
+                  <Terminal size={12} style={{ display: 'inline', marginRight: '6px' }} />
+                  sayani@backend-server:~ (zsh)
                 </div>
               </div>
 
               <div className="terminal-body">
-                <div className="terminal-line active-line">
-                  <span className="prompt-symbol">&gt;</span> {currentLog ? currentLog.text : 'INITIALIZING...'}
-                  <span className="terminal-cursor">_</span>
+                <div className="terminal-log-output">
+                  <div className="terminal-cmd-line">
+                    <span className="dev-prompt-symbol">sayani@dev:~$</span>{' '}
+                    <span className="dev-cmd-text">{currentLog ? currentLog.cmd : '$ init'}</span>
+                    <span className="terminal-cursor">█</span>
+                  </div>
+                  <div className="terminal-status-line">
+                    <CheckCircle2 size={12} color="#10b981" style={{ display: 'inline', marginRight: '4px' }} />
+                    <span className="status-highlight">STATUS:</span> {currentLog ? currentLog.status : 'EXEC_OK'}
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* High-Tech Progress Bar */}
+            {/* Terminal Progress Bar */}
             <div className="intro-progress-track">
               <div
                 className="intro-progress-fill"
@@ -200,11 +172,11 @@ const VintageIntro = ({ onComplete }) => {
             </div>
           </div>
 
-          {/* BOTTOM FOOTER: Clean Mobile Responsive Row */}
+          {/* BOTTOM FOOTER: Developer Console Status */}
           <div className="intro-footer-bar">
-            <span>[ STATUS: ONLINE ]</span>
-            <span className="hide-mobile">PHP LARAVEL &amp; NODE ARCHITECTURE</span>
-            <span>FRAME: 00{progress}/100</span>
+            <span>[ SYSTEM: KERNEL_STABLE ]</span>
+            <span className="hide-mobile">SOFTWARE &amp; BACKEND ARCHITECTURE</span>
+            <span>BOOT: {progress}% / 100%</span>
           </div>
         </motion.div>
       )}

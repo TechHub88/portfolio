@@ -869,29 +869,131 @@ section {
   white-space: nowrap;
 }
 
-.rec-badge {
+.dev-terminal-prompt {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  white-space: nowrap;
+  gap: 0.4rem;
 }
 
-.vintage-rec-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #ef4444;
-  box-shadow: 0 0 10px #ef4444;
-  animation: vintage-blink 1.2s infinite;
-  display: inline-block;
-}
-
-.rec-text {
-  font-size: 0.76rem;
+.dev-prompt-text {
+  font-size: 0.78rem;
   letter-spacing: 0.12em;
   font-weight: 700;
   color: #f59e0b;
   white-space: nowrap;
+}
+
+.dev-skip-btn {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(56, 189, 248, 0.25));
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  color: #ffffff;
+  padding: 0.38rem 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.72rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+}
+
+.dev-skip-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.25);
+}
+
+/* TERMINAL WINDOW */
+.intro-terminal-window {
+  width: 100%;
+  max-width: 580px;
+  background: rgba(6, 8, 14, 0.94);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+  margin-bottom: 1.2rem;
+}
+
+.terminal-header {
+  background: rgba(14, 18, 28, 0.95);
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 5px;
+  margin-right: 10px;
+}
+
+.terminal-dots .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.terminal-dots .red { background: #ef4444; }
+.terminal-dots .yellow { background: #f59e0b; }
+.terminal-dots .green { background: #10b981; }
+
+.terminal-title {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.terminal-body {
+  padding: 0.75rem 1rem;
+  min-height: 3.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.terminal-log-output {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.terminal-cmd-line {
+  font-size: 0.78rem;
+  color: #38bdf8;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+  line-height: 1.35;
+  word-break: break-all;
+}
+
+.dev-prompt-symbol {
+  color: #10b981;
+  font-weight: 800;
+  margin-right: 5px;
+}
+
+.dev-cmd-text {
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.terminal-status-line {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+}
+
+.status-highlight {
+  color: #f59e0b;
+  font-weight: 700;
+  margin-right: 4px;
 }
 
 .intro-divider {
