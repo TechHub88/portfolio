@@ -79,7 +79,7 @@ const TypewriterParagraph = ({ text, delay = 600 }) => {
   }, [subIndex, started, text]);
 
   return (
-    <p style={{ fontSize: '1.02rem', color: '#ffffff', marginBottom: '2.2rem', maxWidth: '600px', lineHeight: 1.75, minHeight: '4.5rem' }}>
+    <p style={{ fontSize: '0.92rem', color: '#f8fafc', marginBottom: '1.8rem', maxWidth: '560px', lineHeight: 1.68, minHeight: '4.2rem' }}>
       {text.substring(0, subIndex)}
       {subIndex < text.length && (
         <span style={{ opacity: blink ? 1 : 0, color: '#f59e0b', marginLeft: '2px', fontWeight: 400 }}>|</span>
@@ -148,18 +148,18 @@ const Hero = ({ onOpenModal }) => {
             </motion.div>
             
             {/* Title with Precise Hand-Drawn Doodle Squiggle Underline */}
-            <h1 style={{ fontSize: 'clamp(2.6rem, 5vw, 4rem)', lineHeight: 1.1, marginBottom: '1rem', fontWeight: 800 }}>
+            <h1 style={{ fontSize: 'clamp(2.1rem, 3.8vw, 3.1rem)', lineHeight: 1.12, marginBottom: '0.85rem', fontWeight: 800 }}>
               Hi, I'm{' '}
               <span style={{ position: 'relative', display: 'inline-block' }}>
                 <span className="text-gradient">Sayani Roy</span>
-                <svg width="100%" height="10" viewBox="0 0 170 10" fill="none" preserveAspectRatio="none" style={{ position: 'absolute', bottom: '-4px', left: 0, pointerEvents: 'none' }}>
-                  <path d="M3 8C30 2 80 8 130 3C150 1 162 7 167 3" stroke="#f59e0b" strokeWidth="3.5" strokeLinecap="round" />
+                <svg width="100%" height="8" viewBox="0 0 170 10" fill="none" preserveAspectRatio="none" style={{ position: 'absolute', bottom: '-4px', left: 0, pointerEvents: 'none' }}>
+                  <path d="M3 8C30 2 80 8 130 3C150 1 162 7 167 3" stroke="#f59e0b" strokeWidth="3" strokeLinecap="round" />
                 </svg>
               </span>
             </h1>
             
             {/* TYPEWRITER TYPING EFFECT SUBTITLE */}
-            <h2 style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.65rem)', color: 'var(--text-muted)', fontWeight: 500, marginBottom: '1.5rem', minHeight: '2.5rem', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <h2 style={{ fontSize: 'clamp(1.02rem, 1.8vw, 1.35rem)', color: 'var(--text-muted)', fontWeight: 500, marginBottom: '1.25rem', minHeight: '2.2rem', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
               <TypewriterText words={typewriterRoles} />
             </h2>
             

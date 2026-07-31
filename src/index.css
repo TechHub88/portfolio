@@ -113,20 +113,21 @@ section {
 }
 
 .section-title {
-  font-size: clamp(2.2rem, 4vw, 2.8rem);
-  margin-bottom: 0.8rem;
+  font-size: clamp(1.75rem, 3.2vw, 2.2rem);
+  margin-bottom: 0.6rem;
   text-align: center;
   position: relative;
   font-weight: 800;
+  letter-spacing: -0.025em;
 }
 
 .section-subtitle {
   text-align: center;
   color: var(--text-muted);
-  max-width: 720px;
-  margin: 0 auto 3.5rem auto;
-  font-size: 1.05rem;
-  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto 2.5rem auto;
+  font-size: 0.94rem;
+  line-height: 1.55;
 }
 
 /* Navbar Links - Sleek Animated Glowing Underline Hover Effect */
@@ -806,4 +807,83 @@ section {
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* ==========================================
+   VINTAGE INTRO LOADER STYLES
+   ========================================== */
+.vintage-scanlines {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.35) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.85;
+}
+
+.vintage-rec-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ef4444;
+  box-shadow: 0 0 10px #ef4444;
+  animation: vintage-blink 1.2s infinite;
+  display: inline-block;
+}
+
+@keyframes vintage-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.vintage-rotate-ring {
+  animation: vintage-spin 8s linear infinite;
+}
+
+@keyframes vintage-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vintage-corner {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-color: rgba(245, 158, 11, 0.5);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.vintage-corner.top-left {
+  top: 2rem;
+  left: 2rem;
+  border-width: 2px 0 0 2px;
+}
+
+.vintage-corner.top-right {
+  top: 2rem;
+  right: 2rem;
+  border-width: 2px 2px 0 0;
+}
+
+.vintage-corner.bottom-left {
+  bottom: 2rem;
+  left: 2rem;
+  border-width: 0 0 2px 2px;
+}
+
+.vintage-corner.bottom-right {
+  bottom: 2rem;
+  right: 2rem;
+  border-width: 0 2px 2px 0;
 }

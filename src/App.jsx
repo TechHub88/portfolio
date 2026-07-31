@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import VintageIntro from './components/VintageIntro'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Stats from './components/Stats'
@@ -15,9 +16,21 @@ import './index.css'
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
+
+  // Lock scroll while intro is visible
+  useEffect(() => {
+    if (showIntro) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [showIntro]);
 
   return (
     <>
+      {showIntro && <VintageIntro onComplete={() => setShowIntro(false)} />}
+
       <Navbar onOpenModal={() => setIsModalOpen(true)} />
       <main>
         <Hero onOpenModal={() => setIsModalOpen(true)} />
