@@ -1010,26 +1010,32 @@ section {
 }
 
 .countdown-text-box {
-  text-align: center;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  z-index: 5;
   display: flex;
-  align-items: baseline;
-  justify-content: center;
+  align-items: center;
+  justify: center;
+  text-align: center;
+  pointer-events: none;
 }
 
 .countdown-number {
-  font-size: 4.2rem;
+  font-size: 3.6rem;
   font-weight: 900;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   color: #ffffff;
   text-shadow: 0 0 20px rgba(245, 158, 11, 0.6), 0 0 40px rgba(56, 189, 248, 0.4);
   line-height: 1;
 }
 
 .countdown-percent {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: #f59e0b;
   margin-left: 2px;
+  line-height: 1;
 }
 
 /* TERMINAL WINDOW */
@@ -1198,11 +1204,11 @@ section {
   }
 
   .countdown-number {
-    font-size: 3.4rem;
+    font-size: 3rem;
   }
 
   .countdown-percent {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 
   .intro-terminal-window {
