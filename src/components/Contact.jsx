@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, User, Send, MapPin, CheckCircle2, Copy, MessageSquare, Code2, Sparkles, Clock, Globe } from 'lucide-react';
+import { Mail, Phone, User, Send, MapPin, CheckCircle2, Copy, MessageSquare, Code2, Sparkles, Clock, Globe, Github } from 'lucide-react';
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
@@ -329,7 +329,7 @@ const Contact = () => {
             <motion.a whileHover={{ y: -4 }} href="https://github.com/TechHub88/" target="_blank" rel="noopener noreferrer" className="card" style={{ padding: '1.8rem', background: 'rgba(11, 13, 20, 0.92)', borderColor: 'rgba(139, 92, 246, 0.35)', textDecoration: 'none', display: 'block' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <div style={{ padding: '0.85rem', background: 'rgba(139, 92, 246, 0.15)', borderRadius: '16px', color: '#a78bfa', border: '1px solid rgba(139, 92, 246, 0.3)' }}>
-                  <Code2 size={24} />
+                  <Github size={24} />
                 </div>
                 <div>
                   <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>GitHub Developer Profile</div>

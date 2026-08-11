@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, Code2, PhoneCall, Mail, MessageCircle } from 'lucide-react';
+import { MessageSquare, Code2, PhoneCall, Mail, MessageCircle, Github } from 'lucide-react';
 
 const FloatingDock = ({ onOpenModal }) => {
   return (
@@ -60,9 +60,8 @@ const FloatingDock = ({ onOpenModal }) => {
         target="_blank" 
         rel="noopener noreferrer" 
         title="GitHub Profile"
-        style={{ width: '38px', height: '38px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.12)', color: '#fbbf24', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
       >
-        <Code2 size={18} />
+        <Github size={18} />
       </motion.a>
 
       {/* Floating LinkedIn Icon */}

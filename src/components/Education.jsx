@@ -21,15 +21,13 @@ const academicData = [
     title: 'Higher Secondary Education (10+2)',
     institution: 'Panchmura High School, West Bengal',
     year: '2018 – 2019',
-    score: '79.0%',
-    description: 'Pure Science & Mathematics Stream.'
+    score: '79.0%'
   },
   {
     title: 'Secondary Education (10th)',
     institution: 'West Bengal Board (WBBSE), West Bengal',
     year: '2016 – 2017',
-    score: 'Completed',
-    description: 'General Academics & Foundation Mathematics.'
+    score: 'Completed'
   }
 ];
 

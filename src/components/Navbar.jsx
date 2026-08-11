@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Code2, Menu, X, User, Mail, Phone, ChevronRight, Sparkles } from 'lucide-react';
+import { Send, Code2, Menu, X, User, Mail, Phone, ChevronRight, Sparkles, Github } from 'lucide-react';
 
 const Navbar = ({ onOpenModal }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -229,7 +229,7 @@ const Navbar = ({ onOpenModal }) => {
                 
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '0.8rem', marginTop: '0.4rem' }}>
                   <a href="https://github.com/TechHub88/" target="_blank" rel="noopener noreferrer" style={{ padding: '0.5rem', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', color: '#fff' }}>
-                    <Code2 size={18} />
+                    <Github size={18} />
                   </a>
                   <a href="https://www.linkedin.com/in/sayani-roy-36a167197/" target="_blank" rel="noopener noreferrer" style={{ padding: '0.5rem', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', color: '#0077b5' }}>
                     <User size={18} />

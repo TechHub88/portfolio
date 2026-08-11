@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone, User, Server, Bot, Cpu, Database, Code2, MessageCircle, PhoneCall, Globe, Sparkles } from 'lucide-react';
+import { ArrowRight, Mail, Phone, User, Server, Bot, Cpu, Database, Code2, MessageCircle, PhoneCall, Globe, Sparkles, Github } from 'lucide-react';
 
 const TypewriterText = ({ words }) => {
   const [index, setIndex] = useState(0);
@@ -193,9 +193,8 @@ const Hero = ({ onOpenModal }) => {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 title="GitHub Profile"
-                style={{ padding: '0.65rem', borderRadius: '12px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.12)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                <Code2 size={19} color="#fbbf24" />
+                <Github size={19} color="#fbbf24" />
               </motion.a>
 
               {/* LinkedIn SVG Icon */}
