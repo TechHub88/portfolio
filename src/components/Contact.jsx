@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, User, Send, MapPin, CheckCircle2, Copy, MessageSquare, Code2, Sparkles, Clock, Globe, Github } from 'lucide-react';
+import { Mail, Phone, User, Send, MapPin, CheckCircle2, Copy, MessageSquare, Code2, Sparkles, Clock, Globe } from 'lucide-react';
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
@@ -329,7 +329,7 @@ const Contact = () => {
             <motion.a whileHover={{ y: -4 }} href="https://github.com/TechHub88/" target="_blank" rel="noopener noreferrer" className="card" style={{ padding: '1.8rem', background: 'rgba(11, 13, 20, 0.92)', borderColor: 'rgba(139, 92, 246, 0.35)', textDecoration: 'none', display: 'block' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <div style={{ padding: '0.85rem', background: 'rgba(139, 92, 246, 0.15)', borderRadius: '16px', color: '#a78bfa', border: '1px solid rgba(139, 92, 246, 0.3)' }}>
-                  <Github size={24} />
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.54 5.5-1.41 5.5-6a4.64 4.64 0 0 0-1.3-3.2 4.22 4.22 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a11.5 11.5 0 0 0-6 0C6.2 2.7 5.1 3 5.1 3a4.22 4.22 0 0 0-.1 3.2 4.64 4.64 0 0 0-1.3 3.2c0 4.6 2.5 5.4 5.5 6a4.8 4.8 0 0 0-1 3.24v4"></path><path d="M13.2 18c-2.3.8-4.7.7-6.9-1.2"></path></svg>
                 </div>
                 <div>
                   <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>GitHub Developer Profile</div>
