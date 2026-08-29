@@ -40,7 +40,7 @@ const credentialsData = [
   {
     title: 'Data Analytics Course',
     issuer: 'NPTEL Certified',
-    description: 'Certified in fundamental Data Engineering, Statistical Analytics, Data Visualization, and SQL query modeling.'
+    description: 'Certified in fundamental Data Analytics, Pipelines, Statistical Analysis, Data Visualization, and SQL query modeling.'
   }
 ];
 
@@ -51,7 +51,7 @@ const Education = () => {
       <div className="container">
         <h2 className="section-title">Education & Certifications</h2>
         <p className="section-subtitle">
-          Academic foundation in Computer Applications and verified industry credentials in Cloud & Data Analytics.
+          Academic foundation in Computer Applications and verified industry credentials in Cloud, DevOps & Systems.
         </p>
 
         <div className="grid grid-cols-2" style={{ gap: '3rem' }}>

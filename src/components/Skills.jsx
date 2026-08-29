@@ -78,9 +78,9 @@ const Skills = () => {
       }} />
 
       <div className="container">
-        <h2 className="section-title">Technical Expertise & Data Systems</h2>
+        <h2 className="section-title">Technical Expertise & Systems</h2>
         <p className="section-subtitle">
-          Advanced Backend Architecture, AI & LLM Integrations, and Interactive Data Engineering Analytics.
+          Advanced Backend Architecture, AI & LLM Integrations, and Modern DevOps & CI/CD Pipelines.
         </p>
 
 
@@ -320,7 +320,7 @@ const Skills = () => {
             </div>
           </motion.div>
 
-          {/* STYLE 6: Data Engineering & BI - RADIAL GAUGE CHARTS */}
+          {/* STYLE 6: DevOps & CI/CD - RADIAL GAUGE CHARTS */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -334,23 +334,23 @@ const Skills = () => {
                 <BarChart3 size={24} />
               </div>
               <div>
-                <h4 style={{ color: '#fff', fontSize: '1.25rem', fontWeight: 700 }}>Data Engineering & BI Tools</h4>
-                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Business Intelligence Radial Gauges</span>
+                <h4 style={{ color: '#fff', fontSize: '1.25rem', fontWeight: 700 }}>DevOps & CI/CD Automation</h4>
+                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Containerization & Deployment Gauges</span>
               </div>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem', marginTop: '0.5rem' }}>
               <RadialGauge 
-                percentage={85} 
-                label="Tableau" 
-                sublabel="Data Visualization" 
-                color="#ec4899" 
+                percentage={88} 
+                label="Docker" 
+                sublabel="Containerization" 
+                color="#0ea5e9" 
               />
               <RadialGauge 
-                percentage={82} 
-                label="Power BI" 
-                sublabel="Analytics Dashboards" 
-                color="#8b5cf6" 
+                percentage={85} 
+                label="CI/CD Pipelines" 
+                sublabel="GitHub Actions & Deploy" 
+                color="#ec4899" 
               />
             </div>
           </motion.div>

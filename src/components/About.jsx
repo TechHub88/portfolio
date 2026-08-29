@@ -70,7 +70,7 @@ const About = () => {
       <div className="container">
         <h2 className="section-title">About Me</h2>
         <p className="section-subtitle">
-          Backend Developer & Aspiring Data Engineer
+          Backend Developer & Aspiring DevOps Engineer
         </p>
 
         {/* SECOND CREATIVE PORTRAIT SHOWCASE CARD */}
@@ -98,7 +98,7 @@ const About = () => {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.3rem', flexWrap: 'wrap' }}>
                 <span className="badge" style={{ background: 'rgba(245, 158, 11, 0.14)', color: '#fbbf24', borderColor: 'rgba(245, 158, 11, 0.35)' }}>
-                  Backend Developer & Aspiring Data Engineer
+                  Backend Developer & Aspiring DevOps Engineer
                 </span>
                 <span style={{ fontSize: '0.82rem', color: 'var(--accent-emerald)', display: 'flex', alignItems: 'center', gap: '0.3rem', fontWeight: 600 }}>
                   <CheckCircle2 size={14} /> 2+ Years IT Industry Experience
@@ -110,7 +110,7 @@ const About = () => {
               </h3>
 
               <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
-                Passionate Backend Developer & Aspiring Data Engineer with 2 years of IT experience engineering production-grade PHP Laravel microservices, Node.js AI support bots, and secure Razorpay/WhatsApp API pipelines.
+                Passionate Backend Developer & Aspiring DevOps Engineer with 2 years of IT experience engineering production-grade PHP Laravel microservices, Docker containerization, CI/CD automation, and secure Razorpay/WhatsApp API pipelines.
               </p>
             </div>
           </div>
@@ -130,11 +130,11 @@ const About = () => {
             </h3>
 
             <p style={{ fontSize: '1.05rem', marginBottom: '1.2rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
-              Passionate Backend Developer & Aspiring Data Engineer with <strong>2 years of IT industry experience</strong> engineering scalable server architectures, robust web applications, and complex third-party API configurations.
+              Passionate Backend Developer & Aspiring DevOps Engineer with <strong>2 years of IT industry experience</strong> engineering scalable server architectures, robust web applications, and complex third-party API configurations.
             </p>
             
             <p style={{ fontSize: '1.05rem', marginBottom: '1.5rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
-              Expert at optimizing enterprise database workflows, designing secure webhooks, implementing advanced AI-driven features (LLMs, OCR, Fraud Detection), and transitioning architectures to support modern data engineering solutions.
+              Expert at containerizing applications with Docker, building automated CI/CD pipelines, optimizing enterprise database workflows, and implementing advanced AI-driven features (LLMs, OCR, Fraud Detection).
             </p>
           </motion.div>
 
@@ -169,9 +169,9 @@ const About = () => {
             </motion.div>
 
             <motion.div whileHover={{ y: -5 }} className="card" style={{ padding: '2rem 1.5rem', textAlign: 'center' }}>
-              <h3 style={{ fontSize: '1.9rem', color: '#fff', marginBottom: '0.6rem', lineHeight: 1, fontWeight: 800, marginTop: '0.5rem', fontFamily: 'var(--font-heading)' }}>SQL & BI</h3>
-              <p style={{ color: 'var(--accent-emerald)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.4rem' }}>Data Engineering</p>
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Tableau, Power BI, MySQL</p>
+              <h3 style={{ fontSize: '1.9rem', color: '#fff', marginBottom: '0.6rem', lineHeight: 1, fontWeight: 800, marginTop: '0.5rem', fontFamily: 'var(--font-heading)' }}>DevOps & CI/CD</h3>
+              <p style={{ color: 'var(--accent-emerald)', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.4rem' }}>Docker & Automation</p>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Docker, GitHub Actions, Linux</p>
             </motion.div>
           </motion.div>
 

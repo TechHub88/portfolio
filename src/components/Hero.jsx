@@ -90,10 +90,10 @@ const TypewriterParagraph = ({ text, delay = 600 }) => {
 
 const Hero = ({ onOpenModal }) => {
   const typewriterRoles = [
-    'Backend Developer & Aspiring Data Engineer'
+    'Backend Developer & Aspiring DevOps Engineer'
   ];
 
-  const paragraphText = "Passionate Backend Developer with 2 years of IT industry experience engineering scalable server architectures, enterprise API configurations, and AI-driven microservices. Transitioning architectures to support high-throughput data solutions.";
+  const paragraphText = "Passionate Backend Developer with 2 years of IT industry experience engineering scalable server architectures, enterprise API configurations, and AI-driven microservices. Transitioning architectures with modern DevOps and CI/CD practices.";
 
   return (
     <section id="hero" style={{ minHeight: '92vh', display: 'flex', alignItems: 'center', paddingTop: '100px', paddingBottom: '4rem', position: 'relative', overflow: 'hidden' }}>
@@ -306,8 +306,8 @@ const Hero = ({ onOpenModal }) => {
                 <Database size={14} />
               </div>
               <div>
-                <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>Data Solutions</div>
-                <div style={{ fontWeight: 700, color: '#fff' }}>SQL & Power BI</div>
+                <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>DevOps & CI/CD</div>
+                <div style={{ fontWeight: 700, color: '#fff' }}>Docker & Pipelines</div>
               </div>
             </div>
 
