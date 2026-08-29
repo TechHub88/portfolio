@@ -91,10 +91,6 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: '3.5rem' }}
         >
-          <div className="badge" style={{ marginBottom: '1rem', background: 'rgba(16, 185, 129, 0.12)', borderColor: 'rgba(16, 185, 129, 0.35)', color: '#34d399' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', display: 'inline-block', boxShadow: '0 0 12px #10b981' }} />
-            Open for New Roles, Backend Projects & Collaborations
-          </div>
           <h2 className="section-title">
             Let's Build Scalable Systems <span className="text-gradient">Together</span>
           </h2>
