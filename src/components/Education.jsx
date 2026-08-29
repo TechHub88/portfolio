@@ -7,7 +7,7 @@ const academicData = [
     title: 'Master of Computer Applications (MCA)',
     institution: 'Academy of Technology, Hooghly, WB',
     year: '2022 – 2024',
-    score: '77.7%',
+    score: '70.0%',
     description: 'Specialized in Advanced Data Structures, Cloud Architectures, Distributed Systems, and Database Management.'
   },
   {

@@ -123,7 +123,7 @@ const ResumeView = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-secondary)', fontSize: '0.85rem', fontWeight: 700, marginBottom: '0.3rem' }}>
                 <GraduationCap size={15} /> Education
               </div>
-              <div style={{ color: '#fff', fontWeight: 700, fontSize: '0.98rem' }}>MCA (77.7%) & BCA (80%)</div>
+              <div style={{ color: '#fff', fontWeight: 700, fontSize: '0.98rem' }}>MCA (70%) & BCA (80%)</div>
               <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>Academy of Technology</div>
             </div>
 
