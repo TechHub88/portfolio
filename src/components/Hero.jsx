@@ -90,10 +90,7 @@ const TypewriterParagraph = ({ text, delay = 600 }) => {
 
 const Hero = ({ onOpenModal }) => {
   const typewriterRoles = [
-    'Backend Developer & Aspiring Data Engineer',
-    'Core PHP Laravel & Node.js Architect',
-    'AI Microservices & Webhook Engineer',
-    'Database Schema & Query Specialist'
+    'Backend Developer & Aspiring Data Engineer'
   ];
 
   const paragraphText = "Passionate Backend Developer with 2 years of IT industry experience engineering scalable server architectures, enterprise API configurations, and AI-driven microservices. Transitioning architectures to support high-throughput data solutions.";
@@ -135,18 +132,6 @@ const Hero = ({ onOpenModal }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Live Availability Status */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="badge" 
-              style={{ marginBottom: '1.5rem', background: 'rgba(16, 185, 129, 0.1)', borderColor: 'rgba(16, 185, 129, 0.3)', color: '#34d399' }}
-            >
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', display: 'inline-block', boxShadow: '0 0 10px #10b981' }} />
-              Available for New Roles & Projects
-            </motion.div>
-            
             {/* Title with Precise Hand-Drawn Doodle Squiggle Underline */}
             <h1 style={{ fontSize: 'clamp(2.1rem, 3.8vw, 3.1rem)', lineHeight: 1.12, marginBottom: '0.85rem', fontWeight: 800 }}>
               Hi, I'm{' '}

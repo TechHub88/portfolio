@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Database, ShieldCheck, Server, Bot, MapPin, Award, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 const CountUp = ({ endValue, duration = 2, hasPlus = false }) => {
   const [count, setCount] = useState(0);
@@ -50,29 +50,6 @@ const CountUp = ({ endValue, duration = 2, hasPlus = false }) => {
   );
 };
 
-const coreStrengths = [
-  {
-    icon: Server,
-    title: 'System Architecture Troubleshooting',
-    description: 'Diagnosing complex server setups, end-to-end data processing servers, and log troubleshooting setups.'
-  },
-  {
-    icon: Database,
-    title: 'Database Schema & Query Optimization',
-    description: 'Optimizing enterprise MySQL database workflows, refactoring complex relational queries, and payload execution layers.'
-  },
-  {
-    icon: Bot,
-    title: 'AI & LLM Integration Architectures',
-    description: 'Building intelligent chatbot routing matrices and integrating OpenAI (ChatGPT), Google Gemini, and OpenRouter APIs.'
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Security & Webhook Automation',
-    description: 'Configuring strict security policies, OAuth 2.0 authentication metrics, and real-time transactional webhooks.'
-  }
-];
-
 const About = () => {
   return (
     <section id="about" style={{ position: 'relative', overflow: 'hidden', padding: '6rem 0' }}>
@@ -93,7 +70,7 @@ const About = () => {
       <div className="container">
         <h2 className="section-title">About Me</h2>
         <p className="section-subtitle">
-          Engineering scalable backend microservices, robust API endpoints, and intelligent data-driven solutions.
+          Backend Developer & Aspiring Data Engineer
         </p>
 
         {/* SECOND CREATIVE PORTRAIT SHOWCASE CARD */}
@@ -121,7 +98,7 @@ const About = () => {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.3rem', flexWrap: 'wrap' }}>
                 <span className="badge" style={{ background: 'rgba(245, 158, 11, 0.14)', color: '#fbbf24', borderColor: 'rgba(245, 158, 11, 0.35)' }}>
-                  Backend Architect
+                  Backend Developer & Aspiring Data Engineer
                 </span>
                 <span style={{ fontSize: '0.82rem', color: 'var(--accent-emerald)', display: 'flex', alignItems: 'center', gap: '0.3rem', fontWeight: 600 }}>
                   <CheckCircle2 size={14} /> 2+ Years IT Industry Experience
@@ -133,14 +110,14 @@ const About = () => {
               </h3>
 
               <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
-                Engineering production-grade PHP Laravel microservices, Node.js AI support bots, and secure Razorpay/WhatsApp API pipelines. Transitioning core architectures toward high-throughput Data Engineering.
+                Passionate Backend Developer & Aspiring Data Engineer with 2 years of IT experience engineering production-grade PHP Laravel microservices, Node.js AI support bots, and secure Razorpay/WhatsApp API pipelines.
               </p>
             </div>
           </div>
         </motion.div>
 
         {/* Profile Narrative & 4-Card Metrics Grid */}
-        <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '3.5rem', marginBottom: '4.5rem' }}>
+        <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '3.5rem' }}>
           
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -153,7 +130,7 @@ const About = () => {
             </h3>
 
             <p style={{ fontSize: '1.05rem', marginBottom: '1.2rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
-              Passionate Backend Developer with <strong>2 years of IT industry experience</strong> engineering scalable server architectures, robust web applications, and complex third-party API configurations.
+              Passionate Backend Developer & Aspiring Data Engineer with <strong>2 years of IT industry experience</strong> engineering scalable server architectures, robust web applications, and complex third-party API configurations.
             </p>
             
             <p style={{ fontSize: '1.05rem', marginBottom: '1.5rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
@@ -198,42 +175,6 @@ const About = () => {
             </motion.div>
           </motion.div>
 
-        </div>
-
-        {/* Core Strengths Section */}
-        <h3 style={{ fontSize: '1.8rem', color: '#fff', marginBottom: '2rem', textAlign: 'center', fontWeight: 800 }}>
-          Core Strengths & Specializations
-        </h3>
-
-        <div className="grid grid-cols-2" style={{ gap: '1.5rem' }}>
-          {coreStrengths.map((item, idx) => {
-            const IconComponent = item.icon;
-            return (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="animated-border-card"
-              >
-                <div style={{ padding: '2rem', height: '100%' }}>
-                  <div style={{
-                    width: '50px', height: '50px',
-                    borderRadius: '12px',
-                    background: 'rgba(56, 189, 248, 0.12)',
-                    display: 'flex', justifyContent: 'center', alignItems: 'center',
-                    marginBottom: '1.2rem',
-                    color: 'var(--accent-primary)'
-                  }}>
-                    <IconComponent size={26} />
-                  </div>
-                  <h4 style={{ fontSize: '1.2rem', color: '#fff', marginBottom: '0.6rem' }}>{item.title}</h4>
-                  <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{item.description}</p>
-                </div>
-              </motion.div>
-            );
-          })}
         </div>
 
       </div>

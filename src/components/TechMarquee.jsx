@@ -6,6 +6,8 @@ const marqueeItems = [
   { name: 'PHP 8.2', icon: Server, color: '#8892be' },
   { name: 'Laravel 11', icon: Cpu, color: '#ff2d20' },
   { name: 'Node.js', icon: Terminal, color: '#5fa04e' },
+  { name: 'Docker', icon: Server, color: '#0ea5e9' },
+  { name: 'CI/CD Pipelines', icon: Zap, color: '#a855f7' },
   { name: 'MySQL Database', icon: Database, color: '#00758f' },
   { name: 'Gemini AI', icon: Bot, color: '#38bdf8' },
   { name: 'OpenAI API', icon: Sparkles, color: '#10a37f' },

@@ -107,12 +107,14 @@ const Skills = () => {
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '0.5rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginTop: '0.5rem' }}>
               {[
                 { name: 'PHP', pct: 92, color: '#3b82f6' },
                 { name: 'Python', pct: 88, color: '#60a5fa' },
                 { name: 'SQL Database', pct: 90, color: '#06b6d4' },
                 { name: 'Node.js', pct: 85, color: '#10b981' },
+                { name: 'Docker', pct: 85, color: '#0ea5e9' },
+                { name: 'CI/CD Pipeline', pct: 84, color: '#a855f7' },
                 { name: 'JavaScript', pct: 85, color: '#f59e0b' },
                 { name: 'GitHub & GitLab', pct: 88, color: '#8b5cf6' }
               ].map((item, idx) => (
