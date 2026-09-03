@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Code2, Menu, X, User, Mail, Phone, ChevronRight, Sparkles } from 'lucide-react';
+import { Send, Code2, Menu, X, User, Mail, Phone, ChevronRight, Sparkles, FileText } from 'lucide-react';
 
 const Navbar = ({ onOpenModal }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,7 +29,7 @@ const Navbar = ({ onOpenModal }) => {
     { name: 'Experience', href: '#experience', badge: '03' },
     { name: 'Projects', href: '#projects', badge: '04' },
     { name: 'Education', href: '#education', badge: '05' },
-    { name: 'Resume', href: '#resume', badge: '06' },
+    { name: 'Resume', href: '/sayaniroy_resume.pdf', badge: '06', isExternal: true },
     { name: 'Contact', href: '#contact', badge: '07' },
   ];
 
@@ -85,13 +85,39 @@ const Navbar = ({ onOpenModal }) => {
         </a>
 
         {/* Desktop Navigation Links - Compact Right Alignment */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.1rem', marginLeft: 'auto' }} className="desktop-nav">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', marginLeft: 'auto' }} className="desktop-nav">
           {navItems.map((item) => (
-            <a key={item.name} href={item.href} className="nav-link" style={{ fontSize: '0.85rem', padding: '0.4rem 0.6rem' }}>
-              {item.name}
+            <a 
+              key={item.name} 
+              href={item.href} 
+              target={item.isExternal ? "_blank" : undefined}
+              rel={item.isExternal ? "noopener noreferrer" : undefined}
+              className="nav-link" 
+              style={{ fontSize: '0.85rem', padding: '0.4rem 0.6rem' }}
+            >
+              {item.name} {item.isExternal && <span style={{ fontSize: '0.72rem', opacity: 0.85 }}>↗</span>}
             </a>
           ))}
-          <button onClick={onOpenModal} className="btn btn-accent" style={{ padding: '0.55rem 1.3rem', fontSize: '0.84rem', borderRadius: '10px', cursor: 'pointer', marginLeft: '0.4rem' }}>
+          <a
+            href="/sayaniroy_resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-outline"
+            style={{
+              padding: '0.52rem 1.05rem',
+              fontSize: '0.82rem',
+              borderRadius: '10px',
+              borderColor: 'rgba(56, 189, 248, 0.45)',
+              color: '#38bdf8',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              marginLeft: '0.2rem'
+            }}
+          >
+            <FileText size={14} /> Resume PDF ↗
+          </a>
+          <button onClick={onOpenModal} className="btn btn-accent" style={{ padding: '0.55rem 1.3rem', fontSize: '0.84rem', borderRadius: '10px', cursor: 'pointer', marginLeft: '0.2rem' }}>
             <Send size={14} /> Contact Me
           </button>
         </div>
@@ -188,6 +214,8 @@ const Navbar = ({ onOpenModal }) => {
                   <motion.a 
                     key={item.name} 
                     href={item.href} 
+                    target={item.isExternal ? "_blank" : undefined}
+                    rel={item.isExternal ? "noopener noreferrer" : undefined}
                     onClick={() => setMobileMenuOpen(false)}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -211,13 +239,27 @@ const Navbar = ({ onOpenModal }) => {
                       <span style={{ fontSize: '0.75rem', color: 'var(--accent-primary)', fontWeight: 800 }}>{item.badge}</span>
                       <span>{item.name}</span>
                     </div>
-                    <ChevronRight size={16} color="var(--text-muted)" />
+                    {item.isExternal ? (
+                      <span style={{ fontSize: '0.85rem', color: '#38bdf8' }}>↗</span>
+                    ) : (
+                      <ChevronRight size={16} color="var(--text-muted)" />
+                    )}
                   </motion.a>
                 ))}
               </div>
 
               {/* Sidebar Footer & Quick Actions */}
               <div style={{ paddingTop: '1.2rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                <a 
+                  href="/sayaniroy_resume.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn btn-outline" 
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{ width: '100%', padding: '0.85rem', fontSize: '0.92rem', borderRadius: '12px', borderColor: 'rgba(56, 189, 248, 0.45)', color: '#38bdf8', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
+                >
+                  <FileText size={16} /> View Resume PDF ↗
+                </a>
                 <a 
                   href="#contact" 
                   className="btn btn-accent" 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, FileText } from 'lucide-react';
 
 const CountUp = ({ endValue, duration = 2, hasPlus = false }) => {
   const [count, setCount] = useState(0);
@@ -136,6 +136,18 @@ const About = () => {
             <p style={{ fontSize: '1.05rem', marginBottom: '1.5rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
               Expert at containerizing applications with Docker, building automated CI/CD pipelines, optimizing enterprise database workflows, and implementing advanced AI-driven features (LLMs, OCR, Fraud Detection).
             </p>
+
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '1.2rem', flexWrap: 'wrap' }}>
+              <a 
+                href="/sayaniroy_resume.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn-outline"
+                style={{ padding: '0.65rem 1.3rem', fontSize: '0.88rem', borderColor: 'rgba(56, 189, 248, 0.45)', color: '#38bdf8', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', borderRadius: '10px' }}
+              >
+                <FileText size={16} /> View Verified Resume (PDF) ↗
+              </a>
+            </div>
           </motion.div>
 
           {/* 4 Metrics Cards Grid */}
