@@ -170,7 +170,7 @@ def build_pdf():
     left_flow.append(Spacer(1, 4))
 
     left_flow.append(Paragraph("<b>Higher Secondary Education</b>", item_title))
-    left_flow.append(Paragraph("Panchmura High School", item_sub))
+    left_flow.append(Paragraph("West Bengal Board (WBCHSE)", item_sub))
     left_flow.append(Paragraph("West Bengal | 2018–2019", item_meta))
     left_flow.append(Paragraph("Percentage: 79%", item_meta))
     left_flow.append(Spacer(1, 4))
