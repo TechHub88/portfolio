@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Code2, Menu, X, User, Mail, Phone, ChevronRight, Sparkles, FileText } from 'lucide-react';
+import { Send, Code2, Menu, X, User, Mail, Phone, ChevronRight, Sparkles } from 'lucide-react';
 
 const Navbar = ({ onOpenModal }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,7 +29,7 @@ const Navbar = ({ onOpenModal }) => {
     { name: 'Experience', href: '#experience', badge: '03' },
     { name: 'Projects', href: '#projects', badge: '04' },
     { name: 'Education', href: '#education', badge: '05' },
-    { name: 'Resume', href: '/sayaniroy_resume.pdf', badge: '06', isExternal: true },
+    { name: 'Resume', href: '#resume', badge: '06' },
     { name: 'Contact', href: '#contact', badge: '07' },
   ];
 
@@ -98,26 +98,7 @@ const Navbar = ({ onOpenModal }) => {
               {item.name} {item.isExternal && <span style={{ fontSize: '0.72rem', opacity: 0.85 }}>↗</span>}
             </a>
           ))}
-          <a
-            href="/sayaniroy_resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-outline"
-            style={{
-              padding: '0.52rem 1.05rem',
-              fontSize: '0.82rem',
-              borderRadius: '10px',
-              borderColor: 'rgba(56, 189, 248, 0.45)',
-              color: '#38bdf8',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              marginLeft: '0.2rem'
-            }}
-          >
-            <FileText size={14} /> Resume PDF ↗
-          </a>
-          <button onClick={onOpenModal} className="btn btn-accent" style={{ padding: '0.55rem 1.3rem', fontSize: '0.84rem', borderRadius: '10px', cursor: 'pointer', marginLeft: '0.2rem' }}>
+          <button onClick={onOpenModal} className="btn btn-accent" style={{ padding: '0.55rem 1.3rem', fontSize: '0.84rem', borderRadius: '10px', cursor: 'pointer', marginLeft: '0.4rem' }}>
             <Send size={14} /> Contact Me
           </button>
         </div>
