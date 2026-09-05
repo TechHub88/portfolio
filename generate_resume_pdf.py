@@ -3,30 +3,28 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, Frame, PageTemplate
+    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable
 )
-from reportlab.pdfgen import canvas
 
 def build_pdf():
     pdf_path = os.path.abspath(r"public\sayaniroy_resume.pdf")
+    # Letter size: 612 x 792 pt
+    # Margins: Left 32, Right 32, Top 24, Bottom 20 => Usable width = 548 pt, Usable height = 748 pt
     doc = SimpleDocTemplate(
         pdf_path,
         pagesize=letter,
         leftMargin=32,
         rightMargin=32,
-        topMargin=26,
+        topMargin=24,
         bottomMargin=20
     )
 
-    PRIMARY_COLOR = colors.HexColor("#1d68a7")
-    DARK_TEXT = colors.HexColor("#1e293b")
-    MUTED_TEXT = colors.HexColor("#475569")
-    LIGHT_BG = colors.HexColor("#1d68a7")
-    LINE_COLOR = colors.HexColor("#1d68a7")
+    PRIMARY_COLOR = colors.HexColor("#1b528b")  # Matching executive corporate navy blue
+    DARK_TEXT = colors.HexColor("#111827")
+    MUTED_TEXT = colors.HexColor("#374151")
+    LINE_COLOR = colors.HexColor("#1b528b")
 
-    styles = getSampleStyleSheet()
-
-    # Custom styles
+    # Typography styles tailored to fit exactly 1 page
     header_name = ParagraphStyle(
         'HeaderName',
         fontName='Helvetica-Bold',
@@ -38,34 +36,34 @@ def build_pdf():
     header_sub = ParagraphStyle(
         'HeaderSub',
         fontName='Helvetica-Bold',
-        fontSize=9.5,
-        leading=12,
+        fontSize=10.5,
+        leading=13,
         textColor=PRIMARY_COLOR
     )
 
     header_contact = ParagraphStyle(
         'HeaderContact',
         fontName='Helvetica',
-        fontSize=7.8,
-        leading=10,
+        fontSize=8,
+        leading=11,
         textColor=MUTED_TEXT
     )
 
     sec_heading = ParagraphStyle(
         'SecHeading',
         fontName='Helvetica-Bold',
-        fontSize=9.2,
-        leading=12,
+        fontSize=9.5,
+        leading=11,
         textColor=PRIMARY_COLOR,
-        spaceAfter=3,
-        spaceBefore=6
+        spaceAfter=0,
+        spaceBefore=0
     )
 
     item_title = ParagraphStyle(
         'ItemTitle',
         fontName='Helvetica-Bold',
         fontSize=8.2,
-        leading=10.5,
+        leading=10.2,
         textColor=DARK_TEXT
     )
 
@@ -80,8 +78,8 @@ def build_pdf():
     item_meta = ParagraphStyle(
         'ItemMeta',
         fontName='Helvetica',
-        fontSize=7.2,
-        leading=9,
+        fontSize=7.3,
+        leading=9.2,
         textColor=MUTED_TEXT
     )
 
@@ -89,7 +87,7 @@ def build_pdf():
         'BulletStyle',
         fontName='Helvetica',
         fontSize=7.4,
-        leading=9.8,
+        leading=9.6,
         textColor=DARK_TEXT,
         leftIndent=8
     )
@@ -97,31 +95,35 @@ def build_pdf():
     body_style = ParagraphStyle(
         'BodyStyle',
         fontName='Helvetica',
-        fontSize=7.8,
-        leading=10.5,
+        fontSize=7.6,
+        leading=10.2,
         textColor=DARK_TEXT
     )
 
     stack_style = ParagraphStyle(
         'StackStyle',
         fontName='Helvetica',
-        fontSize=7.2,
-        leading=9.2,
+        fontSize=7.3,
+        leading=9.4,
         textColor=MUTED_TEXT
     )
 
     link_style = ParagraphStyle(
         'LinkStyle',
-        fontName='Helvetica-Bold',
-        fontSize=7.2,
-        leading=9.2,
+        fontName='Helvetica',
+        fontSize=7.3,
+        leading=9.4,
         textColor=PRIMARY_COLOR
     )
+
+    def make_section_header(title, width):
+        p = Paragraph(f"<b>{title}</b>", sec_heading)
+        line = HRFlowable(width="100%", thickness=1.2, color=LINE_COLOR, spaceBefore=2, spaceAfter=4)
+        return [p, line]
 
     elements = []
 
     # --- HEADER ---
-    # SR Box Table + Info
     sr_badge = Paragraph(
         '<font color="white"><b>SR</b></font>',
         ParagraphStyle('SR', fontName='Helvetica-Bold', fontSize=18, leading=20, alignment=1)
@@ -130,9 +132,10 @@ def build_pdf():
     header_info = [
         Paragraph("<b>SAYANI ROY</b>", header_name),
         Spacer(1, 1),
-        Paragraph("BACKEND DEVELOPER / ASPIRING DEVOPS ENGINEER", header_sub),
-        Spacer(1, 1),
-        Paragraph("Phone: +91 9749555376 &nbsp;|&nbsp; Email: nisharoy3363@gmail.com &nbsp;|&nbsp; LinkedIn: <font color='#1d68a7'><u>Profile Link</u></font> &nbsp;|&nbsp; Portfolio: <font color='#1d68a7'><u>Portfolio Link</u></font>", header_contact)
+        Paragraph("BACKEND DEVELOPER", header_sub),
+        Spacer(1, 2),
+        Paragraph("Phone: +91 9749555376 &nbsp;|&nbsp; Email: nisharoy3363@gmail.com", header_contact),
+        Paragraph("LinkedIn: <a href='https://www.linkedin.com/in/sayani-roy-36a167197/'><font color='#1b528b'><u>Profile Link</u></font></a> &nbsp;|&nbsp; Portfolio: <a href='https://github.com/TechHub88/'><font color='#1b528b'><u>Portfolio Link</u></font></a>", header_contact)
     ]
 
     header_table = Table(
@@ -143,9 +146,9 @@ def build_pdf():
         ('BACKGROUND', (0, 0), (0, 0), PRIMARY_COLOR),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
         ('ALIGN', (0, 0), (0, 0), 'CENTER'),
-        ('BOTTOMPADDING', (0, 0), (0, 0), 6),
-        ('TOPPADDING', (0, 0), (0, 0), 6),
-        ('LEFTPADDING', (1, 0), (1, 0), 10),
+        ('BOTTOMPADDING', (0, 0), (0, 0), 8),
+        ('TOPPADDING', (0, 0), (0, 0), 8),
+        ('LEFTPADDING', (1, 0), (1, 0), 12),
         ('LINEBELOW', (0, 0), (-1, -1), 1.5, LINE_COLOR),
         ('BOTTOMPADDING', (1, 0), (1, 0), 6),
     ]))
@@ -154,61 +157,74 @@ def build_pdf():
     elements.append(Spacer(1, 6))
 
     # --- 2 COLUMN CONTENT ---
-    # LEFT COLUMN FLOW
+    # LEFT COLUMN FLOW (width ~ 160pt)
     left_flow = []
-    left_flow.append(Paragraph("<b>EDUCATION</b>", sec_heading))
+    
+    # EDUCATION
+    left_flow.extend(make_section_header("EDUCATION", 160))
     left_flow.append(Paragraph("<b>Master of Computer Applications (MCA)</b>", item_title))
     left_flow.append(Paragraph("Academy of Technology", item_sub))
-    left_flow.append(Paragraph("Hooghly, WB | 2022–2024", item_meta))
+    left_flow.append(Paragraph("Hooghly, WB", item_meta))
+    left_flow.append(Paragraph("2022-2024", item_meta))
     left_flow.append(Paragraph("Percentage: 70%", item_meta))
     left_flow.append(Spacer(1, 4))
 
     left_flow.append(Paragraph("<b>Bachelor of Computer Applications (BCA)</b>", item_title))
     left_flow.append(Paragraph("Burdwan University", item_sub))
-    left_flow.append(Paragraph("Bardhaman, WB | 2019–2022", item_meta))
+    left_flow.append(Paragraph("Bardhaman, WB", item_meta))
+    left_flow.append(Paragraph("2019-2022", item_meta))
     left_flow.append(Paragraph("Percentage: 80%", item_meta))
     left_flow.append(Spacer(1, 4))
 
     left_flow.append(Paragraph("<b>Higher Secondary Education</b>", item_title))
-    left_flow.append(Paragraph("West Bengal Board (WBCHSE)", item_sub))
-    left_flow.append(Paragraph("West Bengal | 2018–2019", item_meta))
+    left_flow.append(Paragraph("Panchmura High School", item_sub))
+    left_flow.append(Paragraph("West Bengal", item_meta))
+    left_flow.append(Paragraph("2018-2019", item_meta))
     left_flow.append(Paragraph("Percentage: 79%", item_meta))
     left_flow.append(Spacer(1, 4))
 
     left_flow.append(Paragraph("<b>Secondary Education</b>", item_title))
     left_flow.append(Paragraph("West Bengal Board (WBBSE)", item_sub))
-    left_flow.append(Paragraph("West Bengal | 2016–2017", item_meta))
-    left_flow.append(Spacer(1, 6))
+    left_flow.append(Paragraph("West Bengal", item_meta))
+    left_flow.append(Paragraph("2016-2017", item_meta))
+    left_flow.append(Spacer(1, 7))
 
-    left_flow.append(Paragraph("<b>CREDENTIALS</b>", sec_heading))
-    left_flow.append(Paragraph("<b>Data Analytics Course</b>", item_title))
-    left_flow.append(Paragraph("NPTEL Certified", item_meta))
-    left_flow.append(Spacer(1, 3))
-    left_flow.append(Paragraph("<b>Azure Zero to Hero: Microsoft Cloud</b>", item_title))
-    left_flow.append(Paragraph("Udemy Certified", item_meta))
-    left_flow.append(Spacer(1, 6))
+    # CREDENTIALS
+    left_flow.extend(make_section_header("CREDENTIALS", 160))
+    left_flow.append(Paragraph("• Data Analytics Course", item_title))
+    left_flow.append(Paragraph("&nbsp; NPTEL Certified", item_meta))
+    left_flow.append(Spacer(1, 7))
 
-    left_flow.append(Paragraph("<b>CORE STRENGTHS</b>", sec_heading))
-    left_flow.append(Paragraph("• System Architecture Troubleshooting", bullet_style))
+    # CORE STRENGTHS
+    left_flow.extend(make_section_header("CORE STRENGTHS", 160))
+    left_flow.append(Paragraph("• Dedicated Teamwork &amp; Collaboration", bullet_style))
     left_flow.append(Spacer(1, 2))
-    left_flow.append(Paragraph("• Database Schema Optimization & Query Refactoring", bullet_style))
+    left_flow.append(Paragraph("• On-Time Project Delivery", bullet_style))
     left_flow.append(Spacer(1, 2))
-    left_flow.append(Paragraph("• Docker Containerization & CI/CD", bullet_style))
+    left_flow.append(Paragraph("• Problem Solving &amp; System Architecture", bullet_style))
 
-    # RIGHT COLUMN FLOW
+    # RIGHT COLUMN FLOW (width ~ 375pt)
     right_flow = []
-    right_flow.append(Paragraph("<b>PROFILE</b>", sec_heading))
-    right_flow.append(Paragraph("Passionate Backend Developer with 2 years of IT industry experience engineering scalable server architectures, robust applications, and complex third-party API configurations. Transitioning architectures with modern DevOps and CI/CD practices.", body_style))
-    right_flow.append(Spacer(1, 4))
 
-    right_flow.append(Paragraph("<b>KEY SKILLS</b>", sec_heading))
+    # PROFILE
+    right_flow.extend(make_section_header("PROFILE", 375))
+    right_flow.append(Paragraph(
+        "Passionate Backend Developer with 2 years of IT industry experience engineering scalable server "
+        "architectures, robust applications, complex third-party API configurations, and cloud deployment "
+        "pipelines. Proficient in backend microservices, containerization using Docker, CI/CD automation, "
+        "and cloud infrastructure management on GCP.", body_style
+    ))
+    right_flow.append(Spacer(1, 5))
+
+    # KEY SKILLS
+    right_flow.extend(make_section_header("KEY SKILLS", 375))
     skills_data = [
-        [Paragraph("<b>Languages & Tools:</b>", item_title), Paragraph("PHP, Python, Node.js, JavaScript, SQL, GitHub, Docker, CI/CD", body_style)],
-        [Paragraph("<b>Frameworks & DB:</b>", item_title), Paragraph("Laravel, Django, MySQL", body_style)],
-        [Paragraph("<b>AI & LLM Integrations:</b>", item_title), Paragraph("OpenAI API (ChatGPT, GPT Models), Google Gemini API, OpenRouter AI, AI Chatbot Architectures", body_style)],
-        [Paragraph("<b>API Integrations:</b>", item_title), Paragraph("RESTful APIs, WhatsApp Business API, Razorpay Payment Gateway", body_style)],
+        [Paragraph("<b>Languages &amp; Tools:</b>", item_title), Paragraph("PHP, Python, Node.js, JavaScript", body_style)],
+        [Paragraph("<b>Frameworks &amp; DB:</b>", item_title), Paragraph("Laravel, Django, MySQL", body_style)],
+        [Paragraph("<b>AI &amp; API Integrations:</b>", item_title), Paragraph("RESTful APIs, WhatsApp Business API, Webhooks, OpenAI API (ChatGPT, GPT Models), Google Gemini API, OpenRouter AI", body_style)],
+        [Paragraph("<b>DevOps &amp; Cloud:</b>", item_title), Paragraph("Docker, CI/CD Pipelines, Git, GitHub, Linux, GCP", body_style)],
     ]
-    skills_table = Table(skills_data, colWidths=[105, 270])
+    skills_table = Table(skills_data, colWidths=[110, 265])
     skills_table.setStyle(TableStyle([
         ('VALIGN', (0,0), (-1,-1), 'TOP'),
         ('TOPPADDING', (0,0), (-1,-1), 1),
@@ -217,39 +233,43 @@ def build_pdf():
         ('RIGHTPADDING', (0,0), (-1,-1), 0),
     ]))
     right_flow.append(skills_table)
-    right_flow.append(Spacer(1, 4))
+    right_flow.append(Spacer(1, 5))
 
-    right_flow.append(Paragraph("<b>WORK EXPERIENCE</b>", sec_heading))
+    # WORK EXPERIENCE
+    right_flow.extend(make_section_header("WORK EXPERIENCE", 375))
+    
     # Job 1
     job1_header = Table([
-        [Paragraph("<b>Junior PHP Laravel Developer</b>", item_title), Paragraph("<font color='#1e293b'><b>Oct 2025–Present</b></font>", ParagraphStyle('R', alignment=2, fontName='Helvetica-Bold', fontSize=8, leading=10))]
-    ], colWidths=[240, 135])
+        [Paragraph("<b>Junior PHP Laravel Developer</b>", item_title), Paragraph("<font color='#1b528b'><b>Oct 2025 – Present</b></font>", ParagraphStyle('R', alignment=2, fontName='Helvetica-Bold', fontSize=8, leading=10))]
+    ], colWidths=[245, 130])
     job1_header.setStyle(TableStyle([('VALIGN', (0,0), (-1,-1), 'MIDDLE'), ('LEFTPADDING', (0,0), (-1,-1), 0), ('RIGHTPADDING', (0,0), (-1,-1), 0), ('TOPPADDING', (0,0), (-1,-1), 0), ('BOTTOMPADDING', (0,0), (-1,-1), 0)]))
     right_flow.append(job1_header)
-    right_flow.append(Paragraph("WebMantra Technology Services Pvt. Ltd. &nbsp;|&nbsp; Kolkata, India", item_meta))
+    right_flow.append(Paragraph("<i>WebMantra Technology Services Pvt. Ltd. | Kolkata, India</i>", item_meta))
     right_flow.append(Spacer(1, 1))
-    right_flow.append(Paragraph("• Architecting scalable backend microservices and implementing third-party enterprise vendor environments.", bullet_style))
-    right_flow.append(Paragraph("• Integrating advanced AI technologies, securing production authentication metrics, and handling real-time application processing loops.", bullet_style))
-    right_flow.append(Paragraph("• Structuring automated payment, transactional mail systems, and robust database models using Laravel and Node.js.", bullet_style))
+    right_flow.append(Paragraph("• Architected scalable backend microservices, AI integrations, and payment gateways using Laravel and Node.js.", bullet_style))
+    right_flow.append(Paragraph("• Containerized components with Docker and managed GCP cloud instances on Linux.", bullet_style))
+    right_flow.append(Paragraph("• Automated testing and deployment workflows using CI/CD pipelines via Git/GitHub.", bullet_style))
     right_flow.append(Spacer(1, 4))
 
     # Job 2
     job2_header = Table([
-        [Paragraph("<b>Junior Backend Developer</b>", item_title), Paragraph("<font color='#1e293b'><b>Jan 2024–Oct 2025</b></font>", ParagraphStyle('R', alignment=2, fontName='Helvetica-Bold', fontSize=8, leading=10))]
-    ], colWidths=[240, 135])
+        [Paragraph("<b>Junior Backend Developer</b>", item_title), Paragraph("<font color='#1b528b'><b>Jan 2024 – Oct 2025</b></font>", ParagraphStyle('R', alignment=2, fontName='Helvetica-Bold', fontSize=8, leading=10))]
+    ], colWidths=[245, 130])
     job2_header.setStyle(TableStyle([('VALIGN', (0,0), (-1,-1), 'MIDDLE'), ('LEFTPADDING', (0,0), (-1,-1), 0), ('RIGHTPADDING', (0,0), (-1,-1), 0), ('TOPPADDING', (0,0), (-1,-1), 0), ('BOTTOMPADDING', (0,0), (-1,-1), 0)]))
     right_flow.append(job2_header)
-    right_flow.append(Paragraph("Octagen Infotech LLP &nbsp;|&nbsp; Kolkata, India", item_meta))
+    right_flow.append(Paragraph("<i>Octagen Infotech LLP | Kolkata, India</i>", item_meta))
     right_flow.append(Spacer(1, 1))
-    right_flow.append(Paragraph("• Managed end-to-end data processing servers, log troubleshooting setups, and API endpoint structural engineering.", bullet_style))
-    right_flow.append(Paragraph("• Configured strict security policies, OAuth verification parameters, and real-time communications architecture across customer systems.", bullet_style))
-    right_flow.append(Spacer(1, 4))
+    right_flow.append(Paragraph("• Engineered core API endpoints, managed server logs, and secured OAuth authentication workflows.", bullet_style))
+    right_flow.append(Paragraph("• Handled version control and branching strategies using Git.", bullet_style))
+    right_flow.append(Spacer(1, 5))
 
-    right_flow.append(Paragraph("<b>CORE PROJECTS PORTFOLIO</b>", sec_heading))
+    # CORE PROJECTS PORTFOLIO
+    right_flow.extend(make_section_header("CORE PROJECTS PORTFOLIO", 375))
+    
     # Project 1
     right_flow.append(Paragraph("<b>Mafatlal Multi-Vendor E-Commerce Platform</b>", item_title))
-    right_flow.append(Paragraph("<b>Stack:</b> PHP, Laravel, Node.js, MySQL, Gemini AI, OpenAI API, OpenRouter, OpenRoute API, OCR", stack_style))
-    right_flow.append(Paragraph("<b>Live Link:</b> <font color='#1d68a7'><u>https://mafatlaluniforms.com/</u></font>", link_style))
+    right_flow.append(Paragraph("<b>Stack:</b> PHP, Laravel, Node.js, MySQL, Gemini AI, OpenAI API, OpenRouter, OpenRoute API, OCR Integration", stack_style))
+    right_flow.append(Paragraph("<b>Live Link:</b> <a href='https://mafatlaluniforms.com/'><font color='#1b528b'><u>https://mafatlaluniforms.com/</u></font></a>", link_style))
     right_flow.append(Paragraph("• Engineered an enterprise multi-vendor e-commerce platform handling cross-segment product inventories and custom fabric modules.", bullet_style))
     right_flow.append(Paragraph("• Built high-performance Node.js microservices to handle complex automated asynchronous background logic.", bullet_style))
     right_flow.append(Paragraph("• Implemented an intelligent real-time customer support chatbot routing matrix utilizing Google Gemini API, OpenAI API, and OpenRouter AI integrations.", bullet_style))
@@ -259,14 +279,12 @@ def build_pdf():
     # Project 2
     right_flow.append(Paragraph("<b>Teavera E-Commerce Experience Infrastructure</b>", item_title))
     right_flow.append(Paragraph("<b>Stack:</b> PHP, Laravel, Node.js, MySQL, Webhooks, WhatsApp Business API", stack_style))
-    right_flow.append(Paragraph("<b>Live Link:</b> <font color='#1d68a7'><u>https://teavera.in/</u></font>", link_style))
-    right_flow.append(Paragraph("• Built transactional messaging infrastructure deploying multi-point automated webhooks linked with core client systems.", bullet_style))
+    right_flow.append(Paragraph("<b>Live Link:</b> <a href='https://teavera.in/'><font color='#1b528b'><u>https://teavera.in/</u></font></a>", link_style))
     right_flow.append(Spacer(1, 3))
 
     # Project 3
     right_flow.append(Paragraph("<b>Full-Stack Book Publication Platform</b>", item_title))
     right_flow.append(Paragraph("<b>Stack:</b> PHP, Laravel, REST APIs, MySQL, Stripe Gateway", stack_style))
-    right_flow.append(Paragraph("• Designed relational databases with secure payload execution layers to handle metadata indexing and digital payments.", bullet_style))
 
     # Combine into 2 Column Table
     main_table = Table(
@@ -276,7 +294,7 @@ def build_pdf():
     main_table.setStyle(TableStyle([
         ('VALIGN', (0,0), (-1,-1), 'TOP'),
         ('LEFTPADDING', (0,0), (0,0), 0),
-        ('RIGHTPADDING', (0,0), (0,0), 12),
+        ('RIGHTPADDING', (0,0), (0,0), 10),
         ('LEFTPADDING', (1,0), (1,0), 0),
         ('RIGHTPADDING', (1,0), (1,0), 0),
         ('TOPPADDING', (0,0), (-1,-1), 0),

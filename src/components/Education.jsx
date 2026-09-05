@@ -19,7 +19,7 @@ const academicData = [
   },
   {
     title: 'Higher Secondary Education (10+2)',
-    institution: 'West Bengal Board (WBCHSE), West Bengal',
+    institution: 'Panchmura High School, West Bengal',
     year: '2018 – 2019',
     score: '79.0%'
   },
