@@ -110,7 +110,7 @@ const ResumeView = () => {
           </div>
 
           {/* Quick Qualification Summary Grid */}
-          <div className="resume-cards-grid" style={{ paddingTop: '1.8rem', borderTop: '1px solid var(--border-color)', marginBottom: '2rem' }}>
+          <div className="resume-cards-grid" style={{ paddingTop: '1.8rem', borderTop: '1px solid var(--border-color)' }}>
             <div style={{ padding: '1rem', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '14px', border: '1px solid var(--border-color)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-primary)', fontSize: '0.85rem', fontWeight: 700, marginBottom: '0.3rem' }}>
                 <Briefcase size={15} /> Experience
@@ -134,26 +134,6 @@ const ResumeView = () => {
               <div style={{ color: '#fff', fontWeight: 700, fontSize: '0.98rem' }}>Data Analytics Course</div>
               <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>NPTEL Certified</div>
             </div>
-          </div>
-
-          {/* Embedded Interactive PDF Viewer */}
-          <div style={{
-            borderRadius: '16px',
-            overflow: 'hidden',
-            border: '1px solid rgba(59, 130, 246, 0.35)',
-            background: '#ffffff',
-            boxShadow: '0 15px 40px rgba(0, 0, 0, 0.6)'
-          }}>
-            <iframe
-              src="/sayaniroy_resume.pdf"
-              title="Sayani Roy Official Resume PDF"
-              style={{
-                width: '100%',
-                height: '750px',
-                border: 'none',
-                display: 'block'
-              }}
-            />
           </div>
 
         </motion.div>
