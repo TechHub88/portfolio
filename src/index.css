@@ -574,6 +574,14 @@ section {
 }
 
 @media (max-width: 992px) {
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+
   .webmantra-card-grid {
     grid-template-columns: 1fr;
     gap: 2rem;

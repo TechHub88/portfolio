@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Code2, Menu, X, User, Mail, Phone, ChevronRight, Sparkles } from 'lucide-react';
+import { Send, Code2, Menu, X, User, Mail, Phone, ChevronRight, Sparkles, FileText } from 'lucide-react';
 
 const Navbar = ({ onOpenModal }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -21,7 +21,19 @@ const Navbar = ({ onOpenModal }) => {
     } else {
       document.body.style.overflow = 'unset';
     }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, [mobileMenuOpen]);
+
+  // Close drawer on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const navItems = [
     { name: 'About', href: '#about', badge: '01' },
@@ -143,7 +155,7 @@ const Navbar = ({ onOpenModal }) => {
                 background: 'rgba(3, 4, 8, 0.75)',
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
-                zIndex: 1000
+                zIndex: 9998
               }}
             />
 
@@ -158,14 +170,17 @@ const Navbar = ({ onOpenModal }) => {
                 top: 0, right: 0, bottom: 0,
                 width: '85vw',
                 maxWidth: '340px',
+                height: '100vh',
                 background: 'rgba(11, 13, 20, 0.98)',
                 borderLeft: '1px solid rgba(59, 130, 246, 0.3)',
                 boxShadow: '-20px 0 50px rgba(0, 0, 0, 0.8)',
-                zIndex: 1001,
+                zIndex: 9999,
                 display: 'flex',
                 flexDirection: 'column',
                 padding: '1.8rem 1.5rem',
-                backdropFilter: 'blur(30px)'
+                backdropFilter: 'blur(30px)',
+                overflowY: 'auto',
+                WebkitOverflowScrolling: 'touch'
               }}
             >
               {/* Sidebar Header */}
@@ -241,14 +256,17 @@ const Navbar = ({ onOpenModal }) => {
                 >
                   <FileText size={16} /> View Resume PDF ↗
                 </a>
-                <a 
-                  href="#contact" 
+                <button 
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    if (onOpenModal) onOpenModal();
+                    else window.location.hash = '#contact';
+                  }}
                   className="btn btn-accent" 
-                  onClick={() => setMobileMenuOpen(false)}
-                  style={{ width: '100%', padding: '0.85rem', fontSize: '0.92rem', borderRadius: '12px' }}
+                  style={{ width: '100%', padding: '0.85rem', fontSize: '0.92rem', borderRadius: '12px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', border: 'none' }}
                 >
                   <Send size={16} /> Contact Me Now
-                </a>
+                </button>
                 
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '0.8rem', marginTop: '0.4rem' }}>
                   <a href="https://github.com/TechHub88/" target="_blank" rel="noopener noreferrer" style={{ padding: '0.5rem', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', color: '#fff' }}>
