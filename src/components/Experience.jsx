@@ -13,13 +13,12 @@ const experiences = [
     accentColor: '#3b82f6',
     glowGradient: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%)',
     borderGlow: 'rgba(59, 130, 246, 0.45)',
-    impactTitle: 'Enterprise Systems & AI Microservices',
+    impactTitle: 'Enterprise Systems & AI Architectures',
     points: [
-      'Architecting scalable PHP Laravel & Node.js backend microservices powering multi-segment seller portals and product inventories.',
       'Integrating advanced AI technologies (Gemini, OpenAI, OpenRouter APIs), securing production authentication metrics, and handling real-time chat loops.',
       'Structuring automated payment gateways, WhatsApp webhooks, transactional mail systems, and robust MySQL relational models.'
     ],
-    tech: ['Laravel', 'Node.js', 'PHP', 'AI Microservices', 'REST APIs', 'MySQL', 'Fraud Detection', 'Webhooks']
+    tech: ['Laravel', 'Node.js', 'PHP', 'AI Integrations', 'REST APIs', 'MySQL', 'Fraud Detection', 'Webhooks']
   },
   {
     role: 'Junior Backend Developer',
@@ -72,7 +71,7 @@ const Experience = () => {
           Work <span className="text-gradient">Experience</span>
         </h2>
         <p className="section-subtitle">
-          Over 2 years of hands-on industry experience engineering high-performance backend microservices, enterprise server architectures, and AI integrations.
+          Over 2 years of hands-on industry experience engineering high-performance backend systems, enterprise server architectures, and AI integrations.
         </p>
         
         {/* Futuristic Bento Card Grid Showcase */}

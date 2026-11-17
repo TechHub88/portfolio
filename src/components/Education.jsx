@@ -35,7 +35,7 @@ const credentialsData = [
   {
     title: 'Azure Zero to Hero: Master Microsoft Cloud',
     issuer: 'Udemy Certified',
-    description: 'Comprehensive certification covering Azure Virtual Machines, Cloud Security, App Services, and Serverless Microservices.'
+    description: 'Comprehensive certification covering Azure Virtual Machines, Cloud Security, App Services, and Serverless Architectures.'
   },
   {
     title: 'Data Analytics Course',

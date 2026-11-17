@@ -160,7 +160,7 @@ const Skills = () => {
               </div>
               <div>
                 <h4 style={{ color: '#fff', fontSize: '1.25rem', fontWeight: 700 }}>Backend Frameworks</h4>
-                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>MVC & Microservices</span>
+                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>MVC & Scalable Architecture</span>
               </div>
             </div>
 

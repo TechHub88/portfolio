@@ -93,7 +93,7 @@ const Hero = ({ onOpenModal }) => {
     'Backend Developer & Aspiring DevOps Engineer'
   ];
 
-  const paragraphText = "Passionate Backend Developer with 2 years of IT industry experience engineering scalable server architectures, enterprise API configurations, and AI-driven microservices. Transitioning architectures with modern DevOps and CI/CD practices.";
+  const paragraphText = "Passionate Backend Developer with 2 years of IT industry experience engineering scalable server architectures, enterprise API configurations, and AI-driven solutions. Transitioning architectures with modern DevOps and CI/CD practices.";
 
   return (
     <section id="hero" style={{ minHeight: '92vh', display: 'flex', alignItems: 'center', paddingTop: '100px', paddingBottom: '4rem', position: 'relative', overflow: 'hidden' }}>

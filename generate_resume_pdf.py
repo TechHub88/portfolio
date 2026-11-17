@@ -211,7 +211,7 @@ def build_pdf():
     right_flow.append(Paragraph(
         "Passionate Backend Developer with 2 years of IT industry experience engineering scalable server "
         "architectures, robust applications, complex third-party API configurations, and cloud deployment "
-        "pipelines. Proficient in backend microservices, containerization using Docker, CI/CD automation, "
+        "pipelines. Proficient in backend architectures, containerization using Docker, CI/CD automation, "
         "and cloud infrastructure management on GCP.", body_style
     ))
     right_flow.append(Spacer(1, 5))
@@ -246,7 +246,7 @@ def build_pdf():
     right_flow.append(job1_header)
     right_flow.append(Paragraph("<i>WebMantra Technology Services Pvt. Ltd. | Kolkata, India</i>", item_meta))
     right_flow.append(Spacer(1, 1))
-    right_flow.append(Paragraph("• Architected scalable backend microservices, AI integrations, and payment gateways using Laravel and Node.js.", bullet_style))
+    right_flow.append(Paragraph("• Architected scalable backend architectures, AI integrations, and payment gateways using Laravel and Node.js.", bullet_style))
     right_flow.append(Paragraph("• Containerized components with Docker and managed GCP cloud instances on Linux.", bullet_style))
     right_flow.append(Paragraph("• Automated testing and deployment workflows using CI/CD pipelines via Git/GitHub.", bullet_style))
     right_flow.append(Spacer(1, 4))
@@ -271,7 +271,7 @@ def build_pdf():
     right_flow.append(Paragraph("<b>Stack:</b> PHP, Laravel, Node.js, MySQL, Gemini AI, OpenAI API, OpenRouter, OpenRoute API, OCR Integration", stack_style))
     right_flow.append(Paragraph("<b>Live Link:</b> <a href='https://mafatlaluniforms.com/'><font color='#1b528b'><u>https://mafatlaluniforms.com/</u></font></a>", link_style))
     right_flow.append(Paragraph("• Engineered an enterprise multi-vendor e-commerce platform handling cross-segment product inventories and custom fabric modules.", bullet_style))
-    right_flow.append(Paragraph("• Built high-performance Node.js microservices to handle complex automated asynchronous background logic.", bullet_style))
+    right_flow.append(Paragraph("• Built high-performance Node.js backend services to handle complex automated asynchronous background logic.", bullet_style))
     right_flow.append(Paragraph("• Implemented an intelligent real-time customer support chatbot routing matrix utilizing Google Gemini API, OpenAI API, and OpenRouter AI integrations.", bullet_style))
     right_flow.append(Paragraph("• Integrated dedicated server modules for Fraud Image Detection, OCR validation systems, and real-time peer-to-peer customer chats.", bullet_style))
     right_flow.append(Spacer(1, 3))

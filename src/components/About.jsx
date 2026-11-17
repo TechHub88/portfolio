@@ -110,7 +110,7 @@ const About = () => {
               </h3>
 
               <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
-                Passionate Backend Developer & Aspiring DevOps Engineer with 2 years of IT experience engineering production-grade PHP Laravel microservices, Docker containerization, CI/CD automation, and secure Razorpay/WhatsApp API pipelines.
+                Passionate Backend Developer & Aspiring DevOps Engineer with 2 years of IT experience engineering production-grade PHP Laravel backend applications, Docker containerization, CI/CD automation, and secure Razorpay/WhatsApp API pipelines.
               </p>
             </div>
           </div>

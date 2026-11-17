@@ -12,7 +12,7 @@ const projects = [
     description: 'Engineered an enterprise multi-vendor e-commerce platform handling cross-segment product inventories and custom fabric modules.',
     highlights: [
       'Engineered an enterprise multi-vendor e-commerce platform handling cross-segment product inventories.',
-      'Built high-performance Node.js microservices to handle complex automated asynchronous background logic.',
+      'Built high-performance Node.js backend services to handle complex automated asynchronous background logic.',
       'Implemented an intelligent real-time customer support chatbot routing matrix utilizing Google Gemini API, OpenAI API, and OpenRouter AI.',
       'Integrated dedicated server modules for Fraud Image Detection, OCR validation systems, and real-time peer-to-peer customer chats.'
     ],
@@ -47,7 +47,7 @@ const projects = [
     description: 'Multi-category enterprise e-commerce platform spanning Wellness, Academics, Deep Tech, Space, Climate, Technology, Games, and Skills.',
     highlights: [
       'Engineered PHP & Laravel core backend architecture powering multi-segment seller portals, product inventories, and multi-domain catalogs.',
-      'Integrated Node.js microservices for advanced AI Fraud Detection and real-time live support chat systems.',
+      'Integrated Node.js backend modules for advanced AI Fraud Detection and real-time live support chat systems.',
       'Implemented automated identity verification & KYC security protocols for seller and vendor onboarding.'
     ],
     tech: ['PHP', 'Laravel', 'Node.js', 'MySQL', 'Fraud Detection', 'Real-Time Chat', 'KYC Verification', 'Webhooks'],
@@ -138,7 +138,7 @@ const Projects = () => {
           </h2>
 
           <p className="section-subtitle" style={{ marginBottom: 0, marginTop: '0.6rem' }}>
-            WebMantra & enterprise production systems demonstrating multi-category e-commerce, AI microservices, webhook automation, and fraud detection.
+            WebMantra & enterprise production systems demonstrating multi-category e-commerce, AI integrations, webhook automation, and fraud detection.
           </p>
         </div>
 
