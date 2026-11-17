@@ -95,7 +95,7 @@ const VintageIntro = ({ onComplete }) => {
 
           {/* CENTER CONTENT: Developer Terminal Code Counter & Telemetry */}
           <div className="intro-center-content">
-            
+
             {/* Developer Tech Badges HUD */}
             <div className="intro-telemetry-row">
               <div className="telemetry-pill">

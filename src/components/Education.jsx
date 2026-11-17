@@ -19,7 +19,7 @@ const academicData = [
   },
   {
     title: 'Higher Secondary Education (10+2)',
-    institution: 'Panchmura High School, West Bengal',
+    institution: 'Nabadwip Girls High School, West Bengal',
     year: '2018 – 2019',
     score: '79.0%'
   },
@@ -47,7 +47,7 @@ const credentialsData = [
 const Education = () => {
   return (
     <section id="education" style={{ background: 'var(--surface-color)', position: 'relative', overflow: 'hidden' }}>
-      
+
       <div className="container">
         <h2 className="section-title">Education & Certifications</h2>
         <p className="section-subtitle">
@@ -55,7 +55,7 @@ const Education = () => {
         </p>
 
         <div className="grid grid-cols-2" style={{ gap: '3rem' }}>
-          
+
           {/* Left Column: Academic Background */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '2rem' }}>
