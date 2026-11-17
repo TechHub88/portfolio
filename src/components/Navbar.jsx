@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Code2, Menu, X, User, Mail, Phone, ChevronRight, Sparkles, FileText } from 'lucide-react';
+import { 
+  Send, Code2, Menu, X, User, Mail, Phone, ChevronRight, 
+  Sparkles, FileText, Cpu, Briefcase, FolderGit2, GraduationCap 
+} from 'lucide-react';
 
 const Navbar = ({ onOpenModal }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -36,13 +39,13 @@ const Navbar = ({ onOpenModal }) => {
   }, []);
 
   const navItems = [
-    { name: 'About', href: '#about', badge: '01' },
-    { name: 'Skills', href: '#skills', badge: '02' },
-    { name: 'Experience', href: '#experience', badge: '03' },
-    { name: 'Projects', href: '#projects', badge: '04' },
-    { name: 'Education', href: '#education', badge: '05' },
-    { name: 'Resume', href: '#resume', badge: '06' },
-    { name: 'Contact', href: '#contact', badge: '07' },
+    { name: 'About', href: '#about', icon: User, color: '#38bdf8' },
+    { name: 'Skills', href: '#skills', icon: Cpu, color: '#a855f7' },
+    { name: 'Experience', href: '#experience', icon: Briefcase, color: '#f59e0b' },
+    { name: 'Projects', href: '#projects', icon: FolderGit2, color: '#10b981' },
+    { name: 'Education', href: '#education', icon: GraduationCap, color: '#ec4899' },
+    { name: 'Resume', href: '#resume', icon: FileText, color: '#06b6d4' },
+    { name: 'Contact', href: '#contact', icon: Mail, color: '#3b82f6' },
   ];
 
   return (
@@ -184,10 +187,28 @@ const Navbar = ({ onOpenModal }) => {
               }}
             >
               {/* Sidebar Header */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', paddingBottom: '1rem', borderBottom: '1px solid var(--border-color)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                  <Sparkles size={18} color="var(--accent-cyan)" />
-                  <span style={{ fontSize: '0.92rem', fontWeight: 700, color: '#fff', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Navigation</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.8rem', paddingBottom: '1.2rem', borderBottom: '1px solid var(--border-color)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <div style={{
+                    width: '32px', height: '32px',
+                    borderRadius: '10px',
+                    background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+                    display: 'flex', justifyContent: 'center', alignItems: 'center',
+                    color: '#fff',
+                    boxShadow: '0 0 15px rgba(59, 130, 246, 0.4)'
+                  }}>
+                    <Code2 size={18} />
+                  </div>
+                  <span style={{ 
+                    fontFamily: 'var(--font-heading)', 
+                    fontWeight: 800, 
+                    fontSize: '1.05rem', 
+                    letterSpacing: '0.05em',
+                    textTransform: 'uppercase',
+                    color: '#ffffff'
+                  }}>
+                    SAYANI <span className="text-gradient">ROY</span>
+                  </span>
                 </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
@@ -231,9 +252,21 @@ const Navbar = ({ onOpenModal }) => {
                       transition: 'all 0.2s ease'
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                      <span style={{ fontSize: '0.75rem', color: 'var(--accent-primary)', fontWeight: 800 }}>{item.badge}</span>
-                      <span>{item.name}</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '9px',
+                        background: 'rgba(255, 255, 255, 0.05)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        color: item.color
+                      }}>
+                        <item.icon size={17} />
+                      </div>
+                      <span style={{ fontSize: '0.98rem', fontWeight: 600 }}>{item.name}</span>
                     </div>
                     {item.isExternal ? (
                       <span style={{ fontSize: '0.85rem', color: '#38bdf8' }}>↗</span>
