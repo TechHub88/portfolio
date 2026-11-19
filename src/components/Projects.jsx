@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ShoppingBag, Bot, MessageSquare, CheckCircle2, ExternalLink } from 'lucide-react';
+import { ShoppingBag, Bot, MessageSquare, ExternalLink } from 'lucide-react';
 
 const projects = [
   {
@@ -183,24 +183,11 @@ const Projects = () => {
                     {/* TYPEWRITER PROJECT TITLE */}
                     <ProjectTitleTypewriter title={project.title} />
                     
-                    <div style={{ color: 'var(--accent-secondary)', fontWeight: 700, fontSize: '0.92rem', marginBottom: '1rem' }}>
+                    <div style={{ color: 'var(--accent-secondary)', fontWeight: 700, fontSize: '0.92rem', marginBottom: '1.4rem' }}>
                       Role: {project.role}
                     </div>
 
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.94rem', marginBottom: '1.2rem', lineHeight: 1.65 }}>
-                      {project.description}
-                    </p>
-
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginBottom: '1.5rem' }}>
-                      {project.highlights.map((h, i) => (
-                        <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-                          <CheckCircle2 size={16} color="var(--accent-emerald)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
-                          <span>{h}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.6rem' }}>
                       {project.tech.map((t, idx) => (
                         <span key={idx} className="tech-pill">{t}</span>
                       ))}
