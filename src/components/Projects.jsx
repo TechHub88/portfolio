@@ -40,11 +40,11 @@ const projects = [
   },
   {
     id: '03',
-    title: 'VShop Multi-Category E-Commerce Platform',
+    title: 'VShop Multi-Vendor E-Commerce Platform',
     link: 'https://vshop.vridhee.com/',
     role: 'Lead Backend & Security Engineer',
-    tag: 'E-Commerce & Security',
-    description: 'Multi-category enterprise e-commerce platform spanning Wellness, Academics, Deep Tech, Space, Climate, Technology, Games, and Skills.',
+    tag: 'Multi-Vendor & Security',
+    description: 'Multi-vendor enterprise e-commerce platform spanning Wellness, Academics, Deep Tech, Space, Climate, Technology, Games, and Skills.',
     highlights: [
       'Engineered PHP & Laravel core backend architecture powering multi-segment seller portals, product inventories, and multi-domain catalogs.',
       'Integrated Node.js backend modules for advanced AI Fraud Detection and real-time live support chat systems.',
@@ -138,7 +138,7 @@ const Projects = () => {
           </h2>
 
           <p className="section-subtitle" style={{ marginBottom: 0, marginTop: '0.6rem' }}>
-            WebMantra & enterprise production systems demonstrating multi-category e-commerce, AI integrations, webhook automation, and fraud detection.
+            WebMantra & enterprise production systems demonstrating multi-vendor e-commerce, AI integrations, webhook automation, and fraud detection.
           </p>
         </div>
 
