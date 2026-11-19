@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Bot, MessageSquare, ExternalLink, Layers, ChevronLeft, ChevronRight, Play, Pause, Sparkles, Zap, ShieldCheck, PhoneCall } from 'lucide-react';
+import { ShoppingBag, Bot, MessageSquare, ExternalLink, Layers, ChevronLeft, ChevronRight, Play, Pause, Sparkles } from 'lucide-react';
 
 const projects = [
   {
@@ -18,31 +18,6 @@ const projects = [
     ],
     tech: ['PHP', 'Laravel', 'Node.js', 'MySQL', 'Gemini AI', 'OpenAI API', 'OpenRouter', 'OCR Integration'],
     imageUrl: '/mafatlal-banner.jpg',
-    accentColor: '#38bdf8',
-    featureOverlay: {
-      type: 'ai-neural',
-      badge: 'AI Support + OCR Active'
-    },
-    gallery: [
-      { 
-        label: '✦ Healthcare Uniforms', 
-        subtitle: 'Institutional & Healthcare Workwear Portal', 
-        badge: 'Medical Catalog',
-        src: '/mafatlal-banner.jpg' 
-      },
-      { 
-        label: 'B2B Fabric Sourcing', 
-        subtitle: 'B2B Institutional Ordering & Custom Fabric Modules', 
-        badge: 'B2B Sourcing Hub',
-        src: '/campeign.jpg' 
-      },
-      { 
-        label: 'AI Matrix & OCR Shield', 
-        subtitle: 'Gemini & OpenAI Routing + Invoice Fraud OCR Shield', 
-        badge: 'Enterprise AI & OCR',
-        src: '/mafatlal-ai-matrix.jpg' 
-      }
-    ],
     badge: 'Enterprise AI',
     icon: Bot
   },
@@ -60,25 +35,6 @@ const projects = [
     ],
     tech: ['PHP', 'Laravel', 'Node.js', 'MySQL', 'Webhooks', 'WhatsApp Business API'],
     imageUrl: '/teavera-banner.jpg',
-    accentColor: '#10b981',
-    featureOverlay: {
-      type: 'webhook-radar',
-      badge: 'WhatsApp API Live'
-    },
-    gallery: [
-      { 
-        label: '✦ Artisan Tea Store', 
-        subtitle: 'D2C Master Reserve Artisan Tea Experience', 
-        badge: 'E-Commerce Storefront',
-        src: '/teavera-banner.jpg' 
-      },
-      { 
-        label: 'Webhook & WhatsApp Engine', 
-        subtitle: 'Live Webhook Stream & WhatsApp Dispatch Sequence', 
-        badge: 'Telemetry & Webhooks',
-        src: '/teavera-webhooks.jpg' 
-      }
-    ],
     badge: 'Infrastructure',
     icon: MessageSquare
   },
@@ -96,31 +52,6 @@ const projects = [
     ],
     tech: ['PHP', 'Laravel', 'Node.js', 'MySQL', 'Fraud Detection', 'Real-Time Chat', 'KYC Verification', 'Webhooks'],
     imageUrl: '/vshop-banner.png',
-    accentColor: '#a855f7',
-    featureOverlay: {
-      type: 'security-shield',
-      badge: 'KYC Verified Platform'
-    },
-    gallery: [
-      { 
-        label: '✦ Multi-Domain Ecosystem', 
-        subtitle: 'Cross-Domain Platform: Wellness, Tech, Space & Skills', 
-        badge: 'Multi-Vendor Marketplace',
-        src: '/vshop-banner.png' 
-      },
-      { 
-        label: 'Wellness Category Hub', 
-        subtitle: 'Dedicated Multi-Seller Health & Wellness Segment', 
-        badge: 'Lifestyle & Wellness',
-        src: '/wellness campeign.jpg' 
-      },
-      { 
-        label: 'Feature Matrix & Security', 
-        subtitle: 'Vendor Onboarding, KYC Protocols & Product Inventories', 
-        badge: 'Security & Vendor KYC',
-        src: '/wellness features.jpg' 
-      }
-    ],
     badge: 'Featured Project',
     icon: ShoppingBag
   },
@@ -140,11 +71,6 @@ const projects = [
     ],
     tech: ['PHP', 'Laravel', 'MySQL', 'Tailwind CSS', 'Alpine.js', 'WhatsApp API', 'Power Dialer', 'Webhooks'],
     imageUrl: '/crm-composite.jpg',
-    accentColor: '#0284c7',
-    featureOverlay: {
-      type: 'dialer-waveform',
-      badge: 'Live Dialer Desk'
-    },
     gallery: [
       { 
         label: '✦ 3-in-1 Merged UI', 
@@ -177,7 +103,7 @@ const projects = [
   }
 ];
 
-// ANIMATED INTERACTIVE PROJECT THUMBNAIL (WITH AUTO-SLIDE, TABS, SMOOTH PAGE SCROLL & UNIQUE OVERLAYS)
+// ANIMATED INTERACTIVE PROJECT THUMBNAIL (WITH AUTO-SLIDE, TABS, PROGRESS & HOVER PAUSE)
 const ProjectThumbnail = ({ project }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -186,14 +112,13 @@ const ProjectThumbnail = ({ project }) => {
   const hasGallery = Array.isArray(project.gallery) && project.gallery.length > 0;
   const currentItem = hasGallery ? project.gallery[activeTab] : null;
   const currentImage = hasGallery ? currentItem.src : project.imageUrl;
-  const accent = project.accentColor || '#38bdf8';
 
-  // Auto-slide transition effect (every 4.5 seconds when not paused and not hovered)
+  // Auto-slide transition effect (every 4.2 seconds when not paused and not hovered)
   useEffect(() => {
     if (!hasGallery || isPaused || isHovered) return;
     const interval = setInterval(() => {
       setActiveTab((prev) => (prev + 1) % project.gallery.length);
-    }, 4500);
+    }, 4200);
     return () => clearInterval(interval);
   }, [hasGallery, isPaused, isHovered, project.gallery?.length]);
 
@@ -261,16 +186,16 @@ const ProjectThumbnail = ({ project }) => {
                     setActiveTab(idx);
                   }}
                   style={{
-                    background: isActive ? `${accent}22` : 'rgba(255, 255, 255, 0.05)',
-                    border: `1px solid ${isActive ? accent : 'rgba(255, 255, 255, 0.12)'}`,
-                    color: isActive ? accent : 'var(--text-muted)',
+                    background: isActive ? 'rgba(56, 189, 248, 0.24)' : 'rgba(255, 255, 255, 0.05)',
+                    border: `1px solid ${isActive ? '#38bdf8' : 'rgba(255, 255, 255, 0.12)'}`,
+                    color: isActive ? '#38bdf8' : 'var(--text-muted)',
                     fontSize: '0.67rem',
                     fontWeight: isActive ? 700 : 500,
                     padding: '0.22rem 0.52rem',
                     borderRadius: '6px',
                     cursor: 'pointer',
                     transition: 'all 0.2s ease',
-                    boxShadow: isActive ? `0 0 10px ${accent}40` : 'none'
+                    boxShadow: isActive ? '0 0 10px rgba(56, 189, 248, 0.3)' : 'none'
                   }}
                   title={item.subtitle}
                 >
@@ -296,7 +221,7 @@ const ProjectThumbnail = ({ project }) => {
                 fontSize: '0.66rem',
                 fontWeight: 600
               }}
-              title={isPaused ? 'Resume auto-play slide animation' : 'Pause auto-play slide animation'}
+              title={isPaused ? 'Resume auto-play animation' : 'Pause auto-play animation'}
             >
               {isPaused ? <Play size={11} /> : <Pause size={11} />}
               <span>{isPaused ? 'Paused' : 'Auto'}</span>
@@ -313,14 +238,14 @@ const ProjectThumbnail = ({ project }) => {
             initial={{ width: '0%' }}
             animate={{ width: isPaused || isHovered ? '100%' : '100%' }}
             transition={{
-              duration: isPaused || isHovered ? 0 : 4.5,
+              duration: isPaused || isHovered ? 0 : 4.2,
               ease: 'linear'
             }}
             style={{
               height: '100%',
               background: isPaused || isHovered 
                 ? 'rgba(245, 158, 11, 0.7)' 
-                : `linear-gradient(90deg, ${accent}, #60a5fa)`
+                : 'linear-gradient(90deg, #38bdf8, #818cf8)'
             }}
           />
         </div>
@@ -337,7 +262,7 @@ const ProjectThumbnail = ({ project }) => {
           textDecoration: 'none', 
           cursor: 'pointer', 
           position: 'relative',
-          height: '275px',
+          height: hasGallery ? '270px' : '240px',
           overflow: 'hidden',
           background: '#0a0f1d'
         }}
@@ -355,96 +280,11 @@ const ProjectThumbnail = ({ project }) => {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              objectPosition: isHovered ? 'center 85%' : 'center 0%',
-              transition: 'object-position 3.8s cubic-bezier(0.25, 1, 0.5, 1)',
+              objectPosition: 'top',
               display: 'block'
             }}
           />
         </AnimatePresence>
-
-        {/* Unique Interactive Feature Overlay for Each Project */}
-        {project.featureOverlay && (
-          <div
-            style={{
-              position: 'absolute',
-              top: '10px',
-              right: '10px',
-              zIndex: 4,
-              pointerEvents: 'none'
-            }}
-          >
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '0.28rem 0.65rem',
-                background: 'rgba(7, 10, 20, 0.88)',
-                backdropFilter: 'blur(8px)',
-                border: `1px solid ${accent}66`,
-                borderRadius: '20px',
-                boxShadow: `0 0 14px ${accent}30`
-              }}
-            >
-              {project.featureOverlay.type === 'ai-neural' && (
-                <>
-                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: accent, display: 'inline-block', boxShadow: `0 0 8px ${accent}` }} />
-                  <Bot size={13} style={{ color: accent }} />
-                  <span style={{ fontSize: '0.67rem', fontWeight: 700, color: '#f1f5f9' }}>Gemini AI & OCR Active</span>
-                </>
-              )}
-
-              {project.featureOverlay.type === 'webhook-radar' && (
-                <>
-                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', display: 'inline-block', boxShadow: '0 0 8px #10b981' }} />
-                  <Zap size={13} style={{ color: '#10b981' }} />
-                  <span style={{ fontSize: '0.67rem', fontWeight: 700, color: '#f1f5f9' }}>200 OK • WhatsApp API (142ms)</span>
-                </>
-              )}
-
-              {project.featureOverlay.type === 'security-shield' && (
-                <>
-                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#a855f7', display: 'inline-block', boxShadow: '0 0 8px #a855f7' }} />
-                  <ShieldCheck size={13} style={{ color: '#a855f7' }} />
-                  <span style={{ fontSize: '0.67rem', fontWeight: 700, color: '#f1f5f9' }}>KYC Shield & Fraud 99.8%</span>
-                </>
-              )}
-
-              {project.featureOverlay.type === 'dialer-waveform' && (
-                <>
-                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#0284c7', display: 'inline-block', boxShadow: '0 0 8px #0284c7' }} />
-                  <PhoneCall size={13} style={{ color: '#0284c7' }} />
-                  <span style={{ fontSize: '0.67rem', fontWeight: 700, color: '#f1f5f9' }}>Power Dialer • 26m Talk-Time</span>
-                </>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* Hover Scrolling Indicator Hint */}
-        {isHovered && (
-          <motion.div
-            initial={{ opacity: 0, y: -4 }}
-            animate={{ opacity: 1, y: 0 }}
-            style={{
-              position: 'absolute',
-              top: '10px',
-              left: '10px',
-              background: 'rgba(0, 0, 0, 0.75)',
-              padding: '0.22rem 0.55rem',
-              borderRadius: '6px',
-              fontSize: '0.65rem',
-              color: '#38bdf8',
-              border: '1px solid rgba(56, 189, 248, 0.3)',
-              zIndex: 4,
-              pointerEvents: 'none',
-              backdropFilter: 'blur(4px)',
-              fontWeight: 600
-            }}
-          >
-            ↕ Auto-Scrolling Full Page
-          </motion.div>
-        )}
 
         {/* Navigation Arrow Overlays for Gallery */}
         {hasGallery && (
@@ -524,12 +364,12 @@ const ProjectThumbnail = ({ project }) => {
                   style={{ 
                     fontSize: '0.65rem', 
                     fontWeight: 700, 
-                    color: accent, 
+                    color: '#38bdf8', 
                     textTransform: 'uppercase', 
                     letterSpacing: '0.05em' 
                   }}
                 >
-                  {currentItem?.badge || 'Live Screen'}
+                  {currentItem?.badge || 'CRM Screen'}
                 </span>
                 <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#f1f5f9' }}>
                   {currentItem?.subtitle}
