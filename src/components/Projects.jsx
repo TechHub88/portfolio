@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ShoppingBag, Bot, MessageSquare, ExternalLink } from 'lucide-react';
+import { ShoppingBag, Bot, MessageSquare, ExternalLink, Layers } from 'lucide-react';
 
 const projects = [
   {
@@ -54,6 +54,26 @@ const projects = [
     imageUrl: '/vshop-banner.png',
     badge: 'Featured Project',
     icon: ShoppingBag
+  },
+  {
+    id: '04',
+    title: 'Relateo - Enterprise Sales & Telecalling CRM',
+    link: 'https://github.com/TechHub88/CRM-Platform',
+    githubUrl: 'https://github.com/TechHub88/CRM-Platform',
+    role: 'Lead Full-Stack Developer & Backend Architect',
+    tag: 'Sales CRM & Telecalling',
+    description: 'Full-featured enterprise Sales & Telecalling CRM engineered with PHP Laravel, featuring real-time lead capture, an outbound Telecalling Hub with integrated Power Dialer, 1-click WhatsApp messaging sequences, and conversion analytics.',
+    highlights: [
+      'Engineered a comprehensive Sales & Lead Management CRM using PHP Laravel, Blade, Tailwind CSS, Alpine.js, and MySQL.',
+      'Built an Outbound Telecalling Hub with 1-click Power Dialer, live call duration timers, disposition logging, and audio recording playback.',
+      'Integrated 1-Click WhatsApp outreach sequences with automated dynamic template variable replacement.',
+      'Architected multi-source lead webhooks (Facebook Ads, Google Ads, IndiaMART, JustDial) with stage pipelines and callback alarms.'
+    ],
+    tech: ['PHP', 'Laravel', 'MySQL', 'Tailwind CSS', 'Alpine.js', 'WhatsApp API', 'Power Dialer', 'Webhooks'],
+    imageUrl: '/crm-banner.jpg',
+    badge: 'Sales CRM & Dialer',
+    icon: Layers,
+    isGithub: true
   }
 ];
 
@@ -138,7 +158,7 @@ const Projects = () => {
           </h2>
 
           <p className="section-subtitle" style={{ marginBottom: 0, marginTop: '0.6rem' }}>
-            WebMantra & enterprise production systems demonstrating multi-vendor e-commerce, AI integrations, webhook automation, and fraud detection.
+            Enterprise production systems demonstrating Sales CRM platforms, multi-vendor e-commerce, AI integrations, and webhook automation.
           </p>
         </div>
 
@@ -183,9 +203,13 @@ const Projects = () => {
                     {/* TYPEWRITER PROJECT TITLE */}
                     <ProjectTitleTypewriter title={project.title} />
                     
-                    <div style={{ color: 'var(--accent-secondary)', fontWeight: 700, fontSize: '0.92rem', marginBottom: '1.4rem' }}>
+                    <div style={{ color: 'var(--accent-secondary)', fontWeight: 700, fontSize: '0.92rem', marginBottom: '0.8rem' }}>
                       Role: {project.role}
                     </div>
+
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '1.2rem' }}>
+                      {project.description}
+                    </p>
 
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.6rem' }}>
                       {project.tech.map((t, idx) => (
@@ -193,17 +217,29 @@ const Projects = () => {
                       ))}
                     </div>
 
-                    {project.link.startsWith('http') && (
-                      <a 
-                        href={project.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="btn btn-accent"
-                        style={{ padding: '0.65rem 1.35rem', fontSize: '0.86rem', borderRadius: '10px' }}
-                      >
-                        Visit Live Platform <ExternalLink size={15} />
-                      </a>
-                    )}
+                    <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                      {project.link.startsWith('http') && (
+                        <a 
+                          href={project.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="btn btn-accent"
+                          style={{ padding: '0.65rem 1.35rem', fontSize: '0.86rem', borderRadius: '10px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+                        >
+                          {project.isGithub ? (
+                            <>
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.54 5.5-1.41 5.5-6a4.64 4.64 0 0 0-1.3-3.2 4.22 4.22 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a11.5 11.5 0 0 0-6 0C6.2 2.7 5.1 3 5.1 3a4.22 4.22 0 0 0-.1 3.2 4.64 4.64 0 0 0-1.3 3.2c0 4.6 2.5 5.4 5.5 6a4.8 4.8 0 0 0-1 3.24v4"></path><path d="M13.2 18c-2.3.8-4.7.7-6.9-1.2"></path></svg>
+                              <span>View Git Repository ↗</span>
+                            </>
+                          ) : (
+                            <>
+                              <span>Visit Live Platform</span>
+                              <ExternalLink size={15} />
+                            </>
+                          )}
+                        </a>
+                      )}
+                    </div>
                   </div>
 
                   {/* Right Preview Image Frame */}
@@ -214,9 +250,15 @@ const Projects = () => {
                       <span style={{ background: '#10b981' }} />
                       <div className="browser-url-text">{project.link}</div>
                     </div>
-                    <div className="webmantra-img-box">
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="webmantra-img-box"
+                      style={{ display: 'block', textDecoration: 'none', cursor: 'pointer' }}
+                    >
                       <img src={project.imageUrl} alt={project.title} />
-                    </div>
+                    </a>
                   </div>
 
                 </div>

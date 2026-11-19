@@ -283,8 +283,9 @@ def build_pdf():
     right_flow.append(Spacer(1, 3))
 
     # Project 3
-    right_flow.append(Paragraph("<b>Full-Stack Book Publication Platform</b>", item_title))
-    right_flow.append(Paragraph("<b>Stack:</b> PHP, Laravel, REST APIs, MySQL, Stripe Gateway", stack_style))
+    right_flow.append(Paragraph("<b>Relateo - Enterprise Sales & Telecalling CRM</b>", item_title))
+    right_flow.append(Paragraph("<b>Stack:</b> PHP, Laravel, MySQL, Tailwind CSS, Alpine.js, WhatsApp API", stack_style))
+    right_flow.append(Paragraph("<b>GitHub:</b> <a href='https://github.com/TechHub88/CRM-Platform'><font color='#1b528b'><u>https://github.com/TechHub88/CRM-Platform</u></font></a>", link_style))
 
     # Combine into 2 Column Table
     main_table = Table(

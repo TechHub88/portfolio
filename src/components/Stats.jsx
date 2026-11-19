@@ -66,7 +66,7 @@ const statsData = [
     decimals: 0,
     suffix: 'Core',
     label: 'Production Projects',
-    desc: 'Multi-domain E-Commerce, AI Chatbots, & Webhook Infrastructure.'
+    desc: 'Enterprise Sales CRM, Multi-domain E-Commerce, & Webhook Infrastructure.'
   },
   {
     numericValue: 99.9,
