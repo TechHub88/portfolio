@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { ShoppingBag, Bot, MessageSquare, ExternalLink, Layers } from 'lucide-react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { ShoppingBag, Bot, MessageSquare, ExternalLink, Layers, ChevronLeft, ChevronRight, Play, Pause, Sparkles } from 'lucide-react';
 
 const projects = [
   {
@@ -70,12 +70,337 @@ const projects = [
       'Architected multi-source lead webhooks (Facebook Ads, Google Ads, IndiaMART, JustDial) with stage pipelines and callback alarms.'
     ],
     tech: ['PHP', 'Laravel', 'MySQL', 'Tailwind CSS', 'Alpine.js', 'WhatsApp API', 'Power Dialer', 'Webhooks'],
-    imageUrl: '/crm-banner.jpg',
+    imageUrl: '/crm-composite.jpg',
+    gallery: [
+      { 
+        label: '✦ 3-in-1 Merged UI', 
+        subtitle: 'Multi-Screen Unified CRM Architecture', 
+        badge: 'All-In-One Unified View',
+        src: '/crm-composite.jpg' 
+      },
+      { 
+        label: 'Landing & AI Funnel', 
+        subtitle: 'Automated Lead Capture & AI Pitching Experience', 
+        badge: 'Landing Experience',
+        src: '/crm-landing.jpg' 
+      },
+      { 
+        label: 'Sales CRM Dashboard', 
+        subtitle: 'Real-Time KPIs, Donut Lead Distribution & Leaderboard', 
+        badge: 'Live Dashboard',
+        src: '/crm-dashboard.jpg' 
+      },
+      { 
+        label: 'Telecalling Hub & Dialer', 
+        subtitle: '1-Click Power Dialer, Prioritized Queue & Audio Logs', 
+        badge: 'Telecalling Desk',
+        src: '/crm-telecalling.jpg' 
+      }
+    ],
     badge: 'Sales CRM & Dialer',
     icon: Layers,
     isGithub: true
   }
 ];
+
+// ANIMATED INTERACTIVE PROJECT THUMBNAIL (WITH AUTO-SLIDE, TABS, PROGRESS & HOVER PAUSE)
+const ProjectThumbnail = ({ project }) => {
+  const [activeTab, setActiveTab] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const hasGallery = Array.isArray(project.gallery) && project.gallery.length > 0;
+  const currentItem = hasGallery ? project.gallery[activeTab] : null;
+  const currentImage = hasGallery ? currentItem.src : project.imageUrl;
+
+  // Auto-slide transition effect (every 4.2 seconds when not paused and not hovered)
+  useEffect(() => {
+    if (!hasGallery || isPaused || isHovered) return;
+    const interval = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % project.gallery.length);
+    }, 4200);
+    return () => clearInterval(interval);
+  }, [hasGallery, isPaused, isHovered, project.gallery?.length]);
+
+  const handlePrev = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setActiveTab((prev) => (prev === 0 ? project.gallery.length - 1 : prev - 1));
+  };
+
+  const handleNext = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setActiveTab((prev) => (prev + 1) % project.gallery.length);
+  };
+
+  const togglePause = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsPaused((prev) => !prev);
+  };
+
+  return (
+    <div 
+      className="webmantra-thumbnail-wrapper" 
+      style={{ position: 'relative' }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Mock Browser Header Bar */}
+      <div 
+        className="browser-header-dots" 
+        style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '0.4rem',
+          minHeight: '38px',
+          padding: '0.45rem 0.8rem',
+          background: 'rgba(5, 8, 16, 0.95)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', minWidth: 0, flex: hasGallery ? 'none' : 1 }}>
+          <span style={{ width: '9px', height: '9px', borderRadius: '50%', background: '#ef4444', display: 'inline-block' }} />
+          <span style={{ width: '9px', height: '9px', borderRadius: '50%', background: '#f59e0b', display: 'inline-block' }} />
+          <span style={{ width: '9px', height: '9px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
+          {!hasGallery && (
+            <div className="browser-url-text">{project.link}</div>
+          )}
+        </div>
+
+        {/* Multi-screen interactive switcher tabs & play/pause toggle if gallery exists */}
+        {hasGallery && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '5px', zIndex: 5, flexWrap: 'wrap' }}>
+            {project.gallery.map((item, idx) => {
+              const isActive = activeTab === idx;
+              return (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setActiveTab(idx);
+                  }}
+                  style={{
+                    background: isActive ? 'rgba(56, 189, 248, 0.24)' : 'rgba(255, 255, 255, 0.05)',
+                    border: `1px solid ${isActive ? '#38bdf8' : 'rgba(255, 255, 255, 0.12)'}`,
+                    color: isActive ? '#38bdf8' : 'var(--text-muted)',
+                    fontSize: '0.67rem',
+                    fontWeight: isActive ? 700 : 500,
+                    padding: '0.22rem 0.52rem',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    boxShadow: isActive ? '0 0 10px rgba(56, 189, 248, 0.3)' : 'none'
+                  }}
+                  title={item.subtitle}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
+
+            {/* Play / Pause Toggle Button */}
+            <button
+              type="button"
+              onClick={togglePause}
+              style={{
+                background: 'rgba(255, 255, 255, 0.06)',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                color: isPaused ? '#f59e0b' : '#10b981',
+                padding: '0.22rem 0.45rem',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '3px',
+                fontSize: '0.66rem',
+                fontWeight: 600
+              }}
+              title={isPaused ? 'Resume auto-play animation' : 'Pause auto-play animation'}
+            >
+              {isPaused ? <Play size={11} /> : <Pause size={11} />}
+              <span>{isPaused ? 'Paused' : 'Auto'}</span>
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Animated Autoplay Progress Bar */}
+      {hasGallery && (
+        <div style={{ width: '100%', height: '2px', background: 'rgba(255, 255, 255, 0.06)', overflow: 'hidden' }}>
+          <motion.div
+            key={activeTab + (isPaused || isHovered ? '-paused' : '-running')}
+            initial={{ width: '0%' }}
+            animate={{ width: isPaused || isHovered ? '100%' : '100%' }}
+            transition={{
+              duration: isPaused || isHovered ? 0 : 4.2,
+              ease: 'linear'
+            }}
+            style={{
+              height: '100%',
+              background: isPaused || isHovered 
+                ? 'rgba(245, 158, 11, 0.7)' 
+                : 'linear-gradient(90deg, #38bdf8, #818cf8)'
+            }}
+          />
+        </div>
+      )}
+
+      {/* Main Screen Preview Box */}
+      <a 
+        href={project.link} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="webmantra-img-box"
+        style={{ 
+          display: 'block', 
+          textDecoration: 'none', 
+          cursor: 'pointer', 
+          position: 'relative',
+          height: hasGallery ? '270px' : '240px',
+          overflow: 'hidden',
+          background: '#0a0f1d'
+        }}
+      >
+        <AnimatePresence mode="wait">
+          <motion.img 
+            key={currentImage}
+            src={currentImage} 
+            alt={currentItem ? currentItem.label : project.title}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.02 }}
+            transition={{ duration: 0.45, ease: 'easeOut' }}
+            style={{ 
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'top',
+              display: 'block'
+            }}
+          />
+        </AnimatePresence>
+
+        {/* Navigation Arrow Overlays for Gallery */}
+        {hasGallery && (
+          <>
+            <button
+              type="button"
+              onClick={handlePrev}
+              style={{
+                position: 'absolute',
+                left: '8px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                background: 'rgba(10, 15, 29, 0.75)',
+                backdropFilter: 'blur(6px)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                color: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                zIndex: 4,
+                transition: 'all 0.2s ease'
+              }}
+              aria-label="Previous UI screen"
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            <button
+              type="button"
+              onClick={handleNext}
+              style={{
+                position: 'absolute',
+                right: '8px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                background: 'rgba(10, 15, 29, 0.75)',
+                backdropFilter: 'blur(6px)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                color: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                zIndex: 4,
+                transition: 'all 0.2s ease'
+              }}
+              aria-label="Next UI screen"
+            >
+              <ChevronRight size={18} />
+            </button>
+
+            {/* Bottom Caption & Badge Overlay */}
+            <div 
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                background: 'linear-gradient(to top, rgba(7, 10, 20, 0.94) 0%, rgba(7, 10, 20, 0.65) 60%, transparent 100%)',
+                padding: '1.2rem 1rem 0.55rem 1rem',
+                display: 'flex',
+                alignItems: 'flex-end',
+                justifyContent: 'space-between',
+                zIndex: 3,
+                pointerEvents: 'none'
+              }}
+            >
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                <span 
+                  style={{ 
+                    fontSize: '0.65rem', 
+                    fontWeight: 700, 
+                    color: '#38bdf8', 
+                    textTransform: 'uppercase', 
+                    letterSpacing: '0.05em' 
+                  }}
+                >
+                  {currentItem?.badge || 'CRM Screen'}
+                </span>
+                <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#f1f5f9' }}>
+                  {currentItem?.subtitle}
+                </span>
+              </div>
+
+              {/* Slide Counter / Status */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span 
+                  style={{
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    background: isPaused || isHovered ? '#f59e0b' : '#10b981',
+                    display: 'inline-block',
+                    boxShadow: isPaused || isHovered 
+                      ? '0 0 8px #f59e0b' 
+                      : '0 0 8px #10b981'
+                  }} 
+                />
+                <span style={{ fontSize: '0.68rem', color: 'rgba(255, 255, 255, 0.6)', fontWeight: 600 }}>
+                  {activeTab + 1} / {project.gallery.length}
+                </span>
+              </div>
+            </div>
+          </>
+        )}
+      </a>
+    </div>
+  );
+};
 
 // TYPEWRITER COMPONENT FOR PROJECT TITLES (MATCHING HERO DESCRIPTION PATTERN)
 const ProjectTitleTypewriter = ({ title }) => {
@@ -243,23 +568,7 @@ const Projects = () => {
                   </div>
 
                   {/* Right Preview Image Frame */}
-                  <div className="webmantra-thumbnail-wrapper" style={{ position: 'relative' }}>
-                    <div className="browser-header-dots">
-                      <span style={{ background: '#ef4444' }} />
-                      <span style={{ background: '#f59e0b' }} />
-                      <span style={{ background: '#10b981' }} />
-                      <div className="browser-url-text">{project.link}</div>
-                    </div>
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="webmantra-img-box"
-                      style={{ display: 'block', textDecoration: 'none', cursor: 'pointer' }}
-                    >
-                      <img src={project.imageUrl} alt={project.title} />
-                    </a>
-                  </div>
+                  <ProjectThumbnail project={project} />
 
                 </div>
               </motion.div>
