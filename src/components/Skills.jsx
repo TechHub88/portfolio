@@ -78,12 +78,7 @@ const Skills = () => {
       }} />
 
       <div className="container">
-        <h2 className="section-title">Technical Expertise & Systems</h2>
-        <p className="section-subtitle">
-          Advanced Backend Architecture, AI & LLM Integrations, and Modern DevOps & CI/CD Pipelines.
-        </p>
-
-
+        <h2 className="section-title" style={{ marginBottom: '2.5rem' }}>Technical Expertise & Systems</h2>
 
         {/* 6 Varied & Distinct Skill Cards Grid */}
         <div className="grid grid-cols-2" style={{ gap: '2rem' }}>
