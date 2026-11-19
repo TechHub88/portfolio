@@ -361,35 +361,7 @@ const Hero = ({ onOpenModal }) => {
                 <div style={{ position: 'absolute', bottom: '10px', left: '10px', width: '14px', height: '14px', borderBottom: '2px solid rgba(56, 189, 248, 0.7)', borderLeft: '2px solid rgba(56, 189, 248, 0.7)', pointerEvents: 'none' }} />
                 <div style={{ position: 'absolute', bottom: '10px', right: '10px', width: '14px', height: '14px', borderBottom: '2px solid rgba(56, 189, 248, 0.7)', borderRight: '2px solid rgba(56, 189, 248, 0.7)', pointerEvents: 'none' }} />
 
-                {/* Retro Aesthetic Tag Pill at Bottom */}
-                <div 
-                  style={{
-                    position: 'absolute',
-                    bottom: '12px',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    background: 'rgba(11, 13, 20, 0.88)',
-                    backdropFilter: 'blur(12px)',
-                    WebkitBackdropFilter: 'blur(12px)',
-                    border: '1px solid rgba(245, 158, 11, 0.45)',
-                    padding: '0.3rem 0.85rem',
-                    borderRadius: '999px',
-                    fontSize: '0.72rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                    color: '#fbbf24',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    boxShadow: '0 4px 15px rgba(0,0,0,0.6)',
-                    whiteSpace: 'nowrap',
-                    pointerEvents: 'none'
-                  }}
-                >
-                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }} />
-                  Developer in the Flow
-                </div>
+
               </div>
             </div>
 
