@@ -7,15 +7,13 @@ const academicData = [
     title: 'Master of Computer Applications (MCA)',
     institution: 'Academy of Technology, Hooghly, WB',
     year: '2022 – 2024',
-    score: '70.0%',
-    description: 'Specialized in Advanced Data Structures, Cloud Architectures, Distributed Systems, and Database Management.'
+    score: '70.0%'
   },
   {
     title: 'Bachelor of Computer Applications (BCA)',
     institution: 'Burdwan University, Bardhaman, WB',
     year: '2019 – 2022',
-    score: '80.0%',
-    description: 'Focused on Computer Science Core, Software Engineering, Object-Oriented Programming, and SQL Databases.'
+    score: '80.0%'
   },
   {
     title: 'Higher Secondary Education (10+2)',
@@ -83,12 +81,8 @@ const Education = () => {
                     </span>
                   </div>
 
-                  <p style={{ color: 'var(--accent-primary)', fontWeight: 500, fontSize: '0.92rem', marginBottom: '0.4rem' }}>
+                  <p style={{ color: 'var(--accent-primary)', fontWeight: 500, fontSize: '0.92rem', marginBottom: item.score !== 'Completed' ? '0.6rem' : 0 }}>
                     {item.institution}
-                  </p>
-
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.5, marginBottom: '0.8rem' }}>
-                    {item.description}
                   </p>
 
                   {item.score !== 'Completed' && (
