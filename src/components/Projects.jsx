@@ -532,10 +532,6 @@ const Projects = () => {
                       Role: {project.role}
                     </div>
 
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '1.2rem' }}>
-                      {project.description}
-                    </p>
-
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.6rem' }}>
                       {project.tech.map((t, idx) => (
                         <span key={idx} className="tech-pill">{t}</span>
