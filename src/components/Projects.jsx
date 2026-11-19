@@ -7,7 +7,7 @@ const projects = [
     id: '01',
     title: 'Mafatlal Multi-Vendor E-Commerce Platform',
     link: 'https://mafatlaluniforms.com/',
-    role: 'Core Backend Developer & AI Architect',
+    role: 'Backend Developer',
     tag: 'Multi-Vendor & AI',
     description: 'Engineered an enterprise multi-vendor e-commerce platform handling cross-segment product inventories and custom fabric modules.',
     highlights: [
@@ -25,7 +25,7 @@ const projects = [
     id: '02',
     title: 'Teavera E-Commerce Experience Infrastructure',
     link: 'https://teavera.in/',
-    role: 'Backend Architect & Messaging Lead',
+    role: 'Backend Developer',
     tag: 'Webhooks & Messaging',
     description: 'Built transactional messaging infrastructure deploying multi-point automated webhooks linked with core client systems.',
     highlights: [
@@ -42,7 +42,7 @@ const projects = [
     id: '03',
     title: 'VShop Multi-Vendor E-Commerce Platform',
     link: 'https://vshop.vridhee.com/',
-    role: 'Lead Backend & Security Engineer',
+    role: 'Backend Developer',
     tag: 'Multi-Vendor & Security',
     description: 'Multi-vendor enterprise e-commerce platform spanning Wellness, Academics, Deep Tech, Space, Climate, Technology, Games, and Skills.',
     highlights: [
@@ -60,7 +60,7 @@ const projects = [
     title: 'Relateo - Enterprise Sales & Telecalling CRM',
     link: 'https://github.com/TechHub88/CRM-Platform',
     githubUrl: 'https://github.com/TechHub88/CRM-Platform',
-    role: 'Lead Full-Stack Developer & Backend Architect',
+    role: 'Full Stack Developer',
     tag: 'Sales CRM & Telecalling',
     description: 'Full-featured enterprise Sales & Telecalling CRM engineered with PHP Laravel, featuring real-time lead capture, an outbound Telecalling Hub with integrated Power Dialer, 1-click WhatsApp messaging sequences, and conversion analytics.',
     highlights: [
