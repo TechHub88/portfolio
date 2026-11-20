@@ -57,7 +57,7 @@ const projects = [
   },
   {
     id: '04',
-    title: 'Relateo - Enterprise Sales & Telecalling CRM',
+    title: 'Relateo - Sales & Telecalling CRM',
     link: 'https://github.com/TechHub88/CRM-Platform',
     githubUrl: 'https://github.com/TechHub88/CRM-Platform',
     role: 'Full Stack Developer',
